@@ -28,7 +28,7 @@
                         <div class="user-icon">
                             <i class="fa-solid fa-user"></i>
                         </div>
-                        <input type="text" placeholder="Email or Phone" name="login_email" id="login_email">
+                        <input type="number" placeholder="Phone Number" name="login_phone" id="login_phone">
                     </div>
                     <div class="password-div">
                         <div class="pass-icon">
@@ -40,32 +40,31 @@
                         </div>
                     </div>
                 </div>
+                <div class="login-button">
+                    <a href="#">
+                        <button type="submit" disabled>Log In</button>
+                    </a>
+                </div>
                 <div class="forgot-password">
                     <a href="#">Forgot Password?</a>
                 </div>
                 <div class="register-account">
-                    Don't have an account?<a href="#">Register</a>
-                </div>
-                <div class="login-button">
-                    <a href="#">
-                        <button type="submit">Log In</button>
-                    </a>
+                    Don't have an account?<a href="register.php">Register</a>
                 </div>
             </div>
         </div>
         <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 include 'dbconnect.php';
-                $login_email = $_POST['login_email'];
+                $login_phone = $_POST['login_phone'];
                 $login_pass = $_POST['login_pass'];
-                $login_user = explode('@', $login_email)[0];
-                if ($login_email != NULL && $login_pass != NULL){
-                    $sql = "SELECT * FROM `$table` WHERE `EMAIL` = '$login_email' and `PASSWORD` = '$login_pass'";
+                if ($login_phone != NULL && $login_pass != NULL){
+                    $sql = "SELECT * FROM `$table` WHERE `PHONE` = '$login_phone' and `PASSWORD` = '$login_pass'";
                     $result = mysqli_query($conn, $sql);
                     $num = mysqli_num_rows($result);
                     if ($num == 1){
                         echo "<script>
-                                alert('Login Successful, Welcome $login_user, Redirecting you to homepage...');
+                                alert('Login Successful, Welcome, Redirecting you to homepage...');
                                 window.location.href = 'home.php';
                             </script>";
 
@@ -74,14 +73,14 @@
                     }else{
                         echo "<script>
                                 alert('Invalid login credentials...');
-                                document.getElementById('login_email').focus();
+                                document.getElementById('login_phone').focus();
                             </script>";
                     }
                 }
                 else{
                     echo "<script>
-                            alert('Email and Password are required!');
-                            document.getElementById('login_email').focus();
+                            alert('Phone Number and Password are required!');
+                            document.getElementById('login_phone').focus();
                     </script>";
                 }
             }
@@ -105,20 +104,22 @@
                 eyeIcon.classList.add("fa-eye");
             }
         }
-
+        // ================BUTTON COLOR CHANGE====================================
         function checkInputs() {
-            let username = document.getElementById("login_email").value.trim();
+            let username = document.getElementById("login_phone").value.trim();
             let password = document.getElementById("login_pass").value.trim();
             let loginButton = document.querySelector(".login-button a button");
 
             if (username !== "" && password !== "") {
                 loginButton.style.backgroundColor = "#0077CC"; // Change color when filled
+                loginButton.disabled = false;
             } else {
                 loginButton.style.backgroundColor = "#257C9F"; // Default color
+                loginButton.disabled = true;
             }
         }
 
-        document.getElementById("login_email").addEventListener("input", checkInputs);
+        document.getElementById("login_phone").addEventListener("input", checkInputs);
         document.getElementById("login_pass").addEventListener("input", checkInputs);
 
     </script>

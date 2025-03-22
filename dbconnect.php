@@ -20,7 +20,8 @@ else
     {
         echo "Creation of Database of Failed!<br>";
     }
-    $sql = "CREATE TABLE IF NOT EXISTS `$database`.`$table` (`User_ID` INT(10) NOT NULL AUTO_INCREMENT , `Username` VARCHAR(30) NOT NULL , `Email` VARCHAR(30) NOT NULL , `Password` VARCHAR(30) NOT NULL , `Date-Time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`User_ID`), UNIQUE `Username_index` (`Username`)) ENGINE = InnoDB;";
+    $sql = "CREATE TABLE IF NOT EXISTS `$database`.`$table` (`User_ID` INT(10) NOT NULL AUTO_INCREMENT , `Fullname` VARCHAR(30) NOT NULL , `Phone` BIGINT(10) NOT NULL , `Password` VARCHAR(20) NOT NULL , `Date-Time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`User_ID`), UNIQUE (`Phone`)) ENGINE = InnoDB;
+";
     $result = mysqli_query($conn, $sql);
     if(!$result)
     {
@@ -31,7 +32,7 @@ else
     $num = mysqli_num_rows($result);
     if($num==0)
     {
-        $sql = "INSERT INTO `login_credentials` (`User_ID`, `Username`, `Email`, `Password`, `Date-Time`) VALUES ('1', 'Neel@7', 'neelsavsani7@gmail.com', 'Neel@123', current_timestamp());";
+        $sql = "INSERT INTO `login_credentials` (`User_ID`, `Fullname`, `Phone`, `Password`, `Date-Time`) VALUES ('1', 'Neel Bipinbhai Savsani', '9712192640', 'Neel@123', current_timestamp());";
         $result = mysqli_query($conn, $sql);
         if(!$result)
         {

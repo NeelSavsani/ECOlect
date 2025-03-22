@@ -8,6 +8,6 @@
     <title>ECOlect - Home</title>
 </head>
 <body>
-    Hello
+    &nbsp;
 </body>
 </html>

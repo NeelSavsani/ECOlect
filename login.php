@@ -26,9 +26,9 @@
                 <div class="credentials">
                     <div class="username-div">
                         <div class="user-icon">
-                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-envelope"></i>
                         </div>
-                        <input type="number" placeholder="Phone Number" name="login_phone" id="login_phone">
+                        <input type="email" placeholder="Email" name="login_email" id="login_email">
                     </div>
                     <div class="password-div">
                         <div class="pass-icon">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="login-button">
                     <a href="#">
-                        <button type="submit" disabled>Log In</button>
+                        <button type="submit" id="login-btn" disabled>Log In</button>
                     </a>
                 </div>
                 <div class="forgot-password">
@@ -53,39 +53,49 @@
                 </div>
             </div>
         </div>
-        <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-                include 'dbconnect.php';
-                $login_phone = $_POST['login_phone'];
-                $login_pass = $_POST['login_pass'];
-                if ($login_phone != NULL && $login_pass != NULL){
-                    $sql = "SELECT * FROM `$table` WHERE `PHONE` = '$login_phone' and `PASSWORD` = '$login_pass'";
-                    $result = mysqli_query($conn, $sql);
-                    $num = mysqli_num_rows($result);
-                    if ($num == 1){
-                        echo "<script>
-                                alert('Login Successful, Welcome, Redirecting you to homepage...');
-                                window.location.href = 'home.php';
-                            </script>";
-
-                        echo '<meta http-equiv="refresh" content="2;url=home.php">';
-                        exit();
-                    }else{
-                        echo "<script>
-                                alert('Invalid login credentials...');
-                                document.getElementById('login_phone').focus();
-                            </script>";
-                    }
-                }
-                else{
-                    echo "<script>
-                            alert('Phone Number and Password are required!');
-                            document.getElementById('login_phone').focus();
-                    </script>";
-                }
-            }
-        ?>
     </form>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+        const firebaseConfig = {
+        apiKey: "AIzaSyBPkvRug6sTUnhVxX8P3K5lFQS8lzKrss4",
+        authDomain: "authtest-2d91d.firebaseapp.com",
+        databaseURL: "https://authtest-2d91d-default-rtdb.firebaseio.com",
+        projectId: "authtest-2d91d",
+        storageBucket: "authtest-2d91d.firebasestorage.app",
+        messagingSenderId: "751675073643",
+        appId: "1:751675073643:web:08a7d5af38db205e64bd2e",
+        measurementId: "G-1XQVN4FN3P"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById("login-btn").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent form submission
+            const email = document.getElementById("login_email").value;
+            const password = document.getElementById("login_pass").value;
+
+            if (!email || !password) {
+                alert("⚠ Please enter email and password.");
+                return;
+            }
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("✅ Login successful! Redirecting...");
+                    setTimeout(() => {
+                        window.location.href = "home.php"; // Redirect to your desired page
+                    }, 2000);
+                })
+                .catch((error) => {
+                    alert("❌ Error: " + error.message);
+                });
+        });
+    </script>
 
 
     <!-- =================PASSWORD VISIBILITY======================================== -->
@@ -106,7 +116,7 @@
         }
         // ================BUTTON COLOR CHANGE====================================
         function checkInputs() {
-            let username = document.getElementById("login_phone").value.trim();
+            let username = document.getElementById("login_email").value.trim();
             let password = document.getElementById("login_pass").value.trim();
             let loginButton = document.querySelector(".login-button a button");
 
@@ -114,12 +124,12 @@
                 loginButton.style.backgroundColor = "#0077CC"; // Change color when filled
                 loginButton.disabled = false;
             } else {
-                loginButton.style.backgroundColor = "#257C9F"; // Default color
+                loginButton.style.backgroundColor = "#808080"; // Default color
                 loginButton.disabled = true;
             }
         }
 
-        document.getElementById("login_phone").addEventListener("input", checkInputs);
+        document.getElementById("login_email").addEventListener("input", checkInputs);
         document.getElementById("login_pass").addEventListener("input", checkInputs);
 
     </script>

@@ -28,6 +28,12 @@
                         </div>
                         <input type="text" placeholder="Full Name" name="fullname" id="fullname">
                     </div>
+                    <div class="email-div">
+                        <div class="email-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <input type="email" placeholder="Email Id" name="email" id="email">
+                    </div>
                     <div class="phone-div">
                         <div class="phone-icon">
                             <i class="fa-solid fa-phone"></i>
@@ -58,7 +64,7 @@
                 </div>
                 <div class="register-button">
                     <a href="#">
-                        <button type="submit" disabled>Register</button>
+                        <button type="submit" id="register" disabled>Register</button>
                     </a>
                 </div>
                 <div class="login-account">
@@ -67,43 +73,78 @@
             </div>
         </div>
     </form>
-    <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-            include 'dbconnect.php';
-            $fullname = $_POST['fullname'];
-            $phone = $_POST['phone'];
-            $pass = $_POST['pass'];
-            $confirm = $_POST['confirm'];
-            $user = explode(' ', $fullname)[0];
-            if ($pass == $confirm && $pass != NULL) {
-                if (strlen($phone) == 10){
-                    $sql = "SELECT * FROM `$table` WHERE `PHONE` = '$phone'";
-                    $result = mysqli_query($conn, $sql);
-                    $num = mysqli_num_rows($result);
-                    if ($num == 1){
-                        echo "<script>
-                                alert('Account already exists. Log In');
-                                document.querySelector('.login_class').focus();
-                        </script>";
-                    } else {
-                        $sql = "INSERT INTO `$table` (`User_ID`, `Fullname`, `Phone`, `Password`, `Date-Time`) VALUES ('', '$fullname', '$phone', '$pass', current_timestamp())";
-                        $result = mysqli_query($conn, $sql);
-                        if ($result) {
-                            echo "<script>
-                                    alert('$fullname, your account created successfully..!!');
-                                    window.location.href = 'login.php';
-                            </script>";
-                        }
-                    }
-                } else {
-                    echo "<script>
-                        alert('Phone number must be of 10 digits');
-                        document.getElementById('phone').focus();
-                    </script>";
-                }
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBPkvRug6sTUnhVxX8P3K5lFQS8lzKrss4",
+            authDomain: "authtest-2d91d.firebaseapp.com",
+            databaseURL: "https://authtest-2d91d-default-rtdb.firebaseio.com",
+            projectId: "authtest-2d91d",
+            storageBucket: "authtest-2d91d.appspot.com",
+            messagingSenderId: "751675073643",
+            appId: "1:751675073643:web:3de96ea8c4ee726b64bd2e",
+            measurementId: "G-ZN3B90NH66"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById("register").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent form from submitting by default
+
+            const fullname = document.getElementById("fullname").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const password = document.getElementById("pass").value.trim();
+            const confirmPassword = document.getElementById("confirm").value.trim();
+
+            if (!fullname || !email || !phone || !password || !confirmPassword) {
+                alert("⚠ Please fill all fields.");
+                return;
             }
-        }
-    ?>
+
+            if (password !== confirmPassword) {
+                alert("⚠ Passwords do not match.");
+                return;
+            }
+
+            if (phone.length !== 10 || isNaN(phone)) {
+                alert("⚠ Phone number must be exactly 10 digits.");
+                return;
+            }
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+
+                    sendEmailVerification(user).then(() => {
+                        alert("✅ Verification email sent! Check your inbox.");
+
+                        // Send data to PHP via AJAX
+                        fetch("registerS.php", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: `fullname=${fullname}&email=${email}&phone=${phone}&password=${password}`
+                        })
+                        .then(response => response.text())
+                        .then(data => console.log("Server Response:", data));
+
+                        setTimeout(() => {
+                            window.location.href = "login.php";
+                        }, 3000);
+                    });
+                })
+                .catch((error) => {
+                    alert("❌ Error: " + error.message);
+                });
+        });
+
+
+    </script>
 
     <script>
         function togglePassword() {
@@ -130,32 +171,25 @@
         }
 
         function updateButtonState() {
-            let username = document.getElementById("fullname").value.trim();
+            let fullname = document.getElementById("fullname").value.trim();
             let phone = document.getElementById("phone").value.trim();
-            let password = document.getElementById("pass").value.trim();
+            let pass = document.getElementById("pass").value.trim();
             let confirm = document.getElementById("confirm").value.trim();
             let registerButton = document.querySelector(".register-button button");
             let check = document.getElementById("tnc_check").checked;
-
-            if (username !== "" && phone !== "" && password !== "" && confirm !== "" && check) {
+            if (fullname !== "" && phone !== "" && pass !== "" && confirm !== "" && check) {
                 registerButton.style.backgroundColor = "#0077CC"; // Active color
                 registerButton.disabled = false; // Enable button
             } else {
-                registerButton.style.backgroundColor = "#257C9F"; // Inactive color
+                registerButton.style.backgroundColor = "#808080"; // Inactive color
                 registerButton.disabled = true; // Disable button
             }
         }
-
-        // Get all input fields and checkbox
         let inputs = document.querySelectorAll("#fullname, #phone, #pass, #confirm, #tnc_check");
-
-        // Add event listeners to all input fields and checkbox
         inputs.forEach(input => {
             input.addEventListener("input", updateButtonState);
         });
-
         document.getElementById("tnc_check").addEventListener("change", updateButtonState);
-
     </script>
 </body>
 </html>

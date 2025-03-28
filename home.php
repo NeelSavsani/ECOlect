@@ -433,6 +433,7 @@
 
     <!-- -------------------FOOTER--------------------- -->
      <footer>
+         <div class="footer-label">Let's Connect</div>
         <div class="social-icons">
             <a href="facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>

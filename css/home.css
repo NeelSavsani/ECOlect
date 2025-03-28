@@ -5,7 +5,22 @@ html {
     margin: 0;
     padding: 0;
     font-family: "Poppins", Arial, sans-serif;
-    background-color: #fff;
+    height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/gujarat.png') center/cover no-repeat;
+    background-size: 40%;
+    background-attachment: fixed;
+    opacity: 0.5; /* Adjust opacity (0 = fully transparent, 1 = fully visible) */
+    z-index: -1; /* Ensures the background stays behind content */
 }
 
 /* Navbar */
@@ -45,7 +60,7 @@ html {
     font-size: 1.8em;
     font-family: "Ubuntu", sans-serif;
     font-weight: bold;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.5s ease-in-out;
 }
 
 .brand-link:hover .brand-name {
@@ -67,7 +82,7 @@ html {
     font-weight: 500;
     border-radius: 10px;
     background: #7A868B;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     text-decoration: none;
     display: inline-block;
 }
@@ -75,6 +90,7 @@ html {
 .nav-button:hover {
     background: #0000EE;
     color: white;
+    box-shadow: inset 0px 4px 4px rgba(204, 204, 204, 0.25);
 }
 
 /* Profile Section */
@@ -95,7 +111,7 @@ html {
 .dropdown-arrow {
     font-size: 18px;
     color: white;
-    transition: transform 0.3s ease;
+    transition: transform 0.0.5 ease;
 }
 
 .dropdown-arrow.rotate {
@@ -126,6 +142,11 @@ html {
     cursor: pointer;
 }
 
+.dropdown-menu li a{
+    text-decoration: none;
+    color: #000;
+}
+
 .dropdown-menu li:hover {
     background: #0000EE;
 }
@@ -145,7 +166,7 @@ html {
 }
 
 /* Mobile Responsive Navbar */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1041px) {
     .navbar-links {
         display: none;
         flex-direction: column;
@@ -158,12 +179,12 @@ html {
         border-bottom-right-radius: 15px;
         border-bottom-left-radius: 15px;
         background-color: #10455b;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.5s ease-in-out;
     }
 
     .navbar-links.active {
         display: flex;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.5s ease-in-out;
     }
 
     .nav-button, .nav-button:hover {
@@ -180,11 +201,111 @@ html {
     .hamburger {
         display: block;
     }
+
+    .social-icons a{
+        font-size: 20px;
+    }
+
+    p.ftr{
+        font-size: 10px;
+        word-wrap: break-word;
+    }
 }
 
 /* Content to prevent overlap with navbar */
 .content {
     margin-top: 100px; /* Adjust based on navbar height */
     padding: 20px;
-    text-align: justify;
+    text-align: left;
+}
+
+h1.main{
+    font-size: 28px;
+    font-family: "Poppins";
+    font-weight: bold;
+}
+
+p.main{
+    font-family: "Poppins";
+    font-weight: light;
+    font-size: 20px;
+    margin: 0;
+}
+
+p.main_intro{
+    font-family: "Poppins";
+    font-weight: light;
+    font-size: 20px;
+    margin: 0 0 1% 0;
+}
+
+li.etypes, li.step{
+    font-size: 20px;
+    margin: 1% 0 0 0;
+}
+
+li.sub-next{
+    font-size: 18px;
+}
+
+li.sub-next u{
+    font-weight: 500;
+}
+
+h4.main{
+    font-weight: 500;
+    margin: 1% 0 0 0;
+}
+
+/* ===========================FOOTER====================== */
+footer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 1% 0;
+    width: 100%;
+    color: #fff;
+    background: #10455b;
+}
+
+.social-icons{
+    margin: 2% 0 3% 0;
+}
+
+.social-icons a{
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1%;
+    font-size: 30px;
+    transition: all ease 0.3s;
+}
+
+.social-icons a i.fa-facebook:hover{
+    color: #1877F2;
+    transition: all ease 0.3s;
+}
+
+.social-icons a i.fa-x-twitter:hover{
+    color: #000;
+    transition: all ease 0.3s;
+}
+
+.social-icons a i.fa-instagram:hover{
+    color: red;
+    transition: all ease 0.3s;
+}
+
+.social-icons a i.fa-linkedin-in:hover{
+    color: blue;
+    transition: all ease 0.3s;
+}
+
+.social-icons a i.fa-envelope:hover{
+    color: yellow;
+    transition: all ease 0.3s;
+}
+
+p.ftr{
+    font-size: 18px;
 }

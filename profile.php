@@ -16,6 +16,7 @@ if($result)
     $email = $row['Email'];
     $phone = $row['Phone'];
     $datetime = $row['DateTime'];
+    $formatted_date = date("d M Y, h:i A", strtotime($datetime));
 }
 
 ?>
@@ -27,7 +28,7 @@ if($result)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="shortcut icon" href="assets/favicon_io/favicon.ico" type="image/x-icon">
-    <title>ECOlect - Profile</title>
+    <title>Profile - ECOlect</title>
 </head>
 <body>
     <button class="back-button" onclick="history.back()">
@@ -70,7 +71,7 @@ if($result)
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Registered On</span>
-                        <span class="detail-value" id="dateRegistered"><?php echo $datetime;?></span>
+                        <span class="detail-value" id="dateRegistered"><?php echo $formatted_date;?></span>
                     </div>
                 </div>
                 <button class="update-profile-btn" id="updateProfileBtn">Update Profile</button>

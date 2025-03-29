@@ -30,11 +30,13 @@ if($result)
     <title>ECOlect - Profile</title>
 </head>
 <body>
+    <button class="back-button" onclick="history.back()">
+        <i class="fas fa-arrow-left"></i>Back</button>
     <div class="profile-container">
         <div class="profile-sidebar">
             <div class="profile-avatar">
-                <img src="https://maxm-imggenurl.web.val.run/profile-avatar" alt="Profile Avatar" class="avatar-image">
-                <h3 id="profileName">John Doe</h3>
+                <img src="assets/Profile.png" alt="Profile Avatar" class="avatar-image">
+                <h3 id="profileName"><?php echo $fullname;?></h3>
             </div>
             <div class="profile-nav">
                 <button class="profile-nav-button active" data-section="account">

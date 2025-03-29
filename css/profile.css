@@ -75,15 +75,7 @@ body, html {
     padding: 30px;
 }
 
-.account-section {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    max-width: 500px;
-} 
-
+.account-section, 
 .password-section {
     max-width: 500px;
 }
@@ -124,7 +116,7 @@ body, html {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 40%;
+    width: 100%;
     margin-top: 15px;
 }
 

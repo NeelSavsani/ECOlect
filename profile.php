@@ -19,19 +19,6 @@ if($result)
 }
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Profile - ECOlect</title>
-</head>
-<body>
-    <h2>User Profile</h2>
-    <p>Email: <?php echo htmlspecialchars($user_email); ?></p>
-    <a href="login.php">Logout</a>
-</body>
-</html>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

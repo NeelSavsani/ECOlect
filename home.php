@@ -39,6 +39,7 @@
         <button class="hamburger">☰</button>
     </nav>
 
+    <!----------------------CONTENT------------------------->
     <div class="content">
         <!---------------------------WHAT IS E-WASTE-------------------------------------------->
         <h1 class="main">What is E-Waste: A Growing Global Concern</h1>
@@ -431,9 +432,9 @@
         </p>
     </div>
 
-    <!-- -------------------FOOTER--------------------- -->
+    <!-----------------------FOOTER------------------------>
      <footer>
-         <div class="footer-label">Let's Connect</div>
+        <div class="footer-label">Let's Connect</div>
         <div class="social-icons">
             <a href="facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
@@ -444,7 +445,11 @@
         <p class="ftr">© 2025 Team <b>ABHYUDAY</b>. All Rights Reserved.</p>
      </footer>
 
+     <!-------------------SCROLL-BOTTOM--------------------->
+     <button id="scrollBottom"><i class="fa-solid fa-down-long"></i></button>
+
     <script>
+        // ==============MENU=========================
       document.addEventListener('DOMContentLoaded', () => {
             const hamburger = document.querySelector('.hamburger');
             const navbarLinks = document.querySelector('.navbar-links');
@@ -485,6 +490,32 @@
             });
         });
 
+
+        // ===========TO BOTTOM=======================
+        const btn = document.getElementById("scrollBottom");
+
+        function checkScroll() {
+            const scrollTop = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+
+            if (scrollTop > 40 && scrollTop + windowHeight < docHeight - 10) {
+                btn.style.display = "block"; // Show button if not at the bottom
+            } else {
+                btn.style.display = "none"; // Hide button when at the bottom
+            }
+        }
+
+        window.addEventListener("scroll", checkScroll);
+
+        btn.addEventListener("click", () => {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+
+            btn.style.display = "none"; // Hide button after clicking
+        });
 
     </script>
 </body>

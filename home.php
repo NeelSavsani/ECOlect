@@ -1,3 +1,13 @@
+<?php
+if (isset($_GET['email'])) {
+    $email = $_GET['email'];
+    echo "Welcome, " . htmlspecialchars($email);
+} else {
+    echo "No email parameter found.";
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECOlect</title>
-    <link rel="shortcut icon" href="assets/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/new/ECOlect/assets/favicon_io/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/e05d24f6c7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/home.css">
 </head>
@@ -29,7 +39,7 @@
                 <i class="fas fa-user-circle profile-icon"></i>
                 <i class="fas fa-chevron-down dropdown-arrow" id="arrow"></i>
                 <ul class="dropdown-menu" id="profile-dropdown">
-                    <li><a href="#">My Profile</a></li>
+                    <li><a href="profile.php">My Profile</a></li>
                     <li><a href="#">Settings</a></li>
                     <li><a href="login.php">Logout</a></li>
                 </ul>

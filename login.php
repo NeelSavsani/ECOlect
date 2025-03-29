@@ -86,14 +86,21 @@
 
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log("User Logged In:", user);
+                    localStorage.setItem("user_email", user.email);
+                    
                     alert("✅ Login successful! Redirecting...");
                     setTimeout(() => {
-                        window.location.href = "home.php"; // Redirect to your desired page
+                        console.log("Redirecting to home.php...");
+                        window.location.href = "home.php?email=" + encodeURIComponent(user.email);
                     }, 2000);
                 })
                 .catch((error) => {
+                    console.error("Firebase Auth Error:", error);
                     alert("❌ Error: " + error.message);
                 });
+
         });
     </script>
 

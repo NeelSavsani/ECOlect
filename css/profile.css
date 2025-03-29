@@ -75,13 +75,16 @@ body, html {
     padding: 30px;
 }
 
-.account-section, 
-.password-section {
+.account-section {
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
     align-items: center;
+    max-width: 500px;
+} 
+
+.password-section {
     max-width: 500px;
 }
 
@@ -121,7 +124,7 @@ body, html {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 50%;
+    width: 40%;
     margin-top: 15px;
 }
 
@@ -147,6 +150,32 @@ body, html {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #10455b;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button i {
+    font-size: 18px;
+}
+
+.back-button:hover {
+    background-color: #0c3545;
+}
+
 
 @media screen and (max-width: 768px) {
     .profile-container {

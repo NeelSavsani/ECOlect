@@ -210,6 +210,10 @@ body::before {
         font-size: 10px;
         word-wrap: break-word;
     }
+
+    .footer-label{
+        display: none;
+    }
 }
 
 /* Content to prevent overlap with navbar */

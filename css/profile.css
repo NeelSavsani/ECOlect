@@ -108,7 +108,8 @@ body, html {
     color: #333;
   }
   
-  .update-profile-btn, 
+  .update-profile-btn,
+  .logout-profile-btn,
   .update-password-btn {
     background-color: #10455b;
     color: white;
@@ -122,6 +123,7 @@ body, html {
   }
   
   .update-profile-btn:hover,
+  .logout-profile-btn:hover,
   .update-password-btn:hover {
     background-color: #0c3545;
   }

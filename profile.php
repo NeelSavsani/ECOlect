@@ -99,6 +99,31 @@ $conn->close();
                 <button onclick="window.location.href = 'login.php';" class="logout-profile-btn">Logout</button>
             </div>
 
+            <div id="updateProfileForm" class="update-profile-form" style="display: none;">
+                <h2>Update Profile</h2>
+                <form method="POST" action="update_profile.php">
+                    <div class="form-group">
+                        <label for="updateFullName">Full Name</label>
+                        <input type="text" id="updateFullName" name="fullname" value="<?php echo $fullname; ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updatePhone">Phone Number</label>
+                        <input type="text" id="updatePhone" name="phone" value="<?php echo $phone; ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateAddress">Address</label>
+                        <input type="text" id="updateAddress" name="address" value="<?php echo $address; ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updatePincode">Pincode</label>
+                        <input type="text" id="updatePincode" name="pincode" value="<?php echo $pincode; ?>" required>
+                    </div>
+                    <input type="hidden" name="email" value="<?php echo $email; ?>">
+                    <button type="submit" class="save-profile-btn">Save Changes</button>
+                    <button type="button" class="cancel-update-btn" id="cancelUpdateBtn">Cancel</button>
+                </form>
+            </div>
+
             <div id="passwordSection" class="password-section" style="display: none;">
                 <h2>Change Password</h2>
                 <form id="passwordChangeForm">
@@ -149,7 +174,12 @@ $conn->close();
             // Update Profile Button
             const updateProfileBtn = document.getElementById('updateProfileBtn');
             updateProfileBtn.addEventListener('click', () => {
-                alert('Profile update functionality will be implemented in future.');
+                accountSection.style.display = 'none'; // Hide account details
+                updateProfileForm.style.display = 'block'; // Show update form
+            });
+            cancelUpdateBtn.addEventListener('click', () => {
+                updateProfileForm.style.display = 'none'; // Hide form
+                accountSection.style.display = 'block'; // Show account details again
             });
 
             // Password Change Form

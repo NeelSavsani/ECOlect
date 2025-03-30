@@ -21,6 +21,7 @@ if ($row = $result->fetch_assoc()) {
     $fullname = $row['Fullname'];
     $email = $row['Email'];
     $phone = $row['Phone'];
+    $formatted_phone = substr($phone, 0, 5) . " " . substr($phone, 5);
     $datetime = $row['DateTime'];
     $formatted_date = date("d M Y, h:i A", strtotime($datetime));
     $address = $row['Address'];
@@ -79,7 +80,7 @@ $conn->close();
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Phone Number</span>
-                        <span class="detail-value" id="phoneNumber"><?php echo "+91 ".$phone;?></span>
+                        <span class="detail-value" id="phoneNumber"><?php echo "+91 ".$formatted_phone;?></span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Address</span>

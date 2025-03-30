@@ -3,22 +3,21 @@ body, html {
     padding: 0;
     font-family: 'Ubuntu', Arial, sans-serif;
     background-color: #f4f4f4;
-}
-
-.profile-container {
+  }
+  
+  .profile-container {
     display: flex;
-    justify-content: center;
-    transform: translateY(20%);
     background-color: white;
     border-radius: 10px;
+    transform: translateY(20%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 900px;
     min-height: 600px;
     margin: 20px auto;
-}
-
-.profile-sidebar {
+  }
+  
+  .profile-sidebar {
     background-color: #10455b;
     color: white;
     width: 250px;
@@ -28,28 +27,28 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.profile-avatar {
+  }
+  
+  .profile-avatar {
     text-align: center;
     margin-bottom: 30px;
-}
-
-.avatar-image {
+  }
+  
+  .avatar-image {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid white;
-}
-
-.profile-nav {
+  }
+  
+  .profile-nav {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
-
-.profile-nav-button {
+  }
+  
+  .profile-nav-button {
     background: none;
     border: none;
     color: rgba(255,255,255,0.7);
@@ -60,58 +59,57 @@ body, html {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-.profile-nav-button i {
+  }
+  
+  .profile-nav-button i {
     font-size: 18px;
-}
-
-.profile-nav-button.active, 
-.profile-nav-button:hover {
+  }
+  
+  .profile-nav-button.active, 
+  .profile-nav-button:hover {
     background-color: rgba(255,255,255,0.2);
     color: white;
-}
-
-.profile-content {
+  }
+  
+  .profile-content {
     flex-grow: 1;
     padding: 30px;
-}
-
-.account-section, 
-.password-section {
+  }
+  
+  .account-section, 
+  .password-section {
     max-width: 500px;
-}
-
-.account-details {
+  }
+  
+  .account-details {
     background-color: #f9f9f9;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
-}
-
-.detail-row {
+  }
+  
+  .detail-row {
     display: flex;
     justify-content: space-between;
     padding: 12px 0;
     border-bottom: 1px solid #e0e0e0;
-}
-
-.detail-row:last-child {
+  }
+  
+  .detail-row:last-child {
     border-bottom: none;
-}
-
-.detail-label {
+  }
+  
+  .detail-label {
     font-weight: 600;
     color: #555;
-}
-
-.detail-value {
+  }
+  
+  .detail-value {
     color: #333;
-}
-
-.update-profile-btn,
-.cancel-btn, 
-.update-password-btn {
+  }
+  
+  .update-profile-btn, 
+  .update-password-btn {
     background-color: #10455b;
     color: white;
     border: none;
@@ -121,33 +119,32 @@ body, html {
     transition: background-color 0.3s ease;
     width: 100%;
     margin-top: 15px;
-}
-
-.update-profile-btn:hover,
-.cancel-btn,
-.update-password-btn:hover {
+  }
+  
+  .update-profile-btn:hover,
+  .update-password-btn:hover {
     background-color: #0c3545;
-}
-
-.form-group {
+  }
+  
+  .form-group {
     margin-bottom: 15px;
-}
-
-.form-group label {
+  }
+  
+  .form-group label {
     display: block;
     margin-bottom: 5px;
     color: #555;
-}
-
-.form-group input {
+  }
+  
+  .form-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
-}
+  }
 
-.back-button {
+  .back-button {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -171,31 +168,29 @@ body, html {
 .back-button:hover {
     background-color: #0c3545;
 }
-
-
-@media screen and (max-width: 768px) {
-
+  
+  @media screen and (max-width: 768px) {
     .profile-container {
-        flex-direction: column;
-        max-width: 100%;
-        margin: 10px;
+      flex-direction: column;
+      max-width: 100%;
+      margin: 10px;
     }
-
+  
     .profile-sidebar {
-        width: 100%;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border-bottom-left-radius: 0;
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 0;
     }
-
+  
     .profile-nav {
-        flex-direction: row;
-        justify-content: center;
+      flex-direction: row;
+      justify-content: center;
     }
-
+  
     .profile-nav-button {
-        flex-grow: 1;
-        text-align: center;
-        justify-content: center;
+      flex-grow: 1;
+      text-align: center;
+      justify-content: center;
     }
-}
+  }

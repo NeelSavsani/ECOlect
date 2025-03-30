@@ -3,26 +3,31 @@ session_start();
 include 'dbconnect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_email = $_POST['user_email'];
-    $fullname = $_POST['fullname'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address']; // If stored in DB, modify accordingly.
+    $fullname = trim($_POST['fullname']);
+    $phone = trim($_POST['phone']);
+    $address = trim($_POST['address']);
+    $pincode = trim($_POST['pincode']);
+    $email = trim($_POST['email']); // Unique identifier
 
-    // Update query
-    $sql = "UPDATE `login_credentials` SET Fullname = ?, Phone = ? WHERE Email = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sss", $fullname, $phone, $user_email);
-
-    if (mysqli_stmt_execute($stmt)) {
-        $_SESSION['message'] = "Profile updated successfully!";
-    } else {
-        $_SESSION['error'] = "Error updating profile.";
+    // Validate input
+    if (empty($fullname) || empty($phone) || empty($address) || empty($pincode) || empty($email)) {
+        echo "All fields are required.";
+        exit();
     }
 
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
+    // Update query
+    $stmt = $conn->prepare("UPDATE `login_credentials` SET Fullname = ?, Phone = ?, Address = ?, Pincode = ? WHERE Email = ?");
+    $stmt->bind_param("sssss", $fullname, $phone, $address, $pincode, $email);
 
-    header("Location: profile.php"); // Redirect back to profile
-    exit();
+    if ($stmt->execute()) {
+        echo "Profile updated successfully!";
+    } else {
+        echo "Failed to update profile.";
+    }
+
+    $stmt->close();
+    $conn->close();
+} else {
+    echo "Invalid request!";
 }
 ?>

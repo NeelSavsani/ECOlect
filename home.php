@@ -1,16 +1,18 @@
 <?php
-if (isset($_GET['email'])) {
-    $email = $_GET['email'];
-    echo "Welcome, " . htmlspecialchars($email);
-} else {
-    echo "No email parameter found.";
+session_start();
+if (!isset($_SESSION['user_email'])) {
+    header("Location: login.php"); 
+    exit();
 }
-?>
 
+$user_email = isset($_GET['email']) ? $_GET['email'] : $_SESSION['user_email'];
+
+// Debugging: Print session email in browser
+echo "<script>console.log('Session Email in home.php: " . $user_email . "');</script>";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,29 +29,23 @@ if (isset($_GET['email'])) {
                 <span class="brand-name">ECOLECT</span>
             </a>
         </div>
-
         <div class="navbar-links">
             <a href="/types-of-e-waste" class="nav-button">Types of E-Waste</a>
             <a href="/report-e-waste" class="nav-button">Report E-Waste</a>
             <a href="/nearby-e-waste" class="nav-button">Nearby E-Waste</a>
             <a href="/about-us" class="nav-button">About Us</a>
-            
-            <!-- Profile Section -->
             <div class="profile-container" onclick="toggleDropdown()">
                 <i class="fas fa-user-circle profile-icon"></i>
                 <i class="fas fa-chevron-down dropdown-arrow" id="arrow"></i>
                 <ul class="dropdown-menu" id="profile-dropdown">
-                    <li><a href="profile.php">My Profile</a></li>
+                    <li><a href="profile.php?email=<?php echo urlencode($user_email); ?>">My Profile</a></li>
                     <li><a href="#">Settings</a></li>
                     <li><a href="login.php">Logout</a></li>
                 </ul>
             </div>
         </div>
-
         <button class="hamburger">☰</button>
     </nav>
-
-    <!----------------------CONTENT------------------------->
     <div class="content">
         <!---------------------------WHAT IS E-WASTE-------------------------------------------->
         <h1 class="main">What is E-Waste: A Growing Global Concern</h1>

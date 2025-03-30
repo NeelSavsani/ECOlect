@@ -60,14 +60,14 @@
         import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
         const firebaseConfig = {
-        apiKey: "AIzaSyBPkvRug6sTUnhVxX8P3K5lFQS8lzKrss4",
-        authDomain: "authtest-2d91d.firebaseapp.com",
-        databaseURL: "https://authtest-2d91d-default-rtdb.firebaseio.com",
-        projectId: "authtest-2d91d",
-        storageBucket: "authtest-2d91d.firebasestorage.app",
-        messagingSenderId: "751675073643",
-        appId: "1:751675073643:web:08a7d5af38db205e64bd2e",
-        measurementId: "G-1XQVN4FN3P"
+            apiKey: "AIzaSyBPkvRug6sTUnhVxX8P3K5lFQS8lzKrss4",
+            authDomain: "authtest-2d91d.firebaseapp.com",
+            databaseURL: "https://authtest-2d91d-default-rtdb.firebaseio.com",
+            projectId: "authtest-2d91d",
+            storageBucket: "authtest-2d91d.firebasestorage.app",
+            messagingSenderId: "751675073643",
+            appId: "1:751675073643:web:08a7d5af38db205e64bd2e",
+            measurementId: "G-1XQVN4FN3P"
         };
 
         // Initialize Firebase
@@ -87,14 +87,23 @@
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     const user = userCredential.user;
-                    console.log("User Logged In:", user);
                     localStorage.setItem("user_email", user.email);
-                    
-                    alert("✅ Login successful! Redirecting...");
-                    setTimeout(() => {
-                        console.log("Redirecting to home.php...");
-                        window.location.href = "home.php?email=" + encodeURIComponent(user.email);
-                    }, 2000);
+
+                    // Send user email to PHP session via AJAX
+                    fetch("set_session.php", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: "email=" + encodeURIComponent(user.email)
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log("Session Set Response:", data);
+                        alert("✅ Login successful! Redirecting...");
+                        setTimeout(() => {
+                            window.location.href = "home.php?email=" + encodeURIComponent(user.email); // Redirect with current email
+                        }, 2000);
+                    });
+
                 })
                 .catch((error) => {
                     console.error("Firebase Auth Error:", error);
@@ -103,7 +112,6 @@
 
         });
     </script>
-
 
     <!-- =================PASSWORD VISIBILITY======================================== -->
     <script>            

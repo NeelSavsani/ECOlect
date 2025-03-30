@@ -20,7 +20,7 @@ else
     {
         echo "Creation of Database of Failed!<br>";
     }
-    $sql = "CREATE TABLE IF NOT EXISTS `$database`.`$table` (`Sr.NO` INT(10) NOT NULL AUTO_INCREMENT , `Fullname` VARCHAR(30) NOT NULL, `Email` VARCHAR(30) NOT NULL , `Phone` BIGINT(10) NOT NULL , `Password` VARCHAR(20) NOT NULL , `DateTime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`Sr.NO`)) ENGINE = InnoDB;";
+    $sql = "CREATE TABLE IF NOT EXISTS `$database`.`$table` (`Sr.NO` INT(10) NOT NULL AUTO_INCREMENT , `Fullname` VARCHAR(30) NOT NULL , `Email` VARCHAR(30) NOT NULL , `Phone` BIGINT(10) NOT NULL , `Password` VARCHAR(20) NOT NULL , `Address` LONGTEXT NOT NULL , `Pincode` INT(6) NOT NULL , `DateTime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`Sr.NO`)) ENGINE = InnoDB;";
     $result = mysqli_query($conn, $sql);
     if(!$result)
     {
@@ -29,3 +29,6 @@ else
 }
 
 ?>
+
+
+<!-- CREATE TABLE `ecolect`.`login_credentials` (`Sr.NO` INT(10) NOT NULL AUTO_INCREMENT , `Fullname` VARCHAR(30) NOT NULL , `Email` VARCHAR(30) NOT NULL , `Phone` BIGINT(10) NOT NULL , `Password` VARCHAR(20) NOT NULL , `Address` LONGTEXT NOT NULL , `Pincode` INT(6) NOT NULL , `DateTime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`Sr.NO`)) ENGINE = InnoDB; -->

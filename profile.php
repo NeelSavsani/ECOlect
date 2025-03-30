@@ -96,6 +96,7 @@ $conn->close();
                     </div>
                 </div>
                 <button class="update-profile-btn" id="updateProfileBtn">Update Profile</button>
+                <button onclick="window.location.href = 'login.php';" class="logout-profile-btn">Logout</button>
             </div>
 
             <div id="passwordSection" class="password-section" style="display: none;">

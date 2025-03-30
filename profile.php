@@ -112,7 +112,7 @@ $conn->close();
                     </div>
                     <div class="form-group">
                         <label for="updateAddress">Address</label>
-                        <textarea name="address" cols="70" style="resize: none; font-size: 15px;" rows="5" id="address" required><?php echo $address; ?></textarea>
+                        <textarea name="address" cols="70" style="resize: none; font-size: 15px;" rows="5" id="updateAddress" required><?php echo $address; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="updatePincode">Pincode</label>
@@ -166,6 +166,7 @@ $conn->close();
                     passwordSection.style.display = 'none';
                 } else {
                     accountSection.style.display = 'none';
+                    updateProfileForm.style.display = 'none';
                     passwordSection.style.display = 'block';
                 }
                 });

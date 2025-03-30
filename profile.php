@@ -121,24 +121,24 @@ $conn->close();
         <button type="submit" class="update-profile-btn">Save Changes</button>
         <button type="button" class="cancel-btn" id="cancelUpdate">Cancel</button>
     </form>
-            <div id="passwordSection" class="password-section" style="display: none;">
-                <h2>Change Password</h2>
-                <form id="passwordChangeForm">
-                    <div class="form-group">
-                        <label for="currentPassword">Current Password</label>
-                        <input type="password" id="currentPassword" name="currentPassword" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="newPassword">New Password</label>
-                        <input type="password" id="newPassword" name="newPassword" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirmPassword">Confirm New Password</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" required>
-                    </div>
-                    <button type="submit" class="update-password-btn">Change Password</button>
-                </form>
-            </div>
+        <div id="passwordSection" class="password-section" style="display: none;">
+            <h2>Change Password</h2>
+            <form id="passwordChangeForm">
+                <div class="form-group">
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" id="currentPassword" name="currentPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="update-password-btn">Change Password</button>
+            </form>
+        </div>
         </div>
     </div>
 

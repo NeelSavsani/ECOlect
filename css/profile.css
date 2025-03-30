@@ -106,6 +106,8 @@ body, html {
   
   .detail-value {
     color: #333;
+    width: 70%;
+    text-align: right;
   }
   
   .update-profile-btn,

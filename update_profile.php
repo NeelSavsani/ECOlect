@@ -20,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssss", $fullname, $phone, $address, $pincode, $email);
 
     if ($stmt->execute()) {
-        echo "Profile updated successfully!";
+        echo "✅ Profile updated successfully!";
     } else {
-        echo "Failed to update profile.";
+        echo "❌ Failed to update profile.";
     }
 
     $stmt->close();

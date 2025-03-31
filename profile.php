@@ -145,7 +145,86 @@ $conn->close();
         </div>
     </div>
 
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, reauthenticateWithCredential, updatePassword, EmailAuthProvider } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBPkvRug6sTUnhVxX8P3K5lFQS8lzKrss4",
+            authDomain: "authtest-2d91d.firebaseapp.com",
+            databaseURL: "https://authtest-2d91d-default-rtdb.firebaseio.com",
+            projectId: "authtest-2d91d",
+            storageBucket: "authtest-2d91d.firebasestorage.app",
+            messagingSenderId: "751675073643",
+            appId: "1:751675073643:web:08a7d5af38db205e64bd2e",
+            measurementId: "G-1XQVN4FN3P"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        document.addEventListener('DOMContentLoaded', () => {
+            const passwordChangeForm = document.getElementById('passwordChangeForm');
+
+            passwordChangeForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const currentPassword = document.getElementById('currentPassword').value;
+                const newPassword = document.getElementById('newPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                if (newPassword !== confirmPassword) {
+                    alert('New passwords do not match!');
+                    return;
+                }
+
+                const user = auth.currentUser;
+                if (!user) {
+                    alert("No user signed in!");
+                    return;
+                }
+
+                const email = "<?php echo $email; ?>"; // Get email from PHP session
+                const credential = EmailAuthProvider.credential(email, currentPassword);
+
+                try {
+                    await reauthenticateWithCredential(user, credential);
+                    await updatePassword(user, newPassword);
+
+                    // Send AJAX request to update password in database
+                    fetch('update_password.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: new URLSearchParams({
+                            email: email,
+                            newPassword: newPassword
+                        })
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data); // Show success or error message
+                        passwordChangeForm.reset();
+                        accountSection.style.display = 'block';
+                        passwordSection.style.display = 'none';
+                    })
+                    .catch(error => {
+                        console.error("Error updating password:", error);
+                        alert("An error occurred while updating the password.");
+                    });
+
+                } catch (error) {
+                    alert('Error: ' + error.message);
+                }
+            });
+        });
+
+    </script>
+
     <script>
+        
         document.addEventListener("DOMContentLoaded", function () {
             const updateForm = document.getElementById("updateProfileForm");
             const saveButton = document.querySelector(".save-profile-btn");
@@ -239,25 +318,25 @@ $conn->close();
             });
 
             // Password Change Form
-            const passwordChangeForm = document.getElementById('passwordChangeForm');
-            passwordChangeForm.addEventListener('submit', (e) => {
-                e.preventDefault();
+            // const passwordChangeForm = document.getElementById('passwordChangeForm');
+            // passwordChangeForm.addEventListener('submit', (e) => {
+            //     e.preventDefault();
                 
-                const currentPassword = document.getElementById('currentPassword').value;
-                const newPassword = document.getElementById('newPassword').value;
-                const confirmPassword = document.getElementById('confirmPassword').value;
+            //     const currentPassword = document.getElementById('currentPassword').value;
+            //     const newPassword = document.getElementById('newPassword').value;
+            //     const confirmPassword = document.getElementById('confirmPassword').value;
 
-                if (newPassword !== confirmPassword) {
-                alert('New passwords do not match!');
-                return;
-                }
+            //     if (newPassword !== confirmPassword) {
+            //     alert('New passwords do not match!');
+            //     return;
+            //     }
 
-                // In a real application, this would send data to backend
-                alert('Password change functionality will be implemented in future.');
+            //     // In a real application, this would send data to backend
+            //     alert('Password change functionality will be implemented in future.');
                 
-                // Reset form
-                passwordChangeForm.reset();
-            });
+            //     // Reset form
+            //     passwordChangeForm.reset();
+            // });
         });
     </script>
 </body>

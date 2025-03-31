@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/gujarat.png') center/cover no-repeat;
+    background-size: 40%;
+    background-attachment: fixed;
+    opacity: 0.5; /* Adjust opacity (0 = fully transparent, 1 = fully visible) */
+    z-index: -1; /* Ensures the background stays behind content */
+}
+
+.navbar {
+    background-color: #10455b;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* Brand */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.logo {
+    height: 60px;
+    margin-right: 15px;
+}
+
+.brand-name {
+    font-size: 1.8em;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    transition: color 0.5s ease-in-out;
+}
+
+.brand-link:hover .brand-name {
+    color: #ccc;
+}
+
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-button {
+    padding: 10px 18px;
+    color: white;
+    font-size: 18px;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    border-radius: 10px;
+    background: #7A868B;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-button:hover, .nav-button.active {
+    background: #0000EE;
+    color: white;
+    box-shadow: inset 0px 4px 4px rgba(204, 204, 204, 0.25);
+}
+
+/* Profile Section */
+.profile-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-icon {
+    font-size: 24px;
+    color: white;
+    margin-right: 5px;
+}
+
+/* Dropdown Arrow */
+.dropdown-arrow {
+    font-size: 18px;
+    color: white;
+    transition: transform 0.0.5 ease;
+}
+
+.dropdown-arrow.rotate {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    padding: 10px 0;
+    width: 150px;
+    list-style: none;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    color: #000;
+    border-radius: 5px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: #ccc;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dropdown-menu li a{
+    text-decoration: none;
+    color: #000;
+}
+
+.dropdown-menu li:hover {
+    background: #0000EE;
+}
+
+.show-dropdown {
+    display: block;
+}
+
+/* Hamburger Button */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* Mobile Responsive Navbar */
+@media screen and (max-width: 1041px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        background-color: #10455b;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .navbar-links.active {
+        display: flex;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .nav-button, .nav-button:hover {
+        display: block;
+        padding: 12px 0 8px 12px;
+        text-align: left;
+        width: 100%;
+        background: none;
+        border-bottom: 2px solid #ccc;
+        border-radius: 0px;
+        margin: 5px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .social-icons a{
+        font-size: 20px;
+    }
+
+    p.ftr{
+        font-size: 10px;
+        word-wrap: break-word;
+    }
+
+    .footer-label{
+        display: none;
+    }
+}

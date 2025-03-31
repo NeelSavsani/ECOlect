@@ -20,6 +20,9 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
     <link rel="shortcut icon" href="/new/ECOlect/assets/favicon_io/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/e05d24f6c7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/scroll.css">
 </head>
 <body>
     <nav class="navbar">
@@ -30,10 +33,10 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
             </a>
         </div>
         <div class="navbar-links">
-            <a href="/types-of-e-waste" class="nav-button">Types of E-Waste</a>
-            <a href="/report-e-waste" class="nav-button">Report E-Waste</a>
-            <a href="/nearby-e-waste" class="nav-button">Nearby E-Waste</a>
-            <a href="/about-us" class="nav-button">About Us</a>
+            <a href="nav/types.php" class="nav-button">Types of E-Waste</a>
+            <a href="nav/report.php" class="nav-button">Report E-Waste</a>
+            <a href="nav/nearby.php" class="nav-button">Nearby E-Waste</a>
+            <a href="nav/about.php" class="nav-button">About Us</a>
             <div class="profile-container" onclick="toggleDropdown()">
                 <i class="fas fa-user-circle profile-icon"></i>
                 <i class="fas fa-chevron-down dropdown-arrow" id="arrow"></i>

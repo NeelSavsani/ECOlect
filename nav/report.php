@@ -51,6 +51,64 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
     </nav>
     <div class="content">
         <!-- main content -->
+         <h1 class="main">Report E-Waste:</h1>
+         <p class="main">
+            ECOlect is a user-friendly platform that simplifies e-waste reporting and disposal. Users can easily submit details of discarded electronics like phones, laptops, and batteries, specifying type, quantity, and location. The platform then connects them with authorized recyclers, ensuring proper disposal to prevent pollution and promote sustainability. By facilitating responsible e-waste management, ECOlect helps conserve resources and contributes to a cleaner, greener future.
+         </p>
+         <table>
+            <tr>
+                <td>
+                    <h3 class="main">Address:</h3>
+                </td>
+                <td>
+                    <textarea name="address" id="address" rows="5" cols="70"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3 class="main">Upload Image of E-Waste:</h3>
+                </td>
+                <td>
+                    <input type="file" name="image" id="image">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3 class="main">Type of E-Waste:</h3>
+                </td>
+                <td>
+                    <select name="typeE" id="typeE">
+                        <option value="0">--Select--</option>
+                        <option value="1">Large Household Appliances</option>
+                        <option value="2">Small Household Appliances</option>
+                        <option value="3">Consumer Electronics</option>
+                        <option value="4">IT and Telecommunications Equipment</option>
+                        <option value="5">Lighting Equipment</option>
+                        <option value="6">Electrical and Electronic Tools</option>
+                        <option value="7">Medical Devices</option>
+                        <option value="8">Automatic Dispensers</option>
+                        <option value="9">Toys, Leisure, and Sports Equipment</option>
+                        <option value="10">Batteries and Accumulators</option>
+                        <option value="11">Cables and Wires</option>
+                        <option value="12">Industrial Electronics</option>
+                        <option value="13">Security and Surveillance Equipment</option>
+                        <option value="14">Wearable Technology</option>
+                        <option value="15">Scientific and Laboratory Equipment</option>
+                        <option value="16">Energy Generation and Storage Devices</option>
+                        <option value="17">Gaming and Virtual Reality Devices</option>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3 class="main">Quantity of E-Waste</h3>
+                </td>
+                <td>
+                    <input type="number" name="weight" id="weight"> <small>(in kilograms)</small>
+                </td>
+            </tr>
+         </table>
          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quidem repellat maxime esse sit fugiat sequi, ea laborum qui nemo iusto ex delectus numquam, ullam nisi, vero commodi odit nulla!
          Provident mollitia omnis quasi! Doloribus non sapiente ad accusamus ipsa architecto impedit officia eligendi nam quis, magni doloremque. Voluptatibus inventore sunt eos sed tenetur iusto qui repellendus, voluptas neque minima!
          Sunt iusto aut, quo quidem fugit deleniti eos unde iste non voluptatibus. Amet atque magnam cumque quae quas iste, praesentium quis error totam est non porro. Modi amet deserunt illo.

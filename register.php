@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="tnc">
-                    <input type="checkbox" name="tnc_check" id="tnc_check"> I agree to the <a href="#">Terms & Conditions</a>
+                    <input type="checkbox" name="tnc_check" id="tnc_check"> I agree to the <a href="T&C ECOlect.pdf">Terms & Conditions</a>
                 </div>
                 <div class="register-button">
                     <a href="#">

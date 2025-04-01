@@ -33,10 +33,10 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
             </a>
         </div>
         <div class="navbar-links">
-            <a href="types.php" class="nav-button active">Types of E-Waste</a>
-            <a href="report.php" class="nav-button">Report E-Waste</a>
-            <a href="nearby.php" class="nav-button">Nearby E-Waste</a>
-            <a href="about.php" class="nav-button">About Us</a>
+            <a href="types.php?email=<?php echo urlencode($user_email);?>" class="nav-button active">Types of E-Waste</a>
+            <a href="report.php?email=<?php echo urlencode($user_email);?>" class="nav-button">Report E-Waste</a>
+            <a href="nearby.php?email=<?php echo urlencode($user_email);?>" class="nav-button">Nearby E-Waste</a>
+            <a href="about.php?email=<?php echo urlencode($user_email);?>" class="nav-button">About Us</a>
             <div class="profile-container" onclick="toggleDropdown()">
                 <i class="fas fa-user-circle profile-icon"></i>
                 <i class="fas fa-chevron-down dropdown-arrow" id="arrow"></i>

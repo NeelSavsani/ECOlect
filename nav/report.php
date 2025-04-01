@@ -1,14 +1,15 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_email'])) {
-    header("Location: login.php"); 
+include 'dbconnect.php';
+
+if (isset($_GET['email'])) {
+    $user_email = $_GET['email']; // Fetch from URL parameter
+} elseif (isset($_SESSION['user_email'])) {
+    $user_email = $_SESSION['user_email']; // Default to session email
+} else {
+    header("Location: login.php"); // Redirect if no email is found
     exit();
 }
-
-$user_email = isset($_GET['email']) ? $_GET['email'] : $_SESSION['user_email'];
-
-// Debugging: Print session email in browser
-echo "<script>console.log('Session Email in home.php: " . $user_email . "');</script>";
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +34,10 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
             </a>
         </div>
         <div class="navbar-links">
-            <a href="types.php" class="nav-button">Types of E-Waste</a>
-            <a href="report.php" class="nav-button active">Report E-Waste</a>
-            <a href="nearby.php" class="nav-button">Nearby E-Waste</a>
-            <a href="about.php" class="nav-button">About Us</a>
+            <a href="types.php?email=<?php echo urlencode($user_email);?>" class="nav-button">Types of E-Waste</a>
+            <a href="report.php?email=<?php echo urlencode($user_email);?>" class="nav-button active">Report E-Waste</a>
+            <a href="nearby.php?email=<?php echo urlencode($user_email);?>" class="nav-button">Nearby E-Waste</a>
+            <a href="about.php?email=<?php echo urlencode($user_email);?>" class="nav-button">About Us</a>
             <div class="profile-container" onclick="toggleDropdown()">
                 <i class="fas fa-user-circle profile-icon"></i>
                 <i class="fas fa-chevron-down dropdown-arrow" id="arrow"></i>

@@ -37,3 +37,17 @@ li.main ul.sub-main{
     font-weight: normal;
     font-size: 18px;
 }
+
+.e-waste-item {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.e-waste-image {
+    width: 15%; /* Adjust size as needed */
+    height: auto;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+}

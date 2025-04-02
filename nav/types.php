@@ -71,19 +71,19 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </ul>
             </li>
             <li class="main">
-                IT and Telecommunication Equipment
-                <p class="sub-main">Information technology (IT) and telecommunication devices form one of the fastest-growing categories of e-waste due to the rapid advancement in digital technology. Frequent upgrades, software incompatibility, and consumer demand for new features result in the continuous disposal of old IT devices. These electronic devices contain valuable metals like gold, silver, and copper, but also hazardous materials that require proper recycling.</p>
-                <ul class="sub-main" type="disc">
-                    <li class="sub-main"><b>Examples:</b> Desktop computers, laptops, tablets, mobile phones, routers, modems, printers, scanners, fax machines, keyboards, computer mice, hard drives, USB drives.</li>
-                    <li class="sub-main"><b>Hazards:</b> IT devices contain circuit boards with lead, arsenic, and brominated flame retardants, which are harmful if burned or left in landfills. Lithium-ion batteries in mobile phones and laptops pose a fire and explosion risk if not handled correctly. </li>
-                </ul>
-            </li>
-            <li class="main">
                 Consumer Electronics:
                 <p class="sub-main">Consumer electronics, also known as brown goods, are entertainment and media devices that have a relatively short lifespan due to technological advancements and consumer preferences. These devices are widely used in households, workplaces, and entertainment industries.</p>
                 <ul class="sub-main" type="disc">
                     <li class="sub-main"><b>Examples:</b> Televisions, radios, music systems, DVD players, home theater systems, gaming consoles, remote controls, speakers, headphones, digital cameras, smartwatches.</li>
                     <li class="sub-main"><b>Hazards:</b> Many consumer electronics contain cathode ray tubes (CRTs), leaded glass, mercury-containing screens, and circuit boards, which pose health risks when dismantled improperly. Batteries and plastic components add to environmental pollution. </li>
+                </ul>
+            </li>
+            <li class="main">
+                IT and Telecommunication Equipment
+                <p class="sub-main">Information technology (IT) and telecommunication devices form one of the fastest-growing categories of e-waste due to the rapid advancement in digital technology. Frequent upgrades, software incompatibility, and consumer demand for new features result in the continuous disposal of old IT devices. These electronic devices contain valuable metals like gold, silver, and copper, but also hazardous materials that require proper recycling.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> Desktop computers, laptops, tablets, mobile phones, routers, modems, printers, scanners, fax machines, keyboards, computer mice, hard drives, USB drives.</li>
+                    <li class="sub-main"><b>Hazards:</b> IT devices contain circuit boards with lead, arsenic, and brominated flame retardants, which are harmful if burned or left in landfills. Lithium-ion batteries in mobile phones and laptops pose a fire and explosion risk if not handled correctly. </li>
                 </ul>
             </li>
             <li class="main">
@@ -95,14 +95,6 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </ul>
             </li>
             <li class="main">
-                Medical Devices:
-                <p class="sub-main">Medical equipment plays a crucial role in healthcare, diagnostics, and patient treatment, but as technology advances, older medical devices become obsolete and contribute to e-waste. These devices often contain radioactive materials, hazardous chemicals, and biohazardous waste that require special disposal procedures.</p>
-                <ul class="sub-main" type="disc">
-                    <li class="sub-main"><b>Examples:</b> MRI machines, X-ray machines, CT scanners, ECG machines, ultrasound machines, defibrillators, infusion pumps, thermometers, blood pressure monitors.</li>
-                    <li class="sub-main"><b>Hazards:</b> X-ray machines and CT scanners contain radioactive substances that can pose serious health risks if not properly managed. Mercury-containing thermometers and blood pressure monitors can release toxic mercury vapor into the air. </li>
-                </ul>
-            </li>
-            <li class="main">
                 Electrical and Electronic Tools:
                 <p class="sub-main">Electrical tools, also known as power tools, are used in construction, manufacturing, and household repairs. These tools contain motors, batteries, circuit boards, and plastic casings, making their disposal challenging.</p>
                 <ul class="sub-main" type="disc">
@@ -111,11 +103,91 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </ul>
             </li>
             <li class="main">
-                Batteries and Cables:
+                Medical Devices:
+                <p class="sub-main">Medical equipment plays a crucial role in healthcare, diagnostics, and patient treatment, but as technology advances, older medical devices become obsolete and contribute to e-waste. These devices often contain radioactive materials, hazardous chemicals, and biohazardous waste that require special disposal procedures.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> MRI machines, X-ray machines, CT scanners, ECG machines, ultrasound machines, defibrillators, infusion pumps, thermometers, blood pressure monitors.</li>
+                    <li class="sub-main"><b>Hazards:</b> X-ray machines and CT scanners contain radioactive substances that can pose serious health risks if not properly managed. Mercury-containing thermometers and blood pressure monitors can release toxic mercury vapor into the air. </li>
+                </ul>
+            </li>
+            <li class="main">
+                Automatic Dispensers:
+                <p class="sub-main">Automatic dispensers are electronic machines that distribute products or services automatically. They are commonly found in public places and workplaces.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> ATMs, vending machines, water dispensers, ticket machines..</li>
+                    <li class="sub-main"><b>Hazards:</b> These machines contain circuit boards, screens, and metal parts, which contribute to electronic waste if improperly handled.</li>
+                </ul>
+            </li>
+            <li class="main">
+                Toys, Leisure, and Sports Equipment:
+                <p class="sub-main">Electronic toys and sports equipment are increasingly popular, but they contribute significantly to e-waste due to their short lifespan and frequent disposal.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> Remote-controlled cars, drones, gaming consoles, electric bicycles, smart fitness equipment.</li>
+                    <li class="sub-main"><b>Hazards:</b>  Many toys contain small batteries with lead and lithium, which can leak hazardous chemicals into the environment.</li>
+                </ul>
+            </li>
+            <li class="main">
+                Batteries and Accumulators:
                 <p class="sub-main">Batteries and electrical cables are essential components of electronic devices, but they also contribute significantly to electronic waste pollution. Batteries, in particular, contain toxic heavy metals, while cables consist of insulated wires made of copper, aluminum, and plastic coatings.</p>
                 <ul class="sub-main" type="disc">
                     <li class="sub-main"><b>Examples:</b> Rechargeable and non-rechargeable batteries (lithium-ion, lead-acid, nickel-cadmium), phone chargers, laptop adapters, power strips, extension cords, Ethernet cables, HDMI cables.</li>
                     <li class="sub-main"><b>Hazards:</b> Lead-acid batteries used in vehicles and backup power systems contain lead and sulfuric acid, which are highly toxic. Lithium-ion batteries, commonly found in mobile phones and laptops, pose a risk of fire and explosion if damaged. Electrical cables, when burned, release toxic fumes and dioxins that pollute the air and contribute to respiratory diseases.</li>
+                </ul>
+            </li>
+            <li class="main">
+                Cables and Wires:
+                <p class="sub-main">Cables and wires are used in electrical and communication systems. They often contain valuable metals that can be recycled.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> Power cords, USB cables, ethernet cables, coaxial cables.</li>
+                    <li class="sub-main"><b>Hazards:</b> Many cables contain PVC, which releases toxic dioxins when burned. Some wires have lead or other metals that can harm the environment.</li>
+                </ul>
+            </li>
+            <li class="main">
+                Industrial Electronics:
+                <p class="sub-main">These are large-scale electronic devices used in factories, power plants, and industrial automation.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> Control panels, generators, industrial computers, robotic systems.</li>
+                    <li class="sub-main"><b>Hazards:</b> Industrial electronics contain large amounts of hazardous materials, including heavy metals and flame retardants, which can cause soil and water contamination.</li>
+                </ul>
+            </li>
+            <li class="main">
+                Security and Surveillance Equipment:
+                <p class="sub-main">Security devices are used to monitor and protect properties and individuals.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> CCTV cameras, alarm systems, biometric scanners, motion sensors.</li>
+                    <li class="sub-main"><b>Hazards:</b>  Surveillance equipment contains plastic, metal, and electronic components that contribute to e-waste. Some systems have rechargeable lithium-ion batteries that pose fire risks.</li>
+                </ul>
+            </li>
+            <li class="main">
+                Wearable Technology:
+                <p class="sub-main">Wearable electronics are smart devices worn on the body for various purposes, such as fitness tracking and communication.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> Smartwatches, fitness bands, smart glasses, hearing aids.</li>
+                    <li class="sub-main"><b>Hazards:</b> Wearables contain small batteries and electronic components that can leak harmful chemicals into the environment.</li>
+                </ul>
+            </li>
+            <li class="main">
+                Scientific and Laboratory Equipment:
+                <p class="sub-main">These devices are used in research, testing, and education. They are often highly specialized and require proper disposal methods.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> Microscopes, spectrometers, centrifuges, oscilloscopes.</li>
+                    <li class="sub-main"><b>Hazards:</b> Some laboratory equipment contains mercury, radioactive materials, and other hazardous chemicals that can be dangerous if released into the environment.</li>
+                </ul>
+            </li>
+            <li class="main">
+                Energy Generation and Storage Devices:
+                <p class="sub-main">These devices are used to produce, store, and manage electricity.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> Solar panels, inverters, batteries, fuel cells, uninterruptible power supplies (UPS).</li>
+                    <li class="sub-main"><b>Hazards:</b> Solar panels contain toxic heavy metals such as cadmium and lead. Batteries in energy storage systems can leak hazardous chemicals if damaged or improperly discarded.</li>
+                </ul>
+            </li>
+            <li class="main">
+                Gaming and Virtual Reality Devices:
+                <p class="sub-main">Gaming and VR devices are entertainment gadgets with increasing popularity but also contribute to e-waste.</p>
+                <ul class="sub-main" type="disc">
+                    <li class="sub-main"><b>Examples:</b> VR headsets, gaming controllers, gaming consoles, arcade machines.</li>
+                    <li class="sub-main"><b>Hazards:</b> Gaming devices contain circuit boards with lead and other hazardous substances. Lithium-ion batteries in controllers and VR headsets pose a risk of explosion or leakage.</li>
                 </ul>
             </li>
          </ol>

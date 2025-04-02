@@ -5,3 +5,34 @@
     padding: 20px;
     text-align: left;
 }
+
+h1.main{
+    font-size: 28px;
+    font-family: 'Poppins';
+    font-weight: bold;
+}
+
+p.main{
+    font-family: 'Poppins';
+    font-weight: light;
+    font-size: 20px;
+    margin: 0;
+}
+
+li.main p.sub-main{
+    font-family: 'Poppins';
+    font-weight: normal;
+    font-size: 18px;
+    margin-top: 0.2%;
+    margin-bottom: 0.5%;
+}
+
+li.main{
+    font-size: 20px;
+    margin-bottom: 1%;
+    font-weight: 600;
+}
+
+li.main ul.sub-main{
+    font-weight: normal;
+}

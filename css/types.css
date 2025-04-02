@@ -28,11 +28,12 @@ li.main p.sub-main{
 }
 
 li.main{
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 1%;
     font-weight: 600;
 }
 
 li.main ul.sub-main{
     font-weight: normal;
+    font-size: 18px;
 }

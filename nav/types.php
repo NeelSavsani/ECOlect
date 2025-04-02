@@ -54,7 +54,6 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
          <h1 class="main">Types Of E-Waste: A Detailed Classification Based on Composition and Function</h1>
          <p class="main">E-waste, or electronic waste, encompasses a vast range of electrical and electronic devices that have reached the end of their useful life. Due to the complexity of electronic products, e-waste can be classified into various categories based on their composition, function, and intended use. Each category consists of devices and equipment that contribute to the growing problem of e-waste, each posing unique environmental and health hazards if not managed properly. Below is an in-depth classification of e-waste, including examples and explanations of each type:</p>
         <div class="e-waste-item">
-            <img src="https://5.imimg.com/data5/ANDROID/Default/2022/3/UL/AV/ZF/31924029/product-jpeg.jpg" alt="Refrigerator" class="e-waste-image">
             <ul class="main">
                 <li class="main">
                     Large Household Appliances:
@@ -65,8 +64,10 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                     </ul>
                 </li>
             </ul>
+            <img src="https://5.imimg.com/data5/ANDROID/Default/2022/3/UL/AV/ZF/31924029/product-jpeg.jpg" alt="Refrigerator" class="e-waste-image">
         </div>
         <div class="e-waste-item">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/396397634/GE/NG/MS/3749094/electric-iron-ginni.jpg" alt="Iron" class="e-waste-image">
             <ul class="main">
                 <li class="main">
                     Small Household Appliances:
@@ -77,10 +78,8 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                     </ul>
                 </li>
             </ul>
-            <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/396397634/GE/NG/MS/3749094/electric-iron-ginni.jpg" alt="Iron" class="e-waste-image">
         </div>
         <div class="e-waste-item">
-            <img src="https://4.imimg.com/data4/CM/DW/ANDROID-48171918/product.jpeg" alt="Television" class="e-waste-image">
             <ul class="main">
                 <li class="main">
                     Consumer Electronics:
@@ -91,6 +90,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                     </ul>
                 </li>
             </ul>
+            <img src="https://4.imimg.com/data4/CM/DW/ANDROID-48171918/product.jpeg" alt="Television" class="e-waste-image">
         </div>
         <div class="e-waste-item">
             <img src="https://5.imimg.com/data5/ANDROID/Default/2023/5/308010653/WX/FI/ZP/30595398/product-jpeg-500x500.jpg" alt="Laptop" class="e-waste-image">
@@ -106,7 +106,6 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
             </ul>
         </div>
         <div class="e-waste-item">
-            <img src="https://5.imimg.com/data5/ANDROID/Default/2022/7/VX/WC/VN/149207443/product-500x500.jpg" alt="Washing Machine" class="e-waste-image">
             <ul class="main">
                 <li class="main">
                     Lighting Equipment:
@@ -117,6 +116,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                     </ul>
                 </li>
             </ul>
+            <img src="https://5.imimg.com/data5/ANDROID/Default/2022/7/VX/WC/VN/149207443/product-500x500.jpg" alt="Washing Machine" class="e-waste-image">
         </div>
         <div class="e-waste-item">
             <img src="https://5.imimg.com/data5/SELLER/Default/2024/11/465507556/BZ/CK/UX/96904267/bosch-electric-drill-500x500.jpg" alt="Drill Machine" class="e-waste-image">
@@ -132,7 +132,6 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
             </ul>
         </div>
         <div class="e-waste-item">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2024/2/384276882/UU/IO/ZK/54366076/siemens-magnetom-essenza-1-5-t-mri-machine-500x500.jpg" alt="MRI Machine" class="e-waste-image">
             <ul class="main">
                 <li class="main">
                     Medical Devices:
@@ -143,6 +142,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                     </ul>
                 </li>
             </ul>
+            <img src="https://5.imimg.com/data5/SELLER/Default/2024/2/384276882/UU/IO/ZK/54366076/siemens-magnetom-essenza-1-5-t-mri-machine-500x500.jpg" alt="MRI Machine" class="e-waste-image">
         </div>
         <div class="e-waste-item">
             <img src="https://5.imimg.com/data5/ANDROID/Default/2021/5/VZ/VJ/MK/7966465/product-jpeg.jpg" alt="ATM Machine" class="e-waste-image">
@@ -158,7 +158,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
             </ul>
         </div>
         <div class="e-waste-item">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2023/11/358015484/EL/EN/JM/188297556/kids-remote-control-car-500x500.jpg" alt="Remote Controlled Car" class="e-waste-image">
+            <ul class="main">
                 <li class="main">
                     Toys, Leisure, and Sports Equipment:
                     <p class="sub-main">Electronic toys and sports equipment are increasingly popular, but they contribute significantly to e-waste due to their short lifespan and frequent disposal.</p>
@@ -168,6 +168,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                     </ul>
                 </li>
             </ul>
+            <img src="https://5.imimg.com/data5/SELLER/Default/2023/11/358015484/EL/EN/JM/188297556/kids-remote-control-car-500x500.jpg" alt="Remote Controlled Car" class="e-waste-image">
         </div>
         <div class="e-waste-item">
             <img src="https://4.imimg.com/data4/LA/IW/ANDROID-50268126/product-500x500.jpeg" alt="Mobile Charger" class="e-waste-image">
@@ -183,7 +184,6 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
             </ul>
         </div>
         <div class="e-waste-item">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/478765057/ZC/KY/QE/71855595/cat-8-ethernet-cable-500x500.jpg" alt="Ethernet Cable" class="e-waste-image">
             <ul class="main">
                 <li class="main">
                     Cables and Wires:
@@ -194,6 +194,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                     </ul>
                 </li>
             </ul>
+            <img src="https://5.imimg.com/data5/SELLER/Default/2025/1/478765057/ZC/KY/QE/71855595/cat-8-ethernet-cable-500x500.jpg" alt="Ethernet Cable" class="e-waste-image">
         </div>
         <div class="e-waste-item">
             <img src="https://5.imimg.com/data5/ANDROID/Default/2022/7/XA/PS/HX/28436273/img-20220718-wa0002-jpg-500x500.jpg" alt="Generator" class="e-waste-image">
@@ -209,7 +210,6 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
             </ul>
         </div>
         <div class="e-waste-item">
-            <img src="https://www.justrightdeals.co.nz/cdn/shop/files/image_2243a465-6765-4d4c-bbdd-b6ef2f2a958e_800x.jpg?v=1682735518g" alt="CCTV Camera" class="e-waste-image">
             <ul class="main">
                 <li class="main">
                     Security and Surveillance Equipment:
@@ -220,6 +220,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                     </ul>
                 </li>
             </ul>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjswfCUthhH2dNxWxQ7aHVpSlDBdNC9OlHRA&s" alt="CCTV Camera" class="e-waste-image">
         </div>
         <div class="e-waste-item">
             <img src="https://5.imimg.com/data5/ANDROID/Default/2023/1/DH/YA/IR/147418218/product-jpeg.jpg" alt="Smartwatch" class="e-waste-image">
@@ -235,17 +236,17 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
             </ul>
         </div>
         <div class="e-waste-item">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2023/7/327086495/KP/LM/FF/12569182/compound-microscope-2.jpeg" alt="Microscope" class="e-waste-image">
             <ul class="main">
                 <li class="main">
                     Scientific and Laboratory Equipment:
-                    <p class="sub-main">These devices are used in research, testing, and education. They are often highly specialized and require proper disposal methods.</p>
-                    <ul class="sub-main" type="circle">
+                        <p class="sub-main">These devices are used in research, testing, and education. They are often highly specialized and require proper disposal methods.</p>
+                        <ul class="sub-main" type="circle">
                         <li class="sub-main"><b>Examples:</b> Microscopes, spectrometers, centrifuges, oscilloscopes.</li>
                         <li class="sub-main"><b>Hazards:</b> Some laboratory equipment contains mercury, radioactive materials, and other hazardous chemicals that can be dangerous if released into the environment.</li>
                     </ul>
                 </li>
             </ul>
+            <img src="https://5.imimg.com/data5/SELLER/Default/2023/7/327086495/KP/LM/FF/12569182/compound-microscope-2.jpeg" alt="Microscope" class="e-waste-image">
         </div>
         <div class="e-waste-item">
             <img src="https://5.imimg.com/data5/QO/WR/IE/ANDROID-86983096/1558681091263-jpg-500x500.jpg" alt="Solar Panel" class="e-waste-image">
@@ -261,7 +262,6 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
             </ul>
         </div>
         <div class="e-waste-item">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/369644131/ZQ/MB/VV/157184861/2-4-g-wireless-controller-gamepad.jpeg" alt="Gaming Controller" class="e-waste-image">
             <ul class="main">
                 <li class="main">
                     Gaming and Virtual Reality Devices:
@@ -272,6 +272,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                     </ul>
                 </li>
             </ul>
+            <img src="https://5.imimg.com/data5/SELLER/Default/2023/12/369644131/ZQ/MB/VV/157184861/2-4-g-wireless-controller-gamepad.jpeg" alt="Gaming Controller" class="e-waste-image">
         </div>
     </div>
 

@@ -87,30 +87,33 @@
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     const user = userCredential.user;
+                    console.log("User logged in successfully:", user);
                     localStorage.setItem("user_email", user.email);
 
-                    // Send user email to PHP session via AJAX
-                    fetch("set_session.php", {
+                    return fetch("set_session.php", {
                         method: "POST",
                         headers: { "Content-Type": "application/x-www-form-urlencoded" },
                         body: "email=" + encodeURIComponent(user.email)
-                    })
-                    .then(response => response.text())
-                    .then(data => {
-                        console.log("Session Set Response:", data);
+                    });
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log("Session Set Response:", data);
+                    if (data.includes("Session set successfully")) {
                         alert("✅ Login successful! Redirecting...");
                         setTimeout(() => {
-                            window.location.href = "home.php?email=" + encodeURIComponent(user.email); // Redirect with current email
+                            window.location.href = "home.php?email=" + encodeURIComponent(localStorage.getItem("user_email"));
                         }, 2000);
-                    });
-
+                    } else {
+                        alert("❌ Session was not set correctly. Please try again.");
+                    }
                 })
                 .catch((error) => {
-                    console.error("Firebase Auth Error:", error);
+                    console.error("Firebase Auth Error Code:", error.code);
+                    console.error("Firebase Auth Error Message:", error.message);
                     alert("❌ Error: " + error.message);
                 });
-
-        });
+            });
     </script>
 
     <!-- =================PASSWORD VISIBILITY======================================== -->

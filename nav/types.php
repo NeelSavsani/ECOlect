@@ -362,3 +362,4 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
     </script>
 </body>
 </html>
+

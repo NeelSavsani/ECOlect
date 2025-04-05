@@ -151,5 +151,38 @@
         document.getElementById("login_pass").addEventListener("input", checkInputs);
 
     </script>
+
+    <script>
+    function requestLocationPermission(retryCount = 0) {
+        if (retryCount >= 5) {
+        console.log("⛔ Max retries reached. User denied location.");
+        return;
+        }
+
+        if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+            console.log("✅ Location access granted");
+            console.log("Latitude:", position.coords.latitude);
+            console.log("Longitude:", position.coords.longitude);
+            },
+            (error) => {
+            console.warn("⚠ Location access denied or failed:", error.message);
+
+            // Retry after delay (if user hasn't permanently blocked)
+            setTimeout(() => {
+                requestLocationPermission(retryCount + 1);
+            }, 3000); // retry every 3 seconds
+            }
+        );
+        } else {
+        alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    // Start the permission loop
+    requestLocationPermission();
+    </script>
+
 </body>
 </html>

@@ -46,7 +46,7 @@
                     </a>
                 </div>
                 <div class="forgot-password">
-                    <a href="#">Forgot Password?</a>
+                    <a href="forgot.php">Forgot Password?</a>
                 </div>
                 <div class="register-account">
                     Don't have an account?<a href="register.php">Register</a>

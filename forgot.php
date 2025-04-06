@@ -87,16 +87,22 @@
   const auth = getAuth(app);
 
   // ✅ Button Event
-  document.getElementById("send-btn").addEventListener("click", () => {
-    const email = document.getElementById("login_email").value;
+  document.getElementById("send-btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("login_email").value.trim();
+
+    if (email === "") {
+        alert("Please enter a valid email.");
+        return;
+    }
 
     sendPasswordResetEmail(auth, email)
-      .then(() => {
-        alert("✅ Reset link sent to "+email);
-      })
-      .catch((error) => {
+        .then(() => {
+        alert("✅ Reset link sent to " + email);
+        })
+        .catch((error) => {
         alert("❌ Error: " + error.message);
         console.error("Error:", error);
-      });
-  });
+        });
+    });
 </script>

@@ -99,6 +99,7 @@
     sendPasswordResetEmail(auth, email)
         .then(() => {
         alert("✅ Reset link sent to " + email);
+        window.location.href = "login.php";
         })
         .catch((error) => {
         alert("❌ Error: " + error.message);

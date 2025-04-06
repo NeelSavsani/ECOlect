@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'dbconnect.php';
+include '../dbconnect.php';
 
 if (isset($_GET['email'])) {
     $user_email = $_GET['email']; // Fetch from URL parameter

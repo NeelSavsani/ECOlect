@@ -152,6 +152,27 @@ input[type='password'] {
     margin-top: 10px;
 }
 
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input[type='password'],
+.password-wrapper input[type='text'] {
+    padding-right: 40px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-70%);
+    cursor: pointer;
+    color: #666;
+    font-size: 18px;
+}
+
+
 .submit-btn, .cancel-update-btn {
     padding: 10px 20px;
     border: none;

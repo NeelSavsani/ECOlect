@@ -25,6 +25,7 @@ $nor = mysqli_num_rows($result);
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Admin Panel</title>
     <link rel='shortcut icon' href='../assets/favicon_io/favicon.ico' type='image/x-icon'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel='stylesheet' href='admin.css'>
 </head>
 <body>
@@ -78,7 +79,7 @@ $nor = mysqli_num_rows($result);
                 <input type="text" name="phone" id="edit-phone" placeholder="Phone" required>
                 <div class="password-wrapper">
                     <input type="password" name="password" id="edit-password" placeholder="Password" required>
-                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                    <i class="fa-solid fa-eye toggle-password" id="togglePasswordIcon" onclick="togglePassword()"></i>
                 </div>
                 <textarea name="address" id="edit-address" placeholder="Address" rows="4" required></textarea>
                 <input type="text" name="pincode" id="edit-pincode" placeholder="Pincode" required>
@@ -90,6 +91,25 @@ $nor = mysqli_num_rows($result);
             </form>
         </div>
     </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("edit-password");
+            const toggleIcon = document.getElementById("togglePasswordIcon");
+            
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+            }
+
+        }
+    </script>
+
 
     <script>
         function openModal(id, fullname, email, phone, password, address, pincode) {
@@ -108,11 +128,6 @@ $nor = mysqli_num_rows($result);
 
         function closeModal() {
             document.getElementById('editModal').style.display = 'none';
-        }
-
-        function togglePassword() {
-            const passField = document.getElementById("edit-password");
-            passField.type = passField.type === "password" ? "text" : "password";
         }
 
         window.onclick = function(event) {

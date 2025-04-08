@@ -31,6 +31,7 @@ if ($nor > 0) {
             <th>Address</th>
             <th>Pincode</th>
             <th>Registration Date</th>
+            <th>Action</th>
         </tr>";
 
     for ($i = 0; $i < $nor; $i++) {
@@ -44,6 +45,10 @@ if ($nor > 0) {
                 <td>".$row['Address']."</td>
                 <td>".$row['Pincode']."</td>
                 <td>".$row['DateTime']."</td>
+                <td><div class='action-buttons'>
+                    <button class='btn-success'>Edit</button>
+                    <button class='btn-danger'>Delete</button>
+                </div></td>
               </tr>";
     }
 

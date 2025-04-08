@@ -82,8 +82,11 @@ $nor = mysqli_num_rows($result);
                 </div>
                 <textarea name="address" id="edit-address" placeholder="Address" rows="4" required></textarea>
                 <input type="text" name="pincode" id="edit-pincode" placeholder="Pincode" required>
-                <button type="submit" name="update" class="submit-btn">Update</button>
-                <button type="button" name="cancel" id="cancel-btn" class="cancel-update-btn">Cancel</button>
+                <div class="modal-buttons">
+                    <button type="submit" name="update" class="submit-btn">Update</button>
+                    <button type="button" name="cancel" id="cancel-btn" class="cancel-update-btn">Cancel</button>
+                </div>
+
             </form>
         </div>
     </div>

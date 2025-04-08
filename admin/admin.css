@@ -145,24 +145,37 @@ input[type='password'] {
     border-radius: 5px;
 }
 
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 .submit-btn, .cancel-update-btn {
     padding: 10px 20px;
     border: none;
+    color: white;
     border-radius: 6px;
     cursor: pointer;
     margin: 1% 0;
+    transition: all 0.3s ease;
 }
 
-.submit-btn, .cancel-update-btn:hover{
-    background-color: #10455b;
-    color: white;
-    border: 1px solid #10455b;
+.submit-btn{
+    background-color: #28a745;
 }
 
-.submit-btn:hover, .cancel-update-btn{
-    background-color: white;
-    color: #10455b;
-    border: 1px solid #10455b;
+.submit-btn:hover{
+    background-color: #218838;
+}
+
+.cancel-update-btn{
+    background-color: #dc3545;
+}
+
+.cancel-update-btn:hover{
+    background-color: #c82333;
 }
 
 textarea {

@@ -82,6 +82,8 @@
             if (!email || !password) {
                 alert("⚠ Please enter email and password.");
                 return;
+            } else if (email === "admin" && password === "123") {
+                window.location.href = "admin/admin_login.php";
             }
 
             signInWithEmailAndPassword(auth, email, password)

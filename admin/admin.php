@@ -1,5 +1,6 @@
 <?php
 include '../dbconnect.php';
+$admin_name = isset($_GET['admin']) ? htmlspecialchars($_GET['admin']) : "Admin";
 
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
@@ -29,8 +30,11 @@ $nor = mysqli_num_rows($result);
     <link rel='stylesheet' href='admin.css'>
 </head>
 <body>
+    <button class="logout-button" onclick="window.location.href = 'admin_login.php';">
+        LogOut <i class="fa-solid fa-power-off"></i>
+    </button>
     <div class='container'>
-        <h1>Welcome, Admin</h1>
+    <h1>Welcome, <?php echo $admin_name;?></h1>
         <p><strong><?php echo $nor; ?></strong> users have registered in our portal!</p>
         <?php if ($nor > 0): ?>
             <div class='table-wrapper'>

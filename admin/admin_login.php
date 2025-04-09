@@ -39,41 +39,23 @@
 </body>
 </html>
 
-<?php 
- 
-if(isset($_POST['username']) && isset($_POST['password'])) 
-{ 
-    $usr = $_POST['username']; 
-    $psd = $_POST['password']; 
-    $authenticated = false; 
- 
-    // $credentials = file('Credentials.txt'); 
-    if($usr === "admin" && $psd === "123")
-    {
+<?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $usr = $_POST['username'];
+    $psd = $_POST['password'];
+    $allowed_users = ["Neel", "Nehanshi", "Keshvi", "Abhishek", "Disha", "Saloni", "Kaushal", "admin"];
+
+    if(in_array($usr, $allowed_users)) {
         $authenticated = true;
-        echo "<script>alert('Hello');</script>";
-        header("Location: admin.php");
     }
-     
- 
-    // foreach($credentials as $credential) 
-    // { 
-    //     list($storedData, $storedPass) = explode(',', trim($credential)); 
-    //     if($storedData === $usr && $storedPass === $psd) 
-    //     { 
-    //         $authenticated = true; 
-    //         break; 
-    //     } 
-    // } 
- 
-    // if($authenticated) 
-    // { 
-    //     echo "Login successfull, Welcome $usr"; 
-    // } 
-    // else 
-    // { 
-    //     echo "Invalid username or password"; 
-    // } 
-} 
- 
+
+    if (isset($authenticated) && $authenticated === true && $psd === "123") {
+        header("Location: admin.php?admin=$usr");
+        exit;
+    } elseif ($usr == "user" && $psd == "456") {
+        header("Location: ../login.php");
+    } else{
+        echo "<script>alert('Invalid username or password')</script>";
+    }
+}
 ?>

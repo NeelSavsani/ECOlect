@@ -208,3 +208,29 @@ textarea {
     font-family: "Ubuntu";
     resize: none;
 }
+
+.logout-button {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease;
+    background-color: red;
+  }
+  
+  .logout-button i {
+    font-size: 18px;
+  }
+  
+  .logout-button:hover {
+    background-color: rgb(171, 0, 0);
+  }
+    

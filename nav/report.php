@@ -52,89 +52,69 @@ if (isset($_GET['email'])) {
     </nav>
     <div class="content">
         <!-- main content -->
-         <h1 class="main">Report E-Waste:</h1>
-         <p class="main">
-            ECOlect is a user-friendly platform that simplifies e-waste reporting and disposal. Users can easily submit details of discarded electronics like phones, laptops, and batteries, specifying type, quantity, and location. The platform then connects them with authorized recyclers, ensuring proper disposal to prevent pollution and promote sustainability. By facilitating responsible e-waste management, ECOlect helps conserve resources and contributes to a cleaner, greener future.
-         </p>
-         <table>
+        <h1 class="main">Report E-Waste:</h1>
+        <p class="main">
+        ECOlect is a user-friendly platform that simplifies e-waste reporting and disposal. Users can easily submit details of discarded electronics like phones, laptops, and batteries, specifying type, quantity, and location. The platform then connects them with authorized recyclers, ensuring proper disposal to prevent pollution and promote sustainability. By facilitating responsible e-waste management, ECOlect helps conserve resources and contributes to a cleaner, greener future.
+        </p>
+        <form id="ewasteForm" onsubmit="event.preventDefault(); reportEwaste();">
+        <table>
             <tr>
-                <td>
-                    <h3 class="main">Address:</h3>
-                </td>
-                <td>
-                    <textarea name="address" id="address" rows="5" cols="70"></textarea>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    <h3 class="main">Type of E-Waste:</h3>
-                </td>
-                <td>
-                <select name="typeE" id="typeE">
-                <option value="--1">--Select--</option>
-                <option value="Large Household Appliances">Large Household Appliances</option>
-                <option value="Small Household Appliances">Small Household Appliances</option>
-                <option value="Consumer Electronics">Consumer Electronics</option>
-                <option value="IT and Telecommunications Equipment">IT and Telecommunications Equipment</option>
-                <option value="Lighting Equipment">Lighting Equipment</option>
-                <option value="Electrical and Electronic Tools">Electrical and Electronic Tools</option>
-                <option value="Medical Devices">Medical Devices</option>
-                <option value="Automatic Dispensers">Automatic Dispensers</option>
-                <option value="Toys, Leisure, and Sports Equipment">Toys, Leisure, and Sports Equipment</option>
-                <option value="Batteries and Accumulators">Batteries and Accumulators</option>
-                <option value="Cables and Wires">Cables and Wires</option>
-                <option value="Industrial Electronics">Industrial Electronics</option>
-                <option value="Security and Surveillance Equipment">Security and Surveillance Equipment</option>
-                <option value="Wearable Technology">Wearable Technology</option>
-                <option value="Scientific and Laboratory Equipment">Scientific and Laboratory Equipment</option>
-                <option value="Energy Generation and Storage Devices">Energy Generation and Storage Devices</option>
-                <option value="Gaming and Virtual Reality Devices">Gaming and Virtual Reality Devices</option>
-                <option value="Other">Other</option>
-                </select>
-                <small>*only select <i><b>Other</b></i> if there are more than one type of e-waste or type of e-waste is not listed above</small>
-                </td>
+                <td><h3 class="main">Address:</h3></td>
+                <td><textarea name="address" id="address" rows="5" cols="70"></textarea></td>
             </tr>
             <tr>
-                <div id="e-name-wrapper">
-                    <td>
-                        <h3 class="main">Name of E-Waste</h3>
-                    </td>
-                    <td>
-                        <input type="text" name="e-name" id="e-name">
-                    </td>
-                </div>
+                <td><h3 class="main">Type of E-Waste:</h3></td>
+                <td>
+                    <select name="typeE" id="typeE">
+                        <option value="--1">--Select--</option>
+                        <option value="Large Household Appliances">Large Household Appliances</option>
+                        <option value="Small Household Appliances">Small Household Appliances</option>
+                        <option value="Consumer Electronics">Consumer Electronics</option>
+                        <option value="IT and Telecommunications Equipment">IT and Telecommunications Equipment</option>
+                        <option value="Lighting Equipment">Lighting Equipment</option>
+                        <option value="Electrical and Electronic Tools">Electrical and Electronic Tools</option>
+                        <option value="Medical Devices">Medical Devices</option>
+                        <option value="Automatic Dispensers">Automatic Dispensers</option>
+                        <option value="Toys, Leisure, and Sports Equipment">Toys, Leisure, and Sports Equipment</option>
+                        <option value="Batteries and Accumulators">Batteries and Accumulators</option>
+                        <option value="Cables and Wires">Cables and Wires</option>
+                        <option value="Industrial Electronics">Industrial Electronics</option>
+                        <option value="Security and Surveillance Equipment">Security and Surveillance Equipment</option>
+                        <option value="Wearable Technology">Wearable Technology</option>
+                        <option value="Scientific and Laboratory Equipment">Scientific and Laboratory Equipment</option>
+                        <option value="Energy Generation and Storage Devices">Energy Generation and Storage Devices</option>
+                        <option value="Gaming and Virtual Reality Devices">Gaming and Virtual Reality Devices</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <small>*only select <i><b>Other</b></i> if there are more than one type of e-waste or type of e-waste is not listed above</small>
+                </td>
+            </tr>
+            <tr id="e-name-wrapper">
+                <td><h3 class="main">Name of E-Waste</h3></td>
+                <td><input type="text" name="e-name" id="e-name"></td>
             </tr>
             <tr>
-                <td>
-                    <h3 class="main">Quantity of E-Waste</h3>
-                </td>
-                <td>
-                    <input type="number" name="weight" id="weight"> <small>(in number in kilograms)</small>
-                </td>
+                <td><h3 class="main">Quantity of E-Waste</h3></td>
+                <td><input type="number" name="weight" id="weight"> <small>(in number or kilograms)</small></td>
             </tr>
             <tr>
-                <td>
-                    <h3 class="main">Location</h3>
-                </td>
-                <td>
-                    <button onclick="getLocation()">Upload your location</button> <span id="location"></span>
-                </td>
+                <td><h3 class="main">Location</h3></td>
+                <td><button type="button" onclick="getLocation()">Upload your location</button> <span id="location"></span></td>
             </tr>
             <tr>
                 <td></td>
                 <td>
-                     Report e-waste only when e-waste is with you, or while reporting e-waste, e-waste is with you. Because we are going to access your location for better relibility and exact location for e-waste for database. <br>
-                     <b><input type="checkbox" name="location access" id="location_access"> I assure that e-waste is with me and allowing to acces my location</b>
+                    Report e-waste only when e-waste is with you, or while reporting e-waste, e-waste is with you.
+                    <br><b><input type="checkbox" name="location_access" id="location_access"> I assure that e-waste is with me and allowing to access my location</b>
                 </td>
             </tr>
             <tr>
                 <td></td>
-                <td>
-                    <input type="button" id="reportBtn" value="Report E-Waste" onclick="reportEwaste()" disabled>
-                </td>
+                <td><input type="submit" id="reportBtn" value="Report E-Waste" disabled></td>
             </tr>
-         </table>
+        </table>
+    </form>
+
     </div>
     <script>
     const typeDropdown = document.getElementById("typeE");
@@ -147,7 +127,7 @@ if (isset($_GET['email'])) {
         if (selectedValue === "Other") {
             eNameWrapper.style.display = "none";     // Hide the wrapper
             eNameInput.disabled = true;
-            eNameInput.value = "";
+            eNameInput.value = "other";
         } else {
             eNameWrapper.style.display = "block";    // Show the wrapper
             eNameInput.disabled = false;
@@ -161,25 +141,78 @@ if (isset($_GET['email'])) {
     // Initial setup
     toggleENameField();
     typeDropdown.addEventListener("change", toggleENameField);
-
     </script>
 
     <script>
+        function reportEwaste() {
+            const address = document.getElementById("address").value.trim();
+            const typeE = document.getElementById("typeE").value;
+            const eName = document.getElementById("e-name").value.trim();
+            const weight = document.getElementById("weight").value.trim();
+            const location = locationSpan.innerText; // You may want to pass actual lat/lon instead
+
+            const email = "<?php echo $user_email; ?>";
+
+            const formData = new FormData();
+            formData.append("address", address);
+            formData.append("typeE", typeE);
+            formData.append("eName", eName);
+            formData.append("weight", weight);
+            formData.append("latitude", latitude);
+            formData.append("longitude", longitude);
+            formData.append("email", email);
+
+            // AJAX call
+            fetch("reportE.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert("✅ E-waste reported successfully!");
+                // Optionally clear form fields or show a confirmation message
+                document.getElementById("reportBtn").disabled = true;
+                document.getElementById("address").value = "";
+                document.getElementById("typeE").value = "--1";
+                document.getElementById("e-name").value = "";
+                document.getElementById("weight").value = "";
+                document.getElementById("location_access").checked = false;
+                locationSpan.innerText = "";
+                locationUploaded = false;
+                validateForm();
+            })
+            .catch(error => {
+                alert("❌ Failed to report e-waste. Please try again.");
+                console.error("Error:", error);
+            });
+        }
+    </script>
+
+
+    <script>
+        // GETTING LOCATION
         let locationUploaded = false;
         let locationSpan = document.getElementById("location");
 
+        // Declare lat/lon in outer scope so they can be shared
+        let lat = null;
+        let lon = null;
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     function (position) {
+                        latitude = position.coords.latitude;
+                        longitude = position.coords.longitude;
                         locationUploaded = true;
                         validateForm();
-                        locationSpan.innerText = "📍 Location uploaded successfully!";
+                        locationSpan.innerText = `📍 Location uploaded successfully!`;
                     },
                     function (error) {
                         alert("❌ Location access denied or failed: " + error.message);
                         locationSpan.innerText = ""; // clear message on error
                         locationUploaded = false;
+                        latitude = null;
+                        longitude = null;
                         validateForm();
                     }
                 );
@@ -188,6 +221,7 @@ if (isset($_GET['email'])) {
             }
         }
 
+        // VALIDATE FORM
         function validateForm() {
             const address = document.getElementById("address").value.trim();
             const weight = document.getElementById("weight").value.trim();
@@ -201,12 +235,11 @@ if (isset($_GET['email'])) {
 
             if (address !== "" && weight !== "" && typeE !== "--1" && eNameIsValid && isChecked && locationUploaded) {
                 reportBtn.disabled = false;
+                console.log(address, weight, typeE, name, latitude, longitude);
             } else {
                 reportBtn.disabled = true;
             }
         }
-
-        // Attach listeners
         document.getElementById("address").addEventListener("input", validateForm);
         document.getElementById("weight").addEventListener("input", validateForm);
         document.getElementById("typeE").addEventListener("change", validateForm);

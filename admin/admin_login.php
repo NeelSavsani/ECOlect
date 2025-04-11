@@ -44,12 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $usr = $_POST['username'];
     $psd = $_POST['password'];
     $allowed_users = ["Neel", "Nehanshi", "Keshvi", "Abhishek", "Disha", "Saloni", "Kaushal", "admin"];
+    $allowed_passes = [9712192640, 9054791076, 9328816431, 9712130204, 9726724781, 8320686670, 8401715633, 123];
 
-    if(in_array($usr, $allowed_users)) {
+    if(in_array($usr, $allowed_users) && in_array($psd, $allowed_passes)) {
         $authenticated = true;
     }
 
-    if (isset($authenticated) && $authenticated === true && $psd === "123") {
+    if (isset($authenticated) && $authenticated === true) {
         header("Location: admin.php?admin=$usr");
         exit;
     } elseif ($usr == "user" && $psd == "456") {

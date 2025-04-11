@@ -27,12 +27,23 @@ $nor = mysqli_num_rows($result);
     <title>Admin Panel</title>
     <link rel='shortcut icon' href='../assets/favicon_io/favicon.ico' type='image/x-icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel='stylesheet' href='admin.css'>
+    <link rel='stylesheet' href='admin_css/admin.css'>
 </head>
 <body>
     <button class="logout-button" onclick="window.location.href = 'admin_login.php';">
         LogOut <i class="fa-solid fa-power-off"></i>
     </button>
+    <div id="sidebar" class="sidebar">
+        <ul>
+            <li class="active"><a href="#"><i class="fa-solid fa-users-viewfinder"></i></i>&nbsp; Users</a></li>
+            <li><a href="admin_report.php"><i class="fa-solid fa-trash"></i>&nbsp; Reported E-Waste</a></li>
+            <li><a href="#"><i class="fa-solid fa-id-card"></i>&nbsp;Account</a></li>
+            <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+        </ul>
+    </div>
+    <div class="hamburger" onclick="toggleSidebar()">
+        <i id="hamburger-icon" class="fa-solid fa-bars"></i>
+    </div>
     <div class='container'>
     <h1>Welcome, <?php echo $admin_name;?></h1>
         <p><strong><?php echo $nor; ?></strong> users have registered in our portal!</p>
@@ -62,8 +73,8 @@ $nor = mysqli_num_rows($result);
                             <td><?php echo $row['DateTime']; ?></td>
                             <td>
                                 <div class='action-buttons'>
-                                    <button class='btn-success' onclick="openModal('<?php echo $row['Sr.NO']; ?>', '<?php echo $row['Fullname']; ?>', '<?php echo $row['Email']; ?>', '<?php echo $row['Phone']; ?>', '<?php echo $row['Password']; ?>', '<?php echo $row['Address']; ?>', '<?php echo $row['Pincode']; ?>')">Edit</button>
-                                    <button class='btn-danger'>Delete</button>
+                                    <button class='btn-success' onclick="openModal('<?php echo $row['Sr.NO']; ?>', '<?php echo $row['Fullname']; ?>', '<?php echo $row['Email']; ?>', '<?php echo $row['Phone']; ?>', '<?php echo $row['Password']; ?>', '<?php echo $row['Address']; ?>', '<?php echo $row['Pincode']; ?>')"><i class="fa-solid fa-pen"></i></button>
+                                    <button class='btn-danger'><i class="fa-solid fa-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -88,57 +99,16 @@ $nor = mysqli_num_rows($result);
                 <textarea name="address" id="edit-address" placeholder="Address" rows="4" required></textarea>
                 <input type="text" name="pincode" id="edit-pincode" placeholder="Pincode" required>
                 <div class="modal-buttons">
-                    <button type="submit" name="update" class="submit-btn">Update</button>
-                    <button type="button" name="cancel" id="cancel-btn" class="cancel-update-btn">Cancel</button>
+                    <button type="submit" name="update" class="submit-btn"><i class="fa-solid fa-check"></i></button>
+                    <button type="button" name="cancel" id="cancel-btn" class="cancel-update-btn"><i class="fa-solid fa-x"></i></button>
                 </div>
 
             </form>
         </div>
     </div>
 
-    <script>
-        function togglePassword() {
-            const passwordField = document.getElementById("edit-password");
-            const toggleIcon = document.getElementById("togglePasswordIcon");
-            
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                toggleIcon.classList.remove("fa-eye");
-                toggleIcon.classList.add("fa-eye-slash");
-            } else {
-                passwordField.type = "password";
-                toggleIcon.classList.remove("fa-eye-slash");
-                toggleIcon.classList.add("fa-eye");
-            }
-
-        }
-    </script>
-
-
-    <script>
-        function openModal(id, fullname, email, phone, password, address, pincode) {
-            document.getElementById('edit-id').value = id;
-            document.getElementById('edit-fullname').value = fullname;
-            document.getElementById('edit-email').value = email;
-            document.getElementById('edit-phone').value = phone;
-            document.getElementById('edit-password').value = password;
-            document.getElementById('edit-address').value = address;
-            document.getElementById('edit-pincode').value = pincode;
-            document.getElementById('editModal').style.display = 'block';
-        }
-        document.getElementById("cancel-btn").addEventListener("click", function(){
-            document.getElementById('editModal').style.display = 'none';
-        });
-
-        function closeModal() {
-            document.getElementById('editModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('editModal')) {
-                closeModal();
-            }
-        }
-    </script>
+    <script src="admin_js/toggleSidebar.js"></script>
+    <script src="admin_js/togglePassword.js"></script>
+    <script src="admin_js/openModal.js"></script>
 </body>
 </html>

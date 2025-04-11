@@ -6,7 +6,7 @@
     <title>ECOlect Admin Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../assets/favicon_io/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="admin_login.css">
+    <link rel="stylesheet" href="admin_css/admin_login.css">
     <title>ECOlect - Admin Login</title>
 </head>
 <body>
@@ -44,13 +44,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $usr = $_POST['username'];
     $psd = $_POST['password'];
     $allowed_users = ["Neel", "Nehanshi", "Keshvi", "Abhishek", "Disha", "Saloni", "Kaushal", "admin"];
-    $allowed_passes = [9712192640, 9054791076, 9328816431, 9712130204, 9726724781, 8320686670, 8401715633, 123];
 
-    if(in_array($usr, $allowed_users) && in_array($psd, $allowed_passes)) {
+    if(in_array($usr, $allowed_users)) {
         $authenticated = true;
     }
 
-    if (isset($authenticated) && $authenticated === true) {
+    if (isset($authenticated) && $authenticated === true && $psd === "123") {
         header("Location: admin.php?admin=$usr");
         exit;
     } elseif ($usr == "user" && $psd == "456") {

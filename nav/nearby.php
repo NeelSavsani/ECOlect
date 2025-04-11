@@ -42,7 +42,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 <i class="fas fa-chevron-down dropdown-arrow" id="arrow"></i>
                 <ul class="dropdown-menu" id="profile-dropdown">
                     <li><a href="../profile.php?email=<?php echo urlencode($user_email); ?>">My Profile</a></li>
-                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Reported E-Waste</a></li>
                     <li><a href="../login.php">Logout</a></li>
                 </ul>
             </div>
@@ -189,76 +189,9 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
      </footer>
 
 
-     <!--Scroll to bottom  -->
     <button id="scrollBottom"><i class="fa-solid fa-down-long"></i></button>
-    <script>
-        const btn = document.getElementById("scrollBottom");
-        function checkScroll() {
-            const scrollTop = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const docHeight = document.documentElement.scrollHeight;
-
-            if (scrollTop > 40 && scrollTop + windowHeight < docHeight - 10) {
-                btn.style.display = "block"; // Show button if not at the bottom
-            } else {
-                btn.style.display = "none"; // Hide button when at the bottom
-            }
-        }
-
-        window.addEventListener("scroll", checkScroll);
-
-        btn.addEventListener("click", () => {
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: "smooth"
-            });
-
-            btn.style.display = "none"; // Hide button after clicking
-        });
-    </script>
-
-
-    <!-- Menu -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.querySelector('.hamburger');
-            const navbarLinks = document.querySelector('.navbar-links');
-            const profileContainer = document.querySelector(".profile-container");
-            const dropdown = document.getElementById("profile-dropdown");
-            const arrow = document.getElementById("arrow");
-
-            // Toggle Navbar
-            hamburger.addEventListener('click', (event) => {
-                event.stopPropagation(); // Prevents closing the menu when clicking the button
-                navbarLinks.classList.toggle('active');
-
-                // Toggle hamburger icon
-                hamburger.textContent = navbarLinks.classList.contains('active') ? '✕' : '☰';
-            });
-
-            // Close Navbar when clicking outside
-            document.addEventListener('click', (event) => {
-                if (!navbarLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                    navbarLinks.classList.remove('active');
-                    hamburger.textContent = '☰';
-                }
-            });
-
-            // Toggle Profile Dropdown
-            profileContainer.addEventListener("click", function (event) {
-                event.stopPropagation();
-                dropdown.classList.toggle("show-dropdown");
-                arrow.classList.toggle("rotate");
-            });
-
-            // Close Profile Dropdown when clicking outside
-            document.addEventListener("click", function (event) {
-                if (!profileContainer.contains(event.target)) {
-                    dropdown.classList.remove("show-dropdown");
-                    arrow.classList.remove("rotate");
-                }
-            });
-        });
-    </script>
+    
+    <script src="../js/scroll.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
 </html>

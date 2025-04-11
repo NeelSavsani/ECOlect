@@ -117,41 +117,7 @@
                 });
             });
     </script>
-
-    <!-- =================PASSWORD VISIBILITY======================================== -->
-    <script>            
-        function togglePassword() {
-            let passwordInput = document.getElementById("login_pass");
-            let eyeIcon = document.querySelector(".eye-icon i");
-            
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                eyeIcon.classList.remove("fa-eye");
-                eyeIcon.classList.add("fa-eye-slash");
-            } else {
-                passwordInput.type = "password";
-                eyeIcon.classList.remove("fa-eye-slash");
-                eyeIcon.classList.add("fa-eye");
-            }
-        }
-        // ================BUTTON COLOR CHANGE====================================
-        function checkInputs() {
-            let username = document.getElementById("login_email").value.trim();
-            let password = document.getElementById("login_pass").value.trim();
-            let loginButton = document.querySelector(".login-button a button");
-
-            if (username !== "" && password !== "") {
-                loginButton.style.backgroundColor = "#0077CC"; // Change color when filled
-                loginButton.disabled = false;
-            } else {
-                loginButton.style.backgroundColor = "#808080"; // Default color
-                loginButton.disabled = true;
-            }
-        }
-
-        document.getElementById("login_email").addEventListener("input", checkInputs);
-        document.getElementById("login_pass").addEventListener("input", checkInputs);
-
-    </script>
+    <script src="js/togglePassword.js"></script>
+    <script src="js/checkInputs.js"></script>
 </body>
 </html>

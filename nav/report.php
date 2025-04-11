@@ -43,7 +43,7 @@ if (isset($_GET['email'])) {
                 <i class="fas fa-chevron-down dropdown-arrow" id="arrow"></i>
                 <ul class="dropdown-menu" id="profile-dropdown">
                     <li><a href="../profile.php?email=<?php echo urlencode($user_email); ?>">My Profile</a></li>
-                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Reported E-Waste</a></li>
                     <li><a href="../login.php">Logout</a></li>
                 </ul>
             </div>
@@ -114,140 +114,7 @@ if (isset($_GET['email'])) {
             </tr>
         </table>
     </form>
-
     </div>
-    <script>
-    const typeDropdown = document.getElementById("typeE");
-    const eNameInput = document.getElementById("e-name");
-    const eNameWrapper = document.getElementById("e-name-wrapper");
-
-    function toggleENameField() {
-        const selectedValue = typeDropdown.value;
-
-        if (selectedValue === "Other") {
-            eNameWrapper.style.display = "none";     // Hide the wrapper
-            eNameInput.disabled = true;
-            eNameInput.value = "other";
-        } else {
-            eNameWrapper.style.display = "block";    // Show the wrapper
-            eNameInput.disabled = false;
-        }
-
-        if (typeof validateForm === "function") {
-            validateForm(); // Optional validation call
-        }
-    }
-
-    // Initial setup
-    toggleENameField();
-    typeDropdown.addEventListener("change", toggleENameField);
-    </script>
-
-    <script>
-        function reportEwaste() {
-            const address = document.getElementById("address").value.trim();
-            const typeE = document.getElementById("typeE").value;
-            const eName = document.getElementById("e-name").value.trim();
-            const weight = document.getElementById("weight").value.trim();
-            const location = locationSpan.innerText; // You may want to pass actual lat/lon instead
-
-            const email = "<?php echo $user_email; ?>";
-
-            const formData = new FormData();
-            formData.append("address", address);
-            formData.append("typeE", typeE);
-            formData.append("eName", eName);
-            formData.append("weight", weight);
-            formData.append("latitude", latitude);
-            formData.append("longitude", longitude);
-            formData.append("email", email);
-
-            // AJAX call
-            fetch("reportE.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.text())
-            .then(result => {
-                alert("✅ E-waste reported successfully!");
-                // Optionally clear form fields or show a confirmation message
-                document.getElementById("reportBtn").disabled = true;
-                document.getElementById("address").value = "";
-                document.getElementById("typeE").value = "--1";
-                document.getElementById("e-name").value = "";
-                document.getElementById("weight").value = "";
-                document.getElementById("location_access").checked = false;
-                locationSpan.innerText = "";
-                locationUploaded = false;
-                validateForm();
-            })
-            .catch(error => {
-                alert("❌ Failed to report e-waste. Please try again.");
-                console.error("Error:", error);
-            });
-        }
-    </script>
-
-
-    <script>
-        // GETTING LOCATION
-        let locationUploaded = false;
-        let locationSpan = document.getElementById("location");
-
-        // Declare lat/lon in outer scope so they can be shared
-        let lat = null;
-        let lon = null;
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    function (position) {
-                        latitude = position.coords.latitude;
-                        longitude = position.coords.longitude;
-                        locationUploaded = true;
-                        validateForm();
-                        locationSpan.innerText = `📍 Location uploaded successfully!`;
-                    },
-                    function (error) {
-                        alert("❌ Location access denied or failed: " + error.message);
-                        locationSpan.innerText = ""; // clear message on error
-                        locationUploaded = false;
-                        latitude = null;
-                        longitude = null;
-                        validateForm();
-                    }
-                );
-            } else {
-                alert("Geolocation is not supported by your browser.");
-            }
-        }
-
-        // VALIDATE FORM
-        function validateForm() {
-            const address = document.getElementById("address").value.trim();
-            const weight = document.getElementById("weight").value.trim();
-            const typeE = document.getElementById("typeE").value;
-            const name = document.getElementById("e-name").value.trim();
-            const isChecked = document.getElementById("location_access").checked;
-            const reportBtn = document.getElementById("reportBtn");
-
-            // Name is only required if type is "Other"
-            const eNameIsValid = (typeE === "Other") || (name !== "");
-
-            if (address !== "" && weight !== "" && typeE !== "--1" && eNameIsValid && isChecked && locationUploaded) {
-                reportBtn.disabled = false;
-                console.log(address, weight, typeE, name, latitude, longitude);
-            } else {
-                reportBtn.disabled = true;
-            }
-        }
-        document.getElementById("address").addEventListener("input", validateForm);
-        document.getElementById("weight").addEventListener("input", validateForm);
-        document.getElementById("typeE").addEventListener("change", validateForm);
-        document.getElementById("location_access").addEventListener("change", validateForm);
-
-    </script>
-
-
     <footer>
         <div class="footer-label">Let's Connect</div>
         <div class="social-icons">
@@ -263,106 +130,12 @@ if (isset($_GET['email'])) {
 
      <!--Scroll to bottom  -->
     <button id="scrollBottom"><i class="fa-solid fa-down-long"></i></button>
-    <script>
-        const btn = document.getElementById("scrollBottom");
-        function checkScroll() {
-            const scrollTop = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const docHeight = document.documentElement.scrollHeight;
-
-            if (scrollTop > 40 && scrollTop + windowHeight < docHeight - 10) {
-                btn.style.display = "block"; // Show button if not at the bottom
-            } else {
-                btn.style.display = "none"; // Hide button when at the bottom
-            }
-        }
-
-        window.addEventListener("scroll", checkScroll);
-
-        btn.addEventListener("click", () => {
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: "smooth"
-            });
-
-            btn.style.display = "none"; // Hide button after clicking
-        });
-    </script>
-
-
-    <!-- Menu -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-            const hamburger = document.querySelector('.hamburger');
-            const navbarLinks = document.querySelector('.navbar-links');
-            const profileContainer = document.querySelector(".profile-container");
-            const dropdown = document.getElementById("profile-dropdown");
-            const arrow = document.getElementById("arrow");
-
-            // Toggle Navbar
-            hamburger.addEventListener('click', (event) => {
-                event.stopPropagation(); // Prevents closing the menu when clicking the button
-                navbarLinks.classList.toggle('active');
-
-                // Toggle hamburger icon
-                hamburger.textContent = navbarLinks.classList.contains('active') ? '✕' : '☰';
-            });
-
-            // Close Navbar when clicking outside
-            document.addEventListener('click', (event) => {
-                if (!navbarLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                    navbarLinks.classList.remove('active');
-                    hamburger.textContent = '☰';
-                }
-            });
-
-            // Toggle Profile Dropdown
-            profileContainer.addEventListener("click", function (event) {
-                event.stopPropagation();
-                dropdown.classList.toggle("show-dropdown");
-                arrow.classList.toggle("rotate");
-            });
-
-            // Close Profile Dropdown when clicking outside
-            document.addEventListener("click", function (event) {
-                if (!profileContainer.contains(event.target)) {
-                    dropdown.classList.remove("show-dropdown");
-                    arrow.classList.remove("rotate");
-                }
-            });
-        });
-    </script>
-
-<script>
-    function requestLocationPermission(retryCount = 0) {
-        if (retryCount >= 5) {
-        console.log("⛔ Max retries reached. User denied location.");
-        return;
-        }
-
-        if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-            console.log("✅ Location access granted");
-            console.log("Latitude:", position.coords.latitude);
-            console.log("Longitude:", position.coords.longitude);
-            },
-            (error) => {
-            console.warn("⚠ Location access denied or failed:", error.message);
-
-            // Retry after delay (if user hasn't permanently blocked)
-            setTimeout(() => {
-                requestLocationPermission(retryCount + 1);
-            }, 3000); // retry every 3 seconds
-            }
-        );
-        } else {
-        alert("Geolocation is not supported by this browser.");
-        }
-    }
-
-    // Start the permission loop
-    requestLocationPermission();
-    </script>
+    
+    <script src="../js/reportEwaste.js"></script>
+    <script src="../js/location.js"></script>
+    <script src="../js/scroll.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/validateForm.js"></script>
+    <script src="../js/toggleENameField.js"></script>
 </body>
 </html>

@@ -36,8 +36,8 @@ $nor = mysqli_num_rows($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECOlect - Reported E-Waste</title>
     <script src="https://kit.fontawesome.com/e05d24f6c7.js" crossorigin="anonymous"></script>
-    <link rel='shortcut icon' href='../assets/favicon_io/favicon.ico' type='image/x-icon'>
     <link rel="shortcut icon" href="assets/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon_io/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/reported.css">
 </head>
 <body>

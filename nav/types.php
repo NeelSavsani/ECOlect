@@ -15,7 +15,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="/new/ECOlect/assets/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/favicon_io/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/e05d24f6c7.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Types Of E-Waste - ECOlect</title>

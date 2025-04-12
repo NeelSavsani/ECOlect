@@ -5,3 +5,9 @@
     padding: 20px;
     text-align: left;
 }
+
+iframe{
+    width: 90%;
+    height: 90%;
+    border: 1px solid black;
+}

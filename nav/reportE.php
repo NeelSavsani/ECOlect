@@ -2,7 +2,7 @@
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     include '../dbconnect.php';
 
-    $ewaste = "e-waste";
+    $ewaste = "ewaste";
 
     $email = $_POST['email'];
     $address = $_POST['address'];

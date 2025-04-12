@@ -5,7 +5,7 @@ $username = "root";
 $password = "";
 $database = "ecolect";
 $table ="login_credentials";
-$ewaste = "e-waste";
+$ewaste = "ewaste";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
 

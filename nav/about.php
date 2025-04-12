@@ -42,7 +42,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 <i class="fas fa-chevron-down dropdown-arrow" id="arrow"></i>
                 <ul class="dropdown-menu" id="profile-dropdown">
                     <li><a href="../profile.php?email=<?php echo urlencode($user_email); ?>">My Profile</a></li>
-                    <li><a href="#">Reported E-Waste</a></li>
+                    <li><a href="../reported.php?email=<?php echo urlencode($user_email); ?>">Reported E-Waste</a></li>
                     <li><a href="../login.php">Logout</a></li>
                 </ul>
             </div>

@@ -27,7 +27,7 @@ else
     {
         echo "Creation of table was failed!<br>";
     }
-    $sql = "CREATE TABLE IF NOT EXISTS `$database`.`$ewaste` (`Sr.No` INT(10) NOT NULL AUTO_INCREMENT , `Fullname` VARCHAR(30) NOT NULL , `Type` VARCHAR(30) NOT NULL , `EName` VARCHAR(30) NOT NULL , `Quantity` INT(10) NOT NULL , `Latitude` FLOAT(10) NOT NULL , `Longitude` FLOAT(10) NOT NULL , `Address` LONGTEXT NOT NULL , PRIMARY KEY (`Sr.No`)) ENGINE = InnoDB;";
+    $sql = "CREATE TABLE IF NOT EXISTS `$database`.`$ewaste` (`Sr.No` INT(10) NOT NULL AUTO_INCREMENT , `Fullname` VARCHAR(30) NOT NULL , `Type` VARCHAR(100) NOT NULL , `EName` VARCHAR(30) NOT NULL , `Quantity` INT(10) NOT NULL , `Latitude` FLOAT(15) NOT NULL , `Longitude` FLOAT(15) NOT NULL , `Address` LONGTEXT NOT NULL , `Datetime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`Sr.No`)) ENGINE = InnoDB;";
     $result = mysqli_query($conn, $sql);
     if(!$result)
     {

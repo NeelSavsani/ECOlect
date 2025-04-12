@@ -2,6 +2,8 @@
 include '../dbconnect.php';
 $admin_name = isset($_GET['admin']) ? htmlspecialchars($_GET['admin']) : "Admin";
 
+
+
 $sql = "SELECT * FROM `$ewaste`";
 $result = mysqli_query($conn, $sql);
 $nor = mysqli_num_rows($result);
@@ -21,10 +23,10 @@ $nor = mysqli_num_rows($result);
     <button class="logout-button" onclick="window.location.href = 'admin_login.php';"> LogOut <i class="fa-solid fa-power-off"></i></button>
     <div id="sidebar" class="sidebar">
         <ul>
-            <li><a href="admin.php"><i class="fa-solid fa-users-viewfinder"></i>Users</a></li>
-            <li class="active"><a href="#"><i class="fa-solid fa-trash"></i>Reported E-Waste</a></li>
-            <li><a href="#"><i class="fa-solid fa-id-card"></i>Account</a></li>
-            <li><a href="#"><i class="fa-solid fa-gear"></i>Settings</a></li>
+            <li><a href="admin.php"><i class="fa-solid fa-users-viewfinder"></i>&nbsp;&nbsp;Users</a></li>
+            <li class="active"><a href="#"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp;Reported E-Waste</a></li>
+            <li><a href="#"><i class="fa-solid fa-id-card"></i>&nbsp;&nbsp;Account</a></li>
+            <li><a href="#"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;Settings</a></li>
         </ul>
     </div>
     <div class="hamburger" onclick="toggleSidebar()">
@@ -45,6 +47,7 @@ $nor = mysqli_num_rows($result);
                         <th>Latitude</th>
                         <th>Longitude</th>
                         <th>Address</th>
+                        <th>Reported DateTime</th>
                         <th>Action</th>
                     </tr>
                     <?php while($row = mysqli_fetch_assoc($result)): ?>
@@ -57,9 +60,10 @@ $nor = mysqli_num_rows($result);
                             <td><?php echo $row['Latitude']; ?></td>
                             <td><?php echo $row['Longitude']; ?></td>
                             <td><?php echo $row['Address']; ?></td>
+                            <td><?php echo $row['Datetime']; ?></td>
                             <td>
                             <div class='action-buttons'>
-                                    <button class='btn-success' onclick="openModal('<?php echo $row['Sr.No']; ?>', '<?php echo $row['Fullname']; ?>', '<?php echo $row['Type']; ?>', '<?php echo $row['EName']; ?>', '<?php echo $row['Quantity']; ?>', '<?php echo $row['Latitude']; ?>', '<?php echo $row['Longitude']; ?>', '<?php echo $row['Address']; ?>')"><i class="fa-solid fa-pen"></i></button>
+                                    <button class='btn-success' onclick="openModal('<?php echo $row['Sr.No']; ?>', '<?php echo $row['Fullname']; ?>', '<?php echo $row['Type']; ?>', '<?php echo $row['EName']; ?>', '<?php echo $row['Quantity']; ?>', '<?php echo $row['Latitude']; ?>', '<?php echo $row['Longitude']; ?>', '<?php echo $row['Address']; ?>', '<?php echo $row['Datetime']; ?>')"><i class="fa-solid fa-pen"></i></button>
                                     <button class='btn-danger'><i class="fa-solid fa-trash"></i></button>
                                 </div>
                             </td>
@@ -102,6 +106,7 @@ $nor = mysqli_num_rows($result);
                 <input type="number" name="latitude" id="edit-latitude" placeholder="Latitude" required>
                 <input type="number" name="longitude" id="edit-longitude" placeholder="Longitude" required>
                 <textarea name="address" id="edit-address" placeholder="Address" rows="4" required></textarea>
+                <input type="text" name="datetime" id="edit-datetime" placeholder="Reported Datetime" required>
                 <div class="modal-buttons">
                     <button type="submit" name="update" class="submit-btn"><i class="fa-solid fa-check"></i></button>
                     <button type="button" name="cancel" id="cancel-btn" class="cancel-update-btn"><i class="fa-solid fa-x"></i></button>
@@ -112,6 +117,6 @@ $nor = mysqli_num_rows($result);
     </div>
     
     <script src="admin_js/toggleSidebar.js"></script>
-    <script src="admin_js/openModal.js"></script>
+    <script src="admin_js/openModalR.js"></script>
 </body>
 </html>

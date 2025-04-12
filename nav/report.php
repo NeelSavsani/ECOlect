@@ -100,6 +100,8 @@ if (isset($_GET['email'])) {
             <tr>
                 <td><h3 class="main">Location</h3></td>
                 <td><button type="button" onclick="getLocation()">Upload your location</button> <span id="location"></span></td>
+                <!-- <input type="hidden" id="latitude" name="latitude">
+                <input type="hidden" id="longitude" name="longitude"> -->
             </tr>
             <tr>
                 <td></td>
@@ -130,12 +132,134 @@ if (isset($_GET['email'])) {
 
      <!--Scroll to bottom  -->
     <button id="scrollBottom"><i class="fa-solid fa-down-long"></i></button>
-    
-    <script src="../js/reportEwaste.js"></script>
-    <script src="../js/location.js"></script>
+    <script>
+        function reportEwaste() {
+            const address = document.getElementById("address").value.trim();
+            const typeE = document.getElementById("typeE").value;
+            const eName = document.getElementById("e-name").value.trim();
+            const weight = document.getElementById("weight").value.trim();
+            const location = locationSpan.innerText; // You may want to pass actual lat/lon instead
+
+            const email = "<?php echo $user_email; ?>";
+
+            const formData = new FormData();
+            formData.append("address", address);
+            formData.append("typeE", typeE);
+            formData.append("eName", eName);
+            formData.append("weight", weight);
+            formData.append("latitude", latitude);
+            formData.append("longitude", longitude);
+            formData.append("email", email);
+
+            // AJAX call
+            fetch("reportE.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert("✅ E-waste reported successfully!");
+                // Optionally clear form fields or show a confirmation message
+                document.getElementById("reportBtn").disabled = true;
+                document.getElementById("address").value = "";
+                document.getElementById("typeE").value = "--1";
+                document.getElementById("e-name").value = "";
+                document.getElementById("weight").value = "";
+                document.getElementById("location_access").checked = false;
+                locationSpan.innerText = "";
+                locationUploaded = false;
+                validateForm();
+            })
+            .catch(error => {
+                alert("❌ Failed to report e-waste. Please try again.");
+                console.error("Error:", error);
+            });
+        }
+
+
+        // GETTING LOCATION
+        let locationUploaded = false;
+        let locationSpan = document.getElementById("location");
+
+        // Declare lat/lon in outer scope so they can be shared
+        let lat = null;
+        let lon = null;
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        latitude = position.coords.latitude;
+                        longitude = position.coords.longitude;
+                        locationUploaded = true;
+                        validateForm();
+                        locationSpan.innerText = `📍 Location uploaded successfully!`;
+                        console.log(latitude, longitude);
+                    },
+                    function (error) {
+                        alert("❌ Location access denied or failed: " + error.message);
+                        locationSpan.innerText = ""; // clear message on error
+                        locationUploaded = false;
+                        latitude = null;
+                        longitude = null;
+                        validateForm();
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by your browser.");
+            }
+        }
+
+        function validateForm() {
+            const address = document.getElementById("address").value.trim();
+            const weight = document.getElementById("weight").value.trim();
+            const typeE = document.getElementById("typeE").value;
+            const name = document.getElementById("e-name").value.trim();
+            const isChecked = document.getElementById("location_access").checked;
+            const reportBtn = document.getElementById("reportBtn");
+
+            // Name is only required if type is "Other"
+            const eNameIsValid = (typeE === "Other") || (name !== "");
+
+            if (address !== "" && weight !== "" && typeE !== "--1" && eNameIsValid && isChecked && locationUploaded) {
+                reportBtn.disabled = false;
+                console.log(address, weight, typeE, name, latitude, longitude);
+            } else {
+                reportBtn.disabled = true;
+            }
+        }
+        document.getElementById("address").addEventListener("input", validateForm);
+        document.getElementById("weight").addEventListener("input", validateForm);
+        document.getElementById("typeE").addEventListener("change", validateForm);
+        document.getElementById("location_access").addEventListener("change", validateForm);
+
+        const typeDropdown = document.getElementById("typeE");
+        const eNameInput = document.getElementById("e-name");
+        const eNameWrapper = document.getElementById("e-name-wrapper");
+
+        function toggleENameField() {
+            const selectedValue = typeDropdown.value;
+
+            if (selectedValue === "Other") {
+                eNameWrapper.style.display = "none";     // Hide the wrapper
+                eNameInput.disabled = true;
+                eNameInput.value = "other";
+            } else {
+                eNameWrapper.style.display = "block";    // Show the wrapper
+                eNameInput.disabled = false;
+            }
+
+            if (typeof validateForm === "function") {
+                validateForm(); // Optional validation call
+            }
+        }
+
+        // Initial setup
+        toggleENameField();
+        typeDropdown.addEventListener("change", toggleENameField);
+    </script>
+
+    <!-- <script src="../js/reportEwaste.js"></script> -->
     <script src="../js/scroll.js"></script>
     <script src="../js/menu.js"></script>
-    <script src="../js/validateForm.js"></script>
-    <script src="../js/toggleENameField.js"></script>
 </body>
 </html>

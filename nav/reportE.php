@@ -25,8 +25,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     //Insert into e-waste table
     $sql = "INSERT INTO `$ewaste` 
-    (`Fullname`, `Type`, `EName`, `Quantity`, `Latitude`, `Longitude`, `Address`) VALUES
-    ('$fullname', '$type', '$name', '$weight', '$latitude', '$longitude', '$address')";
+    (`Fullname`, `Type`, `EName`, `Quantity`, `Latitude`, `Longitude`, `Address`, `Datetime`) VALUES
+    ('$fullname', '$type', '$name', '$weight', '$latitude', '$longitude', '$address', current_timestamp())";
     $result = mysqli_query($conn, $sql);
     if($result){
         echo "E-Waste registered in database";

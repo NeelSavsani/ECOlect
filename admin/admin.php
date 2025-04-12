@@ -35,9 +35,9 @@ $nor = mysqli_num_rows($result);
     </button>
     <div id="sidebar" class="sidebar">
         <ul>
-            <li class="active"><a href="#"><i class="fa-solid fa-users-viewfinder"></i></i>&nbsp; Users</a></li>
-            <li><a href="admin_report.php"><i class="fa-solid fa-trash"></i>&nbsp; Reported E-Waste</a></li>
-            <li><a href="#"><i class="fa-solid fa-id-card"></i>&nbsp;Account</a></li>
+            <li class="active"><a href="#"><i class="fa-solid fa-users-viewfinder"></i></i>&nbsp;&nbsp; Users</a></li>
+            <li><a href="admin_report.php"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp; Reported E-Waste</a></li>
+            <li><a href="#"><i class="fa-solid fa-id-card"></i>&nbsp;&nbsp;Account</a></li>
             <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
         </ul>
     </div>
@@ -73,7 +73,14 @@ $nor = mysqli_num_rows($result);
                             <td><?php echo $row['DateTime']; ?></td>
                             <td>
                                 <div class='action-buttons'>
-                                    <button class='btn-success' onclick="openModal('<?php echo $row['Sr.NO']; ?>', '<?php echo $row['Fullname']; ?>', '<?php echo $row['Email']; ?>', '<?php echo $row['Phone']; ?>', '<?php echo $row['Password']; ?>', '<?php echo $row['Address']; ?>', '<?php echo $row['Pincode']; ?>')"><i class="fa-solid fa-pen"></i></button>
+                                    <button class='btn-success' onclick="openModal(
+                                    '<?php echo addslashes($row['Sr.NO']); ?>',
+                                    '<?php echo addslashes($row['Fullname']); ?>',
+                                    '<?php echo addslashes($row['Email']); ?>',
+                                    '<?php echo addslashes($row['Phone']); ?>',
+                                    '<?php echo addslashes($row['Password']); ?>',
+                                    '<?php echo addslashes($row['Address']); ?>',
+                                    '<?php echo addslashes($row['Pincode']); ?>')"><i class="fa-solid fa-pen"></i></button>
                                     <button class='btn-danger'><i class="fa-solid fa-trash"></i></button>
                                 </div>
                             </td>
@@ -100,7 +107,7 @@ $nor = mysqli_num_rows($result);
                 <input type="text" name="pincode" id="edit-pincode" placeholder="Pincode" required>
                 <div class="modal-buttons">
                     <button type="submit" name="update" class="submit-btn"><i class="fa-solid fa-check"></i></button>
-                    <button type="button" name="cancel" id="cancel-btn" class="cancel-update-btn"><i class="fa-solid fa-x"></i></button>
+                    <button type="button" name="cancel" onclick="closeModal()" id="cancel-btn" class="cancel-update-btn"><i class="fa-solid fa-x"></i></button>
                 </div>
 
             </form>
@@ -109,6 +116,6 @@ $nor = mysqli_num_rows($result);
 
     <script src="admin_js/toggleSidebar.js"></script>
     <script src="admin_js/togglePassword.js"></script>
-    <script src="admin_js/openModal.js"></script>
+    <script src="admin_js/openModalU.js"></script>
 </body>
 </html>

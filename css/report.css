@@ -1,9 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f9f9f9;
+  color: #000;
+}
+
 .content {
-    margin-top: 100px; /* Adjust based on navbar height */
-    padding: 20px;
-    text-align: left;
+  margin-top: 100px;
+  padding: 20px;
+  text-align: left;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1.main{
@@ -19,31 +34,195 @@ p.main{
     margin: 0;
 }
 
-h3.main{
+.form-row{
+    margin-top: 20px;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 18px !important;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #333;
+  line-height: 1.4;
+  vertical-align: top;
+}
+.checkbox-label {
+  display: flex;
+  align-items: center; 
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+
+.checkbox-label label {
+  font-weight: 400; /* normal text */
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: calc(100% - 30px);
+}
+
+
+small {
+  display: block;
+  margin-bottom: 25px;
+  padding: 0;
+  font-size: 15px;
+  color: #666;
+}
+
+h3.main {
+  font-size: 22px;
+  text-align: right;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  transform: none;
+}
+
+label{
+  display: flex;
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  text-align: right;  
+}
+
+input[type="number"],
+select{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: border 0.3s ease;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: border 0.3s ease;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.form-row input[type="button"] {
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+#reportBtn {
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+#reportBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.full-width-note {
+  max-width: 800px;
+  margin: 25px auto 10px auto;
+  padding: 20px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.full-width-note b {
+  display: block;
+  margin-top: 10px;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 768px) {
+  h3.main {
+    text-align: left;
     font-size: 20px;
-    
-    transform: translateY(25%);
-    text-align: right;
-}
-    
-table{
-    margin: 2% 0;
-    
-    width: 50%;
-}
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 5px;
+  }
 
-textarea{
-    resize: none;
-    font-family: 'Poppins';
-    font-size: 19px;
-    width: 90%;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    
-}
+  table,
+  .full-width-note {
+    width: 95%;
+  }
 
-td{
-    padding: 2% 0% 2% 0.5%;
-    width: auto;
-    
+  tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  td {
+    width: 100%;
+    padding: 6px 0;
+    text-align: left;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  #reportBtn {
+    width: 100%;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .full-width-note {
+    font-size: 15px;
+  }
+  
 }

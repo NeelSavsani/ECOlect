@@ -56,65 +56,67 @@ if (isset($_GET['email'])) {
         <p class="main">
         ECOlect is a user-friendly platform that simplifies e-waste reporting and disposal. Users can easily submit details of discarded electronics like phones, laptops, and batteries, specifying type, quantity, and location. The platform then connects them with authorized recyclers, ensuring proper disposal to prevent pollution and promote sustainability. By facilitating responsible e-waste management, ECOlect helps conserve resources and contributes to a cleaner, greener future.
         </p>
-        <form id="ewasteForm" onsubmit="event.preventDefault(); reportEwaste();">
-        <table>
-            <tr>
-                <td><h3 class="main">Address:</h3></td>
-                <td><textarea name="address" id="address" rows="5" cols="70"></textarea></td>
-            </tr>
-            <tr>
-                <td><h3 class="main">Type of E-Waste:</h3></td>
-                <td>
-                    <select name="typeE" id="typeE">
-                        <option value="--1">--Select--</option>
-                        <option value="Large Household Appliances">Large Household Appliances</option>
-                        <option value="Small Household Appliances">Small Household Appliances</option>
-                        <option value="Consumer Electronics">Consumer Electronics</option>
-                        <option value="IT and Telecommunications Equipment">IT and Telecommunications Equipment</option>
-                        <option value="Lighting Equipment">Lighting Equipment</option>
-                        <option value="Electrical and Electronic Tools">Electrical and Electronic Tools</option>
-                        <option value="Medical Devices">Medical Devices</option>
-                        <option value="Automatic Dispensers">Automatic Dispensers</option>
-                        <option value="Toys, Leisure, and Sports Equipment">Toys, Leisure, and Sports Equipment</option>
-                        <option value="Batteries and Accumulators">Batteries and Accumulators</option>
-                        <option value="Cables and Wires">Cables and Wires</option>
-                        <option value="Industrial Electronics">Industrial Electronics</option>
-                        <option value="Security and Surveillance Equipment">Security and Surveillance Equipment</option>
-                        <option value="Wearable Technology">Wearable Technology</option>
-                        <option value="Scientific and Laboratory Equipment">Scientific and Laboratory Equipment</option>
-                        <option value="Energy Generation and Storage Devices">Energy Generation and Storage Devices</option>
-                        <option value="Gaming and Virtual Reality Devices">Gaming and Virtual Reality Devices</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <small>*only select <i><b>Other</b></i> if there are more than one type of e-waste or type of e-waste is not listed above</small>
-                </td>
-            </tr>
-            <tr id="e-name-wrapper">
-                <td><h3 class="main">Name of E-Waste</h3></td>
-                <td><input type="text" name="e-name" id="e-name"></td>
-            </tr>
-            <tr>
-                <td><h3 class="main">Quantity of E-Waste</h3></td>
-                <td><input type="number" name="weight" id="weight"> <small>(in number or kilograms)</small></td>
-            </tr>
-            <tr>
-                <td><h3 class="main">Location</h3></td>
-                <td><button type="button" onclick="getLocation()">Upload your location</button> <span id="location"></span></td>
-                <!-- <input type="hidden" id="latitude" name="latitude">
-                <input type="hidden" id="longitude" name="longitude"> -->
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    Report e-waste only when e-waste is with you, or while reporting e-waste, e-waste is with you.
-                    <br><b><input type="checkbox" name="location_access" id="location_access"> I assure that e-waste is with me and allowing to access my location</b>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" id="reportBtn" value="Report E-Waste" disabled></td>
-            </tr>
-        </table>
+        <form id="ewasteForm">
+        <div class="form-row">
+            <label for="address">Address:</label>
+            <textarea name="address" id="address" rows="5" cols="70"></textarea>
+        </div>
+        <div class="form-row">
+            <label for="typeE">Type of E-Waste:</label>
+            <div>
+            <select name="typeE" id="typeE">
+                <option value="--1">--Select--</option>
+                <option value="Large Household Appliances">Large Household Appliances</option>
+                <option value="Small Household Appliances">Small Household Appliances</option>
+                <option value="Consumer Electronics">Consumer Electronics</option>
+                <option value="IT and Telecommunications Equipment">IT and Telecommunications Equipment</option>
+                <option value="Lighting Equipment">Lighting Equipment</option>
+                <option value="Electrical and Electronic Tools">Electrical and Electronic Tools</option>
+                <option value="Medical Devices">Medical Devices</option>
+                <option value="Automatic Dispensers">Automatic Dispensers</option>
+                <option value="Toys, Leisure, and Sports Equipment">Toys, Leisure, and Sports Equipment</option>
+                <option value="Batteries and Accumulators">Batteries and Accumulators</option>
+                <option value="Cables and Wires">Cables and Wires</option>
+                <option value="Industrial Electronics">Industrial Electronics</option>
+                <option value="Security and Surveillance Equipment">Security and Surveillance Equipment</option>
+                <option value="Wearable Technology">Wearable Technology</option>
+                <option value="Scientific and Laboratory Equipment">Scientific and Laboratory Equipment</option>
+                <option value="Energy Generation and Storage Devices">Energy Generation and Storage Devices</option>
+                <option value="Gaming and Virtual Reality Devices">Gaming and Virtual Reality Devices</option>
+                <option value="Other">Other</option>
+            </select>
+            <small>*only select <b><i>Other</i></b> if there are more than one type of e-waste or type of e-waste is not listed above</small>
+            </div>
+        </div>
+        <div class="form-row" id="e-name-wrapper">
+            <label for="e-name">Name of E-Waste:</label>
+            <input type="text" name="e-name" id="e-name">
+        </div>
+        <div class="form-row">
+            <label for="weight">Quantity of E-Waste:</label>
+            <div>
+            <input type="number" name="weight" id="weight">
+            <small>(in number in kilograms)</small>
+            </div>
+        </div>
+        <div class="form-row">
+            <label for="location">Location:</label>
+            <div>
+            <input type="button" onclick="getLocation()" value="Upload your location">
+            <span id="location"></span>
+            </div>
+        </div>
+        <div class="info-box">
+            <p>
+            Report e-waste only when e-waste is with you, or while reporting e-waste, e-waste is with you. Because we are going to access your location for better reliability and exact location for e-waste for database.
+            </p>
+            <div for="location_access" class="checkbox-label">
+                <input type="checkbox" name="location_access" id="location_access">I assure that e-waste is with me and allowing to access my location
+            </div>
+        </div>
+        <div class="form-row">
+            <button id="reportBtn" onclick="reportEwaste()" disabled>Report E-Waste</button>
+        </div>
     </form>
     </div>
     <footer>
@@ -169,6 +171,7 @@ if (isset($_GET['email'])) {
                 locationSpan.innerText = "";
                 locationUploaded = false;
                 validateForm();
+                window.location.href = "../reported.php";
             })
             .catch(error => {
                 alert("❌ Failed to report e-waste. Please try again.");

@@ -289,6 +289,10 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 15px;
     }
 
+    .username-div input, .phone-div input, .email-div input{
+        margin-left: -5%;
+    }
+
     .eye-icon-pass, .eye-icon-confirm {
         cursor: pointer;
         font-size: 20px;
@@ -298,6 +302,11 @@ input[type=number]::-webkit-outer-spin-button {
         top: 50%;
         transform: translateX(-50%); /* Perfect vertical centering */
         font-size: 20px;
+    }
+    .user-icon i, .phone-icon i, .email-icon i {
+        font-size: 20px;
+        margin-left: -50%;
+        color: #000;
     }
 
     .register-button a button {

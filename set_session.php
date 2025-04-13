@@ -1,10 +1,22 @@
 <?php
 session_start();
+include 'dbconnect.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"])) {
-    $_SESSION["user_email"] = $_POST["email"];
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $_SESSION['user_email'] = $_POST['email'];
+    $_SESSION['user_password'] = $_POST['password']; // store password if really needed (not recommended)
+    $user_email = $_SESSION['user_email'];
+    $user_password = $_SESSION['user_password'];
+    $sql = "UPDATE `$table` SET Password = '$user_password' WHERE Email = '$user_email'";
+    $result = mysqli_query($conn, $sql);
+    if($result)
+    {
+        echo "Updated";
+    }else{
+        echo "Not updated";
+    }
     echo "Session set successfully";
 } else {
-    echo "Failed to set session";
+    echo "Missing email or password";
 }
 ?>

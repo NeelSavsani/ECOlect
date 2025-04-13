@@ -95,7 +95,8 @@
                     return fetch("set_session.php", {
                         method: "POST",
                         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                        body: "email=" + encodeURIComponent(user.email)
+                        body: "email=" + encodeURIComponent(user.email) + 
+                            "&password=" + encodeURIComponent(password)
                     });
                 })
                 .then(response => response.text())

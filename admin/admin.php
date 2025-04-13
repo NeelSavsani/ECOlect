@@ -28,8 +28,10 @@ $nor = mysqli_num_rows($result);
     <link rel='shortcut icon' href='../assets/favicon_io/favicon.ico' type='image/x-icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel='stylesheet' href='admin_css/admin.css'>
+    <link rel="stylesheet" href="admin_css/pagination.css">
 </head>
 <body>
+    <input type="hidden" id="nrows" value="<?php echo $nor; ?>">
     <button class="logout-button" onclick="window.location.href = 'admin_login.php';">
         LogOut <i class="fa-solid fa-power-off"></i>
     </button>
@@ -49,7 +51,7 @@ $nor = mysqli_num_rows($result);
         <p><strong><?php echo $nor; ?></strong> users have registered in our portal!</p>
         <?php if ($nor > 0): ?>
             <div class='table-wrapper'>
-                <table>
+                <table id="data-table">
                     <tr>
                         <th>Sr.No</th>
                         <th>Fullname</th>
@@ -91,6 +93,15 @@ $nor = mysqli_num_rows($result);
         <?php endif; ?>
     </div>
 
+    <div class="table-pagination">
+        <div class="pagination-info" id="pagination-info">Loading...</div>
+        <div class="pagination-controls">
+            <button class="pagination-button" id="prev-button">Previous</button>
+            <div id="page-numbers"></div>
+            <button class="pagination-button" id="next-button">Next</button>
+        </div>
+    </div>
+
     <div id="editModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -109,11 +120,12 @@ $nor = mysqli_num_rows($result);
                     <button type="submit" name="update" class="submit-btn"><i class="fa-solid fa-check"></i></button>
                     <button type="button" name="cancel" onclick="closeModal()" id="cancel-btn" class="cancel-update-btn"><i class="fa-solid fa-x"></i></button>
                 </div>
-
             </form>
         </div>
     </div>
 
+    
+    <script src="admin_js/pagination.js"></script>
     <script src="admin_js/toggleSidebar.js"></script>
     <script src="admin_js/togglePassword.js"></script>
     <script src="admin_js/openModalU.js"></script>

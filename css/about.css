@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+
 .content {
     margin-top: 100px; /* Adjust based on navbar height */
     padding: 20px;
@@ -37,6 +38,7 @@ iframe{
     width: 900px;
     font-family: "Ubuntu";
     margin-bottom: 10px;
+    margin-right: 20px;
 }
 
 .team-card .image-section{
@@ -62,11 +64,18 @@ iframe{
 .team-card .info-section{
     width: 70%;
     border-left: 1px solid #999;
+    /* padding: 0 20px 0 0;  */
+}
+
+.info-section {
+    width: 70%;
+    border-left: 1px solid #999;
 }
 
 .info-table{
     width: 100%;
     border-collapse: collapse;
+    margin-right: auto;
 }
 
 .info-table td, .info-table th{
@@ -85,3 +94,94 @@ iframe{
     background-color: #f2f2f2;
 }
 
+.info-table td a{
+    text-decoration: none;
+}
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    h1.main {
+        font-size: 24px;
+        margin-top: 60px;
+    }
+
+    p.main {
+        font-size: 18px;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .team-card {
+        flex-direction: column;
+        max-width: 100%;
+        width: 80%;
+        margin: 20px auto;
+
+    }
+
+    .team-card .image-section{
+        width: 80%;
+        /* border-right: 1px solid #999; */
+        flex: 0 0 260px;
+        display: flex;
+        align-items: center; /* vertical center */
+        justify-content: center; /* horizontal center */
+        padding: 10px;
+        background-color: #fff;
+    }
+
+    .team-card .info-section {
+        width: 100%;
+        border-left: none;
+    }
+
+    .team-card .info-section {
+        border-top: 1px solid #999;
+    }
+
+    .team-card .image-section img {
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+        transform: translateX(20%);
+        max-height: 354px;
+        object-fit: fill;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+        transform: translateX(20%);
+    }
+}
+
+@media (max-width: 480px) {
+    h1.main {
+        font-size: 20px;
+    }
+
+    .team-card .image-section img {
+        width: 100%;          /* Make image responsive within container */
+        max-width: 175px;     /* Increase from 260px to 300px (or more if needed) */
+        height: auto;         /* Maintain aspect ratio */
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+        transform: translateX(10%);
+    }
+    
+    p.main {
+        font-size: 16px;
+    }
+
+    .info-table th,
+    .info-table td {
+        padding: 10px 8px;
+        font-size: 14px;
+    };
+
+}

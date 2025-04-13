@@ -7,7 +7,6 @@ if (!isset($_SESSION['user_email'])) {
 
 $user_email = isset($_GET['email']) ? $_GET['email'] : $_SESSION['user_email'];
 
-// Debugging: Print session email in browser
 echo "<script>console.log('Session Email in home.php: " . $user_email . "');</script>";
 ?>
 
@@ -61,7 +60,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
     <h1 class="main"><i class="fa-solid fa-users"></i> Our Team</h1>
     <div class="team-card">
         <div class="image-section">
-            <img src="../assets/Members/Neel.jpg" onclick='window.open("../assets/Members/Neel.jpg", "_blank");' alt="Neel Savsani">
+            <img src="../assets/Members/NeelG.jpg" onclick='window.open("../assets/Members/NeelG.jpg", "_blank");' alt="Neel Savsani">
         </div>
         <div class="info-section">
             <table class="info-table">
@@ -181,7 +180,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
     </div>
     <div class="team-card">
         <div class="image-section">
-            <img src="#" alt="Saloni Pabreja">
+            <img src="../assets/Members/SaloniG.jpg" alt="Saloni Pabreja">
         </div>
         <div class="info-section">
             <table class="info-table">
@@ -206,7 +205,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </tr>
                 <tr>
                     <th>GitHub</th>
-                    <td><a href="" target="blank">SaloniPabreja</a> <i class="fa-brands fa-github"></i></td>
+                    <td><a href="https://github.com/Salonip07" target="blank">SaloniP07</a> <i class="fa-brands fa-github"></i></td>
                 </tr>
                 <tr>
                     <th>LinkedIn</th>
@@ -261,7 +260,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
     </div>
     <div class="team-card">
         <div class="image-section">
-            <img src="#" alt="Abhishek Sangani">
+            <img src="../assets/Members/AbhishekG.jpg" alt="Abhishek Sangani">
         </div>
         <div class="info-section">
             <table class="info-table">
@@ -319,7 +318,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
         <ul class="main">
             <li class="main">&#128231; <b>Email:</b> abc@gmail.com</li>
             <li class="main">&#127760; <b>Website:</b> abc.com</li>
-            <li class="main">&#128205; <b>Location:</b> Location</li>
+            <li class="main">&#128205; <b>Location:</b> <a href="https://maps.app.goo.gl/inKH7WusdqjQHpYx7" target="blank">LDRP-ITR</a></li>
         </ul>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.103141662906!2d72.6361558747766!3d23.239333508205455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2b933477ba9f%3A0xe440409e66bea08a!2sLDRP%20Institute%20of%20Technology%20and%20Research!5e0!3m2!1sen!2sin!4v1744475586930!5m2!1sen!2sin" width="600" height="450"></iframe>
     </p>

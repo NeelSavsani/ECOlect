@@ -56,7 +56,7 @@ if (isset($_GET['email'])) {
         <p class="main">
         ECOlect is a user-friendly platform that simplifies e-waste reporting and disposal. Users can easily submit details of discarded electronics like phones, laptops, and batteries, specifying type, quantity, and location. The platform then connects them with authorized recyclers, ensuring proper disposal to prevent pollution and promote sustainability. By facilitating responsible e-waste management, ECOlect helps conserve resources and contributes to a cleaner, greener future.
         </p>
-        <form id="ewasteForm">
+        <form id="ewasteForm" onsubmit="event.preventDefault(); reportEwaste();">
         <div class="form-row">
             <label for="address">Address:</label>
             <textarea name="address" id="address" rows="5" cols="70"></textarea>
@@ -102,7 +102,7 @@ if (isset($_GET['email'])) {
         <div class="form-row">
             <label for="location">Location:</label>
             <div>
-            <input type="button" onclick="getLocation()" value="Upload your location">
+            <button onclick="getLocation()">Upload your location</button>
             <span id="location"></span>
             </div>
         </div>
@@ -171,7 +171,6 @@ if (isset($_GET['email'])) {
                 locationSpan.innerText = "";
                 locationUploaded = false;
                 validateForm();
-                window.location.href = "../reported.php";
             })
             .catch(error => {
                 alert("❌ Failed to report e-waste. Please try again.");

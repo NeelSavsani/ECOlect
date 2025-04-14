@@ -9,7 +9,7 @@ body {
 
 .container {
     max-width: 95%;
-    margin: 40px auto;
+    margin: 50px 15px;
     padding: 20px;
     background: #ffffff;
     border-radius: 12px;
@@ -86,4 +86,3 @@ tr:hover {
 .back-button:hover {
     background-color: #0c3545;
 }
-    

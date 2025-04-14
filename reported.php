@@ -38,9 +38,11 @@ $nor = mysqli_num_rows($result);
     <script src="https://kit.fontawesome.com/e05d24f6c7.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="assets/favicon_io/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="admin/admin_css/pagination.css">
     <link rel="stylesheet" href="css/reported.css">
 </head>
 <body>
+    <input type="hidden" id="nrows" value="<?php echo $nor; ?>">
     <button class="back-button" onclick="history.back()">
         <i class="fa-solid fa-arrow-left"></i> Back
     </button>
@@ -49,7 +51,7 @@ $nor = mysqli_num_rows($result);
         <p>You have Reported <strong><?php echo $nor;?></strong> E-Waste on our platform ECOlect! &#127881;</p>
         <?php if ($nor > 0): ?>
             <div class="table-wrapper">
-                <table>
+                <table id="data-table">
                     <tr>
                         <th>Sr. No.</th>
                         <th>Type Of E-Waste</th>
@@ -58,9 +60,10 @@ $nor = mysqli_num_rows($result);
                         <th>Address</th>
                         <th>Reported DateTime</th>
                     </tr>
+                    <?php $counter = 1; ?>
                     <?php while($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
-                            <td><?php echo $row['Sr.No']; ?></td>
+                            <td><?php echo $counter++; ?></td>
                             <td><?php echo $row['Type']; ?></td>
                             <td><?php echo $row['EName']; ?></td>
                             <td><?php echo $row['Quantity']; ?></td>
@@ -72,5 +75,14 @@ $nor = mysqli_num_rows($result);
             </div>
         <?php endif; ?>
     </div>
+    <div class="table-pagination">
+        <div class="pagination-info" id="pagination-info">Loading...</div>
+        <div class="pagination-controls">
+            <button class="pagination-button" id="prev-button">Previous</button>
+            <div id="page-numbers"></div>
+            <button class="pagination-button" id="next-button">Next</button>
+        </div>
+    </div>
+    <script src="admin/admin_js/pagination.js"></script>
 </body>
 </html>

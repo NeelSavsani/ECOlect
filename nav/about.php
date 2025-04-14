@@ -189,19 +189,19 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </tr>
                 <tr>
                     <th>Position</th>
-                    <td>Team Led & Web Developer</td>
+                    <td>PHP Developer & Database Administrator</td>
                 </tr>
                 <tr>
                     <th>Background</th>
-                    <td>Passionate technologist and environmental advocate with a vision to combine technology and sustainability.</td>
+                    <td>Aiming to integrate innovative technology with eco-friendly solutions.</td>
                 </tr>
                 <tr>
                     <th>Expertise</th>
-                    <td>Web development, Project management, E-waste research</td>
+                    <td>PHP Development, MySQL Database Management & Design</td>
                 </tr>
                 <tr>
                     <th>Skills</th>
-                    <td>HTML, CSS, JavaScript, PHP, MySQL, UI/UX Design</td>
+                    <td>PHP, MySQL, Database</td>
                 </tr>
                 <tr>
                     <th>GitHub</th>

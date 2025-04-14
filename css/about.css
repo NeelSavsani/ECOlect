@@ -7,6 +7,9 @@
     text-align: left;
 }
 
+h1.main:first-of-type{
+    margin-top: 5px;
+}
 
 h1.main{
     font-size: 28px;

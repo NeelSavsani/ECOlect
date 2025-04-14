@@ -102,7 +102,8 @@ if (isset($_GET['email'])) {
         <div class="form-row">
             <label for="location">Location:</label>
             <div>
-            <button onclick="getLocation()">Upload your location</button>
+            <!-- <button onclick="getLocation()">Upload your location</button> -->
+             <input type="button" value="Upload Your Location" onclick="getLocation()">
             <span id="location"></span>
             </div>
         </div>
@@ -115,7 +116,7 @@ if (isset($_GET['email'])) {
             </div>
         </div>
         <div class="form-row">
-            <button id="reportBtn" onclick="reportEwaste()" disabled>Report E-Waste</button>
+            <button id="reportBtn" disabled>Report E-Waste</button>
         </div>
     </form>
     </div>

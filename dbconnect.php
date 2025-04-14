@@ -6,6 +6,7 @@ $password = "";
 $database = "ecolect";
 $table ="login_credentials";
 $ewaste = "ewaste";
+$ftable = "ftable";
 
 $conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -32,6 +33,12 @@ else
     if(!$result)
     {
         echo "Creation of E-waste table was failed!<br>";
+    }
+
+    $sql = "CREATE TABLE IF NOT EXISTS `$database`.`$ftable`(`Sr. No.` INT(10) NOT NULL AUTO_INCREMENT, `Name` VARCHAR(30) NOT NULL, `Email` VARCHAR(30) NOT NULL, `Rating` VARCHAR(20) NOT NULL, `Feedback` LONGTEXT NOT NULL, PRIMARY KEY(`Sr. No.`)) ENGINE = InnoDB;";
+    $result = mysqli_query($conn, $sql);
+    if(!$result){
+        echo "Creation of Feedback table was failed!<br>";
     }
 }
 

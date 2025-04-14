@@ -123,6 +123,7 @@
 
                     sendEmailVerification(user).then(() => {
                         alert("✅ Verification email sent! Check your inbox.");
+                        localStorage.setItem("user_email", user.email);
 
                         // Send data to PHP via AJAX
                         fetch("registerS.php", {
@@ -134,7 +135,7 @@
                         .then(data => console.log("Server Response:", data));
 
                         setTimeout(() => {
-                            window.location.href = "login.php";
+                            window.location.href = "successR.php?name=" +encodeURIComponent(fullname);
                         }, 3000);
                     });
                 })

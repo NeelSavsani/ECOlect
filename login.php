@@ -105,7 +105,7 @@
                     if (data.includes("Session set successfully")) {
                         alert("✅ Login successful! Redirecting...");
                         setTimeout(() => {
-                            window.location.href = "home.php?email=" + encodeURIComponent(localStorage.getItem("user_email"));
+                            window.location.href = "successL.php?email=" + encodeURIComponent(localStorage.getItem("user_email"));
                         }, 2000);
                     } else {
                         alert("❌ Session was not set correctly. Please try again.");

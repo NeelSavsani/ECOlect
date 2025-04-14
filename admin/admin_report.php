@@ -18,8 +18,10 @@ $nor = mysqli_num_rows($result);
     <link rel='shortcut icon' href='../assets/favicon_io/favicon.ico' type='image/x-icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="admin_css/admin.css">
+    <link rel="stylesheet" href="admin_css/pagination.css">
 </head>
 <body>
+    <input type="hidden" id="nrows" value="<?php echo $nor-1; ?>">
     <button class="logout-button" onclick="window.location.href = 'admin_login.php';"> LogOut <i class="fa-solid fa-power-off"></i></button>
     <div id="sidebar" class="sidebar">
         <ul>
@@ -37,7 +39,7 @@ $nor = mysqli_num_rows($result);
         <p><strong><?php echo $nor; ?></strong> users have reported e-waste on our platform!</p>
         <?php if ($nor > 0): ?>
             <div class="table-wrapper">
-                <table>
+                <table id="data-table">
                     <tr>
                         <th>Sr. No.</th>
                         <th>Fullname</th>
@@ -50,9 +52,10 @@ $nor = mysqli_num_rows($result);
                         <th>Reported DateTime</th>
                         <th>Action</th>
                     </tr>
+                    <?php $counter = 1; ?>
                     <?php while($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
-                            <td><?php echo $row['Sr.No']; ?></td>
+                            <td><?php echo $counter++; ?></td>
                             <td><?php echo $row['Fullname']; ?></td>
                             <td><?php echo $row['Type']; ?></td>
                             <td><?php echo $row['EName']; ?></td>
@@ -72,6 +75,15 @@ $nor = mysqli_num_rows($result);
                 </table>
             </div>
         <?php endif; ?>
+    </div>
+
+    <div class="table-pagination">
+        <div class="pagination-info" id="pagination-info">Loading...</div>
+        <div class="pagination-controls">
+            <button class="pagination-button" id="prev-button">Previous</button>
+            <div id="page-numbers"></div>
+            <button class="pagination-button" id="next-button">Next</button>
+        </div>
     </div>
 
     <div id="editModal" class="modal">
@@ -116,6 +128,7 @@ $nor = mysqli_num_rows($result);
         </div>
     </div>
     
+    <script src="admin_js/pagination.js"></script>
     <script src="admin_js/toggleSidebar.js"></script>
     <script src="admin_js/openModalR.js"></script>
 </body>

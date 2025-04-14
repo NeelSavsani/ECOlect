@@ -31,7 +31,7 @@ $nor = mysqli_num_rows($result);
     <link rel="stylesheet" href="admin_css/pagination.css">
 </head>
 <body>
-    <input type="hidden" id="nrows" value="<?php echo $nor; ?>">
+    <input type="hidden" id="nrows" value="<?php echo $nor-1; ?>">
     <button class="logout-button" onclick="window.location.href = 'admin_login.php';">
         LogOut <i class="fa-solid fa-power-off"></i>
     </button>
@@ -48,7 +48,7 @@ $nor = mysqli_num_rows($result);
     </div>
     <div class='container'>
     <h1>Welcome, <?php echo $admin_name;?></h1>
-        <p><strong><?php echo $nor; ?></strong> users have registered in our portal!</p>
+        <p><strong><?php echo $nor-2; ?></strong> users have registered in our portal!</p>
         <?php if ($nor > 0): ?>
             <div class='table-wrapper'>
                 <table id="data-table">
@@ -66,7 +66,7 @@ $nor = mysqli_num_rows($result);
                     <?php $counter = 1; ?>
                     <?php while ($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
-                            <td><?php echo $row['Sr.NO']; ?></td>
+                            <td><?php echo $counter++; ?></td>
                             <td><?php echo $row['Fullname']; ?></td>
                             <td><?php echo $row['Email']; ?></td>
                             <td><?php echo $row['Phone']; ?></td>

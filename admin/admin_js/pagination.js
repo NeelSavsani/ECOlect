@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Configuration
-    const rowsPerPage = 10;
+    const rowsPerPage = 11;
     let currentPage = 1;
     const totalRows = document.getElementById("nrows").value;
     const totalPages = Math.ceil(totalRows / rowsPerPage);
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Update pagination info
-        paginationInfo.textContent = `Showing ${startIndex + 1} to ${endIndex} of ${totalRows} entries`;
+        paginationInfo.textContent = `Showing ${startIndex + 1} to ${endIndex-1} of ${totalRows-1} entries`;
     }
 
     function updatePaginationControls() {

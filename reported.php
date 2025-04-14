@@ -26,7 +26,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 
 $sql = "SELECT * FROM `$ewaste` WHERE FULLNAME = '$fullname'";
 $result = mysqli_query($conn, $sql);
-$nor = mysqli_num_rows($result);
+$nor = mysqli_num_rows($result)+1;
 ?>
 
 <!DOCTYPE html>
@@ -43,12 +43,12 @@ $nor = mysqli_num_rows($result);
 </head>
 <body>
     <input type="hidden" id="nrows" value="<?php echo $nor; ?>">
-    <button class="back-button" onclick="window.location.href='home.php?email=<?php echo $user_email;?>';">
+    <button class="back-button" onclick="window.location.href='home.php?email<?php echo $user_email;?>';">
         <i class="fa-solid fa-arrow-left"></i> Back
     </button>
     <div class="container">
         <h1>Welcome, <?php echo $fullname; ?></h1>
-        <p>You have Reported <strong><?php echo $nor;?></strong> E-Waste on our platform ECOlect! &#127881;</p>
+        <p>You have Reported <strong><?php echo $nor-1;?></strong> E-Waste on our platform ECOlect! &#127881;</p>
         <?php if ($nor > 0): ?>
             <div class="table-wrapper">
                 <table id="data-table">

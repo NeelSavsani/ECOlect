@@ -150,6 +150,10 @@ body::before {
     background: #0000EE;
 }
 
+.dropdown-menu li:hover a{
+    color: #fff;
+}
+
 .show-dropdown {
     display: block;
 }

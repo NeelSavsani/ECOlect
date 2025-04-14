@@ -28,8 +28,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     (`Fullname`, `Type`, `EName`, `Quantity`, `Latitude`, `Longitude`, `Address`, `Datetime`) VALUES
     ('$fullname', '$type', '$name', '$weight', '$latitude', '$longitude', '$address', current_timestamp())";
     $result = mysqli_query($conn, $sql);
+    header("Location: ../successRp.php?ename=$name&email=$email");
+    exit();
     if($result){
-        echo "E-Waste registered in database";
+        // echo "E-Waste registered in database";
+
     } else {
         echo "Error while registering e-waste in database";
     }

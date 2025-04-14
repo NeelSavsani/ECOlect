@@ -43,7 +43,7 @@ $nor = mysqli_num_rows($result);
 </head>
 <body>
     <input type="hidden" id="nrows" value="<?php echo $nor; ?>">
-    <button class="back-button" onclick="history.back()">
+    <button class="back-button" onclick="window.location.href='home.php?email=<?php echo $user_email;?>';">
         <i class="fa-solid fa-arrow-left"></i> Back
     </button>
     <div class="container">

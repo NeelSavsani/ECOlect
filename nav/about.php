@@ -312,6 +312,9 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
     <p class="main">
         We aim to expand ECOlect into a nationally recognized platform endorsed by government bodies. Through SSIP, we seek mentorship, funding, and real-world feedback to further refine and implement our solution in communities across India.
     </p>
+    <h1 class="main">&#x1F4DD; Give feedback</h1>
+    <?php $feed_url = "../feedback.php?email=$user_email"; ?>
+    <p class="main">Your feedback is valuable for us: <?php echo '<a href="'.$feed_url.'" target="_blank">Send Feedback ⤴</a>'; ?></p>
     <h1 class="main">&#129309; Get in Touch</h1>
     <p class="main">
         Have questions or want to partner with us?

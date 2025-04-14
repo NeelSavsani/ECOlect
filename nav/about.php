@@ -69,7 +69,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </tr>
                 <tr>
                     <th>Position</th>
-                    <td>Team Led & Web Developer</td>
+                    <td>Team Leader & Full Stack Developer</td>
                 </tr>
                 <tr>
                     <th>Background</th>
@@ -81,7 +81,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </tr>
                 <tr>
                     <th>Skills</th>
-                    <td>HTML, CSS, JavaScript, PHP, MySQL, UI/UX Design</td>
+                    <td>HTML, CSS, JavaScript, Figma, PHP, MySQL, UI/UX Design</td>
                 </tr>
                 <tr>
                     <th>GitHub</th>
@@ -109,19 +109,19 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </tr>
                 <tr>
                     <th>Position</th>
-                    <td>Team Led & Web Developer</td>
+                    <td>Tech-Savvy Contributor & Sustainability Advocate</td>
                 </tr>
                 <tr>
                     <th>Background</th>
-                    <td>Passionate technologist and environmental advocate with a vision to combine technology and sustainability.</td>
+                    <td>Committed to using technology to advance eco-conscious initiatives.</td>
                 </tr>
                 <tr>
                     <th>Expertise</th>
-                    <td>Web development, Project management, E-waste research</td>
+                    <td> Team Support, E-waste Project Facilitation</td>
                 </tr>
                 <tr>
                     <th>Skills</th>
-                    <td>HTML, CSS, JavaScript, PHP, MySQL, UI/UX Design</td>
+                    <td>HTML, JavaScript, Resource Co-ordination, Team Support</td>
                 </tr>
                 <tr>
                     <th>GitHub</th>
@@ -149,19 +149,19 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </tr>
                 <tr>
                     <th>Position</th>
-                    <td>Team Led & Web Developer</td>
+                    <td>UI/UX Designer & Design Lead</td>
                 </tr>
                 <tr>
                     <th>Background</th>
-                    <td>Passionate technologist and environmental advocate with a vision to combine technology and sustainability.</td>
+                    <td>Passionate about crafting intuitive and visually appealing digital experiences.</td>
                 </tr>
                 <tr>
                     <th>Expertise</th>
-                    <td>Web development, Project management, E-waste research</td>
+                    <td>Proficient in HTML, CSS, Figma & Creating Seamless UI/UX Designs</td>
                 </tr>
                 <tr>
                     <th>Skills</th>
-                    <td>HTML, CSS, JavaScript, PHP, MySQL, UI/UX Design</td>
+                    <td>HTML, CSS, Figma, UI/UX Design</td>
                 </tr>
                 <tr>
                     <th>GitHub</th>
@@ -229,19 +229,19 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </tr>
                 <tr>
                     <th>Position</th>
-                    <td>Team Led & Web Developer</td>
+                    <td>AI/ML Specialist</td>
                 </tr>
                 <tr>
                     <th>Background</th>
-                    <td>Passionate technologist and environmental advocate with a vision to combine technology and sustainability.</td>
+                    <td>Innovative AI enthusiast and sustainability advocate dedicated to leveraging intelligent systems for environmental impact.</td>
                 </tr>
                 <tr>
                     <th>Expertise</th>
-                    <td>Web development, Project management, E-waste research</td>
+                    <td>AI & Machine Learning, Data Analysis, Research & Development</td>
                 </tr>
                 <tr>
                     <th>Skills</th>
-                    <td>HTML, CSS, JavaScript, PHP, MySQL, UI/UX Design</td>
+                    <td>AI, ML, Python</td>
                 </tr>
                 <tr>
                     <th>GitHub</th>
@@ -269,19 +269,19 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
                 </tr>
                 <tr>
                     <th>Position</th>
-                    <td>Team Led & Web Developer</td>
+                    <td>Responsive & UI/UX Design Specialist</td>
                 </tr>
                 <tr>
                     <th>Background</th>
-                    <td>Passionate technologist and environmental advocate with a vision to combine technology and sustainability.</td>
+                    <td>Dedicated web developer and eco-conscious innovator striving to merge technology with sustainable solutions.</td>
                 </tr>
                 <tr>
                     <th>Expertise</th>
-                    <td>Web development, Project management, E-waste research</td>
+                    <td>Web Development, Responsive Design, UI/UX Optimization</td>
                 </tr>
                 <tr>
                     <th>Skills</th>
-                    <td>HTML, CSS, JavaScript, PHP, MySQL, UI/UX Design</td>
+                    <td>HTML, CSS, Responsive Design, UI/UX Design</td>
                 </tr>
                 <tr>
                     <th>GitHub</th>

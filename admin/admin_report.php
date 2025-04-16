@@ -27,7 +27,7 @@ $nor = mysqli_num_rows($result);
         <ul>
             <li><a href="admin.php"><i class="fa-solid fa-users-viewfinder"></i>&nbsp;&nbsp;Users</a></li>
             <li class="active"><a href="#"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp;Reported E-Waste</a></li>
-            <li><a href="#"><i class="fa-solid fa-id-card"></i>&nbsp;&nbsp;Account</a></li>
+            <li><a href="admin_feedback.php"><i class="fa-solid fa-comment"></i>&nbsp;&nbsp;Reported Feedback</a></li>
             <li><a href="#"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;Settings</a></li>
         </ul>
     </div>

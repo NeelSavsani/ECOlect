@@ -4,27 +4,30 @@ $admin_name = isset($_GET['admin']) ? htmlspecialchars($_GET['admin']) : "Admin"
 
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
-    $fullname = $_POST['fullname'];
+    $name = $_POST['fullname']; 
     $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $password = $_POST['password'];
-    $address = $_POST['address'];
-    $pincode = $_POST['pincode'];
+    $rating = $_POST['rating'];      
+    $feedback = $_POST['feedback'];
 
-    $update_sql = "UPDATE `$table` SET `Fullname`='$fullname', `Email`='$email', `Phone`='$phone', `Password`='$password', `Address`='$address', `Pincode`='$pincode' WHERE `Sr.NO`='$id'";
+    $update_sql = "UPDATE `$ftable` SET `Name`='$name', `Email` = '$email', `Rating` = '$rating', `Feedback` = '$feedback' WHERE `Sr.NO`='$id'";
     mysqli_query($conn, $update_sql);
 }
 
-$sql = "SELECT * FROM `$table`";
+$sql = "SELECT * FROM `$ftable`";
 $result = mysqli_query($conn, $sql);
 $nor = mysqli_num_rows($result);
+echo "<pre>";
+while ($row = mysqli_fetch_assoc($result)) {
+    print_r($row);
+}
+echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Admin Panel</title>
+    <title>Admin Reported Feedback E-Waste Panel</title>
     <link rel='shortcut icon' href='../assets/favicon_io/favicon.ico' type='image/x-icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel='stylesheet' href='admin_css/admin.css'>
@@ -39,7 +42,7 @@ $nor = mysqli_num_rows($result);
         <ul>
             <li class="active"><a href="#"><i class="fa-solid fa-users-viewfinder"></i></i>&nbsp;&nbsp; Users</a></li>
             <li><a href="admin_report.php"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp; Reported E-Waste</a></li>
-            <li><a href="admin_feedback.php"><i class="fa-solid fa-comment"></i>&nbsp;&nbsp;Reported Feedback</a></li>
+            <li><a href="#"><i class="fa-solid fa-id-card"></i>&nbsp;&nbsp;Account</a></li>
             <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
         </ul>
     </div>
@@ -48,18 +51,16 @@ $nor = mysqli_num_rows($result);
     </div>
     <div class='container'>
     <h1>Welcome, <?php echo $admin_name;?></h1>
-        <p><strong><?php echo $nor-2; ?></strong> users have registered in our portal!</p>
+        <p><strong><?php echo $nor; ?></strong> users have reported feedback in our portal!</p>
         <?php if ($nor > 0): ?>
             <div class='table-wrapper'>
                 <table id="data-table">
                     <tr>
                         <th>Sr.No</th>
-                        <th>Fullname</th>
+                        <th>Name</th>
                         <th>Email</th>
-                        <th>Phone</th>
-                        <th>Password</th>
-                        <th>Address</th>
-                        <th>Pincode</th>
+                        <th>Rating</th>
+                        <th>Feedback</th>
                         <th>Registration Date</th>
                         <th>Action</th>
                     </tr>
@@ -67,23 +68,19 @@ $nor = mysqli_num_rows($result);
                     <?php while ($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
                             <td><?php echo $counter++; ?></td>
-                            <td><?php echo $row['Fullname']; ?></td>
+                            <td><?php echo $row['Name']; ?></td>
                             <td><?php echo $row['Email']; ?></td>
-                            <td><?php echo $row['Phone']; ?></td>
-                            <td><?php echo $row['Password']; ?></td>
-                            <td><?php echo $row['Address']; ?></td>
-                            <td><?php echo $row['Pincode']; ?></td>
+                            <td><?php echo $row['Rating']; ?></td>
+                            <td><?php echo $row['Feedback']; ?></td>
                             <td><?php echo $row['DateTime']; ?></td>
                             <td>
                                 <div class='action-buttons'>
                                     <button class='btn-success' onclick="openModal(
                                     '<?php echo addslashes($row['Sr.NO']); ?>',
-                                    '<?php echo addslashes($row['Fullname']); ?>',
+                                    '<?php echo addslashes($row['Name']); ?>',
                                     '<?php echo addslashes($row['Email']); ?>',
-                                    '<?php echo addslashes($row['Phone']); ?>',
-                                    '<?php echo addslashes($row['Password']); ?>',
-                                    '<?php echo addslashes($row['Address']); ?>',
-                                    '<?php echo addslashes($row['Pincode']); ?>')"><i class="fa-solid fa-pen"></i></button>
+                                    '<?php echo addslashes($row['Rating']); ?>',
+                                    '<?php echo addslashes($row['Feedback']); ?>')"><i class="fa-solid fa-pen"></i></button>
                                     <button class='btn-danger'><i class="fa-solid fa-trash"></i></button>
                                 </div>
                             </td>
@@ -126,9 +123,8 @@ $nor = mysqli_num_rows($result);
     </div>
 
     
-    <script src="admin_js/pagination.js"></script>
+    <!-- <script src="admin_js/pagination.js"></script> -->
     <script src="admin_js/toggleSidebar.js"></script>
-    <script src="admin_js/togglePassword.js"></script>
-    <script src="admin_js/openModalU.js"></script>
+    <script src="admin_js/openModalF.js"></script>
 </body>
 </html>

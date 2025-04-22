@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuration
     const rowsPerPage = 11;
     let currentPage = 1;
-    const totalRows = document.getElementById("nrows").value;
+    const totalRows = rows.length;
     const totalPages = Math.ceil(totalRows / rowsPerPage);
     
     // DOM elements

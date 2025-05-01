@@ -1,0 +1,20 @@
+{
+    "name": "neels/certi",
+    "autoload": {
+        "psr-4": {
+            "Neels\\Certi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "NeelSavsani",
+            "email": "neelsavsani7@gmail.com"
+        }
+    ],
+    "require": {
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.6",
+        "dompdf/dompdf": "^3.1",
+        "mpdf/mpdf": "^8.2"
+    }
+}

@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle,#ACBFA1 0%, #609396 100%);
+    text-align: center;
+    font-family: "Arial";
+}
+
+.certificate{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 96.4%;
+    padding: 0;
+    margin: 0;
+    border-top: 15px solid green;
+    border-bottom: 15px solid orangered;
+}
+
+#rmc{
+    margin: 30px 0 0 30px;
+    float: left;
+    width: 120px;
+}
+
+#ssip{
+    margin: 30px 30px 0 0;
+    float: right;
+    width: 230px;
+}
+
+h1{
+    font-size: 45px;
+}
+
+#one{
+    margin-left: 285px;
+    margin-top: 20px;
+    width: 50%;
+}
+
+h2#name{
+    font-size: 40px;
+    /* color: #10455b; */
+    color: green;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+h2{
+    font-size: 34px;
+    color: black;
+}
+
+h3{
+    font-size: 23px;
+    font-weight: 400;
+}
+
+#two{
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+#ecolect{
+    width: 220px;
+    float: left;
+    margin-left: 30px;
+    transform: translateY(10%);
+}
+
+#eco{
+    width: 300px;
+    transform: translate(-3%, -6%);
+}
+
+#ie{
+    width: 235px;
+    float: right;
+    transform: translateY(3%);
+}

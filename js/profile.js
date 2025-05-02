@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const phone = document.getElementById("updatePhone").value.trim();
         const address = document.getElementById("updateAddress").value.trim();
         const pincode = document.getElementById("updatePincode").value.trim();
-        const email = "<?php echo $email; ?>"; // Pass email from PHP
+        const email = document.querySelector("#updateProfileForm input[name='email']").value.trim();
 
         // Validate inputs
         if (!fullname || !phone || !address || !pincode) {

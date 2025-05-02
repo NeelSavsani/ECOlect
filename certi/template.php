@@ -6,12 +6,12 @@ $score = $_GET['score'] ?? '0';
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="template.css">
 </head>
 <body>
     <div class="certificate">
-        <img src="rmc.png" alt="RMC" id="rmc">
-        <img src="ssip.png" alt="ssip" id="ssip">
+        <img src="assets/rmc.png" alt="RMC" id="rmc">
+        <img src="assets/ssip.png" alt="ssip" id="ssip">
         <br>
         <br>
         <br>
@@ -29,9 +29,9 @@ $score = $_GET['score'] ?? '0';
         <h3> "Let's break the chain of E-waste pollution - every action counts!"</h3>
         <p id="two"> For successfully completing the quiz with a score of <strong><?php echo htmlspecialchars($score); ?>/10 Points</strong></p>
         <br>
-        <img src="ECOlect_rm.png" alt="ECOLECT" id="ecolect">
-        <img src="eco.png" alt="eco" id="eco">
-        <img src="ie.png" alt="Indian Emblem" id="ie">
+        <img src="assets/ECOlect_rm.png" alt="ECOLECT" id="ecolect">
+        <img src="assets/eco.png" alt="eco" id="eco">
+        <img src="assets/ie.png" alt="Indian Emblem" id="ie">
 
     </div>
 </body>

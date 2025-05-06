@@ -10,7 +10,7 @@
 <body>
     <h1>Welcome to the <strong>ECOlect Awareness Quiz</strong></h1>
     <h3>Let's assess your knowledge about e-waste awareness! ♻️</h3>
-    <form action="">
+    <form id="quizForm">
         <div class="container">
             <div class="box">
                 <div class="question">
@@ -18,10 +18,10 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> Yes
+                        <input type="radio" name="q1" value="ans"> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> No
+                        <input type="radio" name="q1"> No
                     </div>
                 </div>
             </div>
@@ -37,10 +37,10 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> Yes
+                        <input type="radio" name="q2"> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> No
+                        <input type="radio" name="q2" value="ans"> No
                     </div>
                 </div>
             </div>
@@ -56,10 +56,10 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> Yes
+                        <input type="radio" name="q3" value="ans"> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> No
+                        <input type="radio" name="q3"> No
                     </div>
                 </div>
             </div>
@@ -75,10 +75,10 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> Yes
+                        <input type="radio" name="q4" value="ans"> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> No
+                        <input type="radio" name="q4"> No
                     </div>
                 </div>
             </div>
@@ -94,10 +94,10 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> Yes
+                        <input type="radio" name="q5"> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> No
+                        <input type="radio" name="q5" value="ans"> No
                     </div>
                 </div>
             </div>
@@ -113,10 +113,10 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> Yes
+                        <input type="radio" name="q6" value="ans"> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> No
+                        <input type="radio" name="q6"> No
                     </div>
                 </div>
             </div>
@@ -132,10 +132,10 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> Yes
+                        <input type="radio" name="q7"> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> No
+                        <input type="radio" name="q7" value="ans"> No
                     </div>
                 </div>
             </div>
@@ -151,10 +151,10 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> Yes
+                        <input type="radio" name="q8" value="ans"> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> No
+                        <input type="radio" name="q8"> No
                     </div>
                 </div>
             </div>
@@ -170,10 +170,10 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> Yes
+                        <input type="radio" name="q9" value="ans"> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> No
+                        <input type="radio" name="q9"> No
                     </div>
                 </div>
             </div>
@@ -189,10 +189,10 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> Yes
+                        <input type="radio" name="q10"> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="ans" id="answer_radio"> No
+                        <input type="radio" name="q10" value="ans"> No
                     </div>
                 </div>
             </div>
@@ -201,11 +201,39 @@
             </div>
         </div>
         <div class="buttons">
-            <button type="reset">Reset <i class="fa-solid fa-rotate-right"></i></button>
-            <button type="submit">Submit <i class="fa-solid fa-arrow-right"></i></button>
+                <button type="reset">Reset <i class="fa-solid fa-rotate-right"></i></button>
+                <button type="submit" id="seeResultBtn" disabled>See Result <i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </form>
 
+    <script>
+        const correctValue = "ans";
+        let correctCount = 0;
+        const totalQuestions = 10;
+        const form = document.getElementById("quizForm");
+        const resultBtn = document.getElementById("seeResultBtn");
 
+        form.addEventListener("change", () => {
+        let answered = 0;
+        correctCount = 0;
+
+        for (let i = 1; i <= totalQuestions; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected) {
+            answered++;
+            if (selected.value === correctValue) {
+                correctCount++;
+            }
+            }
+        }
+
+        resultBtn.disabled = answered < totalQuestions;
+        });
+
+        form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("You got " + correctCount + " out of " + totalQuestions + " correct!");
+        });
+  </script>
 </body>
 </html>

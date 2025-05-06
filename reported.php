@@ -42,7 +42,6 @@ $nor = mysqli_num_rows($result)+1;
     <link rel="stylesheet" href="css/reported.css">
 </head>
 <body>
-    <input type="hidden" id="nrows" value="<?php echo $nor; ?>">
     <button class="back-button" onclick="window.location.href='home.php?email<?php echo $user_email;?>';">
         <i class="fa-solid fa-arrow-left"></i> Back
     </button>
@@ -52,6 +51,7 @@ $nor = mysqli_num_rows($result)+1;
         <?php if ($nor > 0): ?>
             <div class="table-wrapper">
                 <table id="data-table">
+                    <thead>
                     <tr>
                         <th>Sr. No.</th>
                         <th>Type Of E-Waste</th>
@@ -60,6 +60,8 @@ $nor = mysqli_num_rows($result)+1;
                         <th>Address</th>
                         <th>Reported DateTime</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     <?php $counter = 1; ?>
                     <?php while($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
@@ -71,6 +73,7 @@ $nor = mysqli_num_rows($result)+1;
                             <td><?php echo $row['Datetime']; ?></td>
                         </tr>
                     <?php endwhile; ?>
+                    </tbody>
                 </table>
             </div>
         <?php endif; ?>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://kit.fontawesome.com/e05d24f6c7.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="quiz.css" />
     <title>ECOLECT - Awareness Quiz</title>
 </head>
 <body>
@@ -18,18 +18,18 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="q1" value="ans"> Yes
+                        <input type="radio" class="optn" name="q1" value="ans" /> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="q1"> No
+                        <input type="radio" class="optn" name="q1" /> No
                     </div>
                 </div>
             </div>
             <div class="image">
-                <img src="assets/items/mobile.png" alt="Mobile Phone" id="mobile">
+                <img src="assets/items/mobile.png" alt="Mobile Phone" id="mobile" />
             </div>
         </div>
-        
+
         <div class="container">
             <div class="box">
                 <div class="question">
@@ -37,15 +37,15 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="q2"> Yes
+                        <input type="radio" class="optn" name="q2" /> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="q2" value="ans"> No
+                        <input type="radio" class="optn" name="q2" value="ans" /> No
                     </div>
                 </div>
             </div>
             <div class="image">
-                <img src="assets/items/paper.png" alt="Paper" id="paper">
+                <img src="assets/items/paper.png" alt="Paper" id="paper" />
             </div>
         </div>
 
@@ -56,18 +56,18 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="q3" value="ans"> Yes
+                        <input type="radio" class="optn" name="q3" value="ans" /> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="q3"> No
+                        <input type="radio" class="optn" name="q3" /> No
                     </div>
                 </div>
             </div>
             <div class="image">
-                <img src="assets/items/generator.png" alt="Generator" id="generator">
+                <img src="assets/items/generator.png" alt="Generator" id="generator" />
             </div>
         </div>
-        
+
         <div class="container">
             <div class="box">
                 <div class="question">
@@ -75,15 +75,15 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="q4" value="ans"> Yes
+                        <input type="radio" class="optn" name="q4" value="ans" /> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="q4"> No
+                        <input type="radio" class="optn" name="q4" /> No
                     </div>
                 </div>
             </div>
             <div class="image">
-                <img src="assets/items/microscope.png" alt="Microscope" id="microscope">
+                <img src="assets/items/microscope.png" alt="Microscope" id="microscope" />
             </div>
         </div>
 
@@ -94,18 +94,18 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="q5"> Yes
+                        <input type="radio" class="optn" name="q5" /> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="q5" value="ans"> No
+                        <input type="radio" class="optn" name="q5" value="ans" /> No
                     </div>
                 </div>
             </div>
             <div class="image">
-                <img src="assets/items/bag.png" alt="Bag" id="bag">
+                <img src="assets/items/bag.png" alt="Bag" id="bag" />
             </div>
         </div>
-        
+
         <div class="container">
             <div class="box">
                 <div class="question">
@@ -113,15 +113,15 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="q6" value="ans"> Yes
+                        <input type="radio" class="optn" name="q6" value="ans" /> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="q6"> No
+                        <input type="radio" class="optn" name="q6" /> No
                     </div>
                 </div>
             </div>
             <div class="image">
-                <img src="assets/items/mixer.png" alt="Mixer" id="mixer">
+                <img src="assets/items/mixer.png" alt="Mixer" id="mixer" />
             </div>
         </div>
 
@@ -132,18 +132,18 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="q7"> Yes
+                        <input type="radio" class="optn" name="q7" /> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="q7" value="ans"> No
+                        <input type="radio" class="optn" name="q7" value="ans" /> No
                     </div>
                 </div>
             </div>
             <div class="image">
-                <img src="assets/items/bottle.png" alt="Bottle" id="bottle">
+                <img src="assets/items/bottle.png" alt="Bottle" id="bottle" />
             </div>
         </div>
-        
+
         <div class="container">
             <div class="box">
                 <div class="question">
@@ -151,15 +151,15 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="q8" value="ans"> Yes
+                        <input type="radio" class="optn" name="q8" value="ans" /> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="q8"> No
+                        <input type="radio" class="optn" name="q8" /> No
                     </div>
                 </div>
             </div>
             <div class="image">
-                <img src="assets/items/atm.png" alt="ATM" id="atm">
+                <img src="assets/items/atm.png" alt="ATM" id="atm" />
             </div>
         </div>
 
@@ -170,18 +170,18 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="q9" value="ans"> Yes
+                        <input type="radio" class="optn" name="q9" value="ans" /> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="q9"> No
+                        <input type="radio" class="optn" name="q9" /> No
                     </div>
                 </div>
             </div>
             <div class="image">
-                <img src="assets/items/usb.png" alt="USB Cable" id="usb">
+                <img src="assets/items/usb.png" alt="USB Cable" id="usb" />
             </div>
         </div>
-        
+
         <div class="container">
             <div class="box">
                 <div class="question">
@@ -189,51 +189,42 @@
                 </div>
                 <div class="answers">
                     <div class="answer">
-                        <input type="radio" name="q10"> Yes
+                        <input type="radio" class="optn" name="q10" /> Yes
                     </div>
                     <div class="answer">
-                        <input type="radio" name="q10" value="ans"> No
+                        <input type="radio" class="optn" name="q10" value="ans" /> No
                     </div>
                 </div>
             </div>
             <div class="image">
-                <img src="assets/items/wiper.png" alt="Wiper" id="wiper">
+                <img src="assets/items/wiper.png" alt="Wiper" id="wiper" />
             </div>
         </div>
         <div class="buttons">
-                <button type="reset">Reset <i class="fa-solid fa-rotate-right"></i></button>
-                <button type="submit" id="seeResultBtn" disabled>See Result <i class="fa-solid fa-arrow-right"></i></button>
+            <button type="reset">Reset <i class="fa-solid fa-rotate-right"></i></button>
+            <button type="submit" id="seeResultBtn">See Result <i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </form>
 
     <script>
-        const correctValue = "ans";
-        let correctCount = 0;
-        const totalQuestions = 10;
-        const form = document.getElementById("quizForm");
-        const resultBtn = document.getElementById("seeResultBtn");
+        const quizForm = document.getElementById('quizForm');
+        quizForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const ans = document.querySelectorAll('.optn'); 
+            let score = 0;
 
-        form.addEventListener("change", () => {
-        let answered = 0;
-        correctCount = 0;
-
-        for (let i = 1; i <= totalQuestions; i++) {
-            const selected = document.querySelector(`input[name="q${i}"]:checked`);
-            if (selected) {
-            answered++;
-            if (selected.value === correctValue) {
-                correctCount++;
+            for (let i = 0; i < ans.length; i++) {
+                if (ans[i].checked && ans[i].value === "ans") {
+                    score++;
+                }
             }
-            }
-        }
 
-        resultBtn.disabled = answered < totalQuestions;
+            // Show score
+            console.log("Score:", score);
+            alert("You scored " + score + " out of 10!");
         });
 
-        form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("You got " + correctCount + " out of " + totalQuestions + " correct!");
-        });
-  </script>
+    </script>
+
 </body>
 </html>

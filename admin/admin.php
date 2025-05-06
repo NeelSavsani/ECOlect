@@ -52,6 +52,7 @@ $nor = mysqli_num_rows($result);
         <?php if ($nor > 0): ?>
             <div class='table-wrapper'>
                 <table id="data-table">
+                    <thead>
                     <tr>
                         <th>Sr.No</th>
                         <th>Fullname</th>
@@ -63,6 +64,8 @@ $nor = mysqli_num_rows($result);
                         <th>Registration Date</th>
                         <th>Action</th>
                     </tr>
+                    </thead>
+                    <tbody>
                     <?php $counter = 1; ?>
                     <?php while ($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
@@ -89,6 +92,7 @@ $nor = mysqli_num_rows($result);
                             </td>
                         </tr>
                     <?php endwhile; ?>
+                    </tbody>
                 </table>
             </div>
         <?php endif; ?>

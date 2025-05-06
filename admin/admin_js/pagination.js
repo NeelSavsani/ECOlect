@@ -2,12 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuration
     const rowsPerPage = 11;
     let currentPage = 1;
-    const totalRows = rows.length;
-    const totalPages = Math.ceil(totalRows / rowsPerPage);
-    
+
     // DOM elements
     const table = document.getElementById('data-table');
     const rows = Array.from(table.querySelectorAll('tbody tr'));
+    const totalRows = rows.length;
+    const totalPages = Math.ceil(totalRows / rowsPerPage);
+    
     const paginationInfo = document.getElementById('pagination-info');
     const pageNumbersContainer = document.getElementById('page-numbers');
     const prevButton = document.getElementById('prev-button');
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Update pagination info
-        paginationInfo.textContent = `Showing ${startIndex + 1} to ${endIndex-1} of ${totalRows-1} entries`;
+        paginationInfo.textContent = `Showing ${startIndex + 1} to ${endIndex} of ${totalRows} entries`;
     }
 
     function updatePaginationControls() {

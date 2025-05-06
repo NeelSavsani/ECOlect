@@ -16,11 +16,6 @@ if (isset($_POST['update'])) {
 $sql = "SELECT * FROM `$ftable`";
 $result = mysqli_query($conn, $sql);
 $nor = mysqli_num_rows($result);
-echo "<pre>";
-while ($row = mysqli_fetch_assoc($result)) {
-    print_r($row);
-}
-echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang='en'>
@@ -40,9 +35,9 @@ echo "</pre>";
     </button>
     <div id="sidebar" class="sidebar">
         <ul>
-            <li class="active"><a href="#"><i class="fa-solid fa-users-viewfinder"></i></i>&nbsp;&nbsp; Users</a></li>
+            <li><a href="admin.php"><i class="fa-solid fa-users-viewfinder"></i></i>&nbsp;&nbsp; Users</a></li>
             <li><a href="admin_report.php"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp; Reported E-Waste</a></li>
-            <li><a href="#"><i class="fa-solid fa-id-card"></i>&nbsp;&nbsp;Account</a></li>
+            <li class="active"><a href="#"><i class="fa-solid fa-comment"></i>&nbsp;&nbsp;Reported Feedback</a></li>
             <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
         </ul>
     </div>
@@ -61,7 +56,6 @@ echo "</pre>";
                         <th>Email</th>
                         <th>Rating</th>
                         <th>Feedback</th>
-                        <th>Registration Date</th>
                         <th>Action</th>
                     </tr>
                     <?php $counter = 1; ?>
@@ -72,11 +66,10 @@ echo "</pre>";
                             <td><?php echo $row['Email']; ?></td>
                             <td><?php echo $row['Rating']; ?></td>
                             <td><?php echo $row['Feedback']; ?></td>
-                            <td><?php echo $row['DateTime']; ?></td>
                             <td>
                                 <div class='action-buttons'>
                                     <button class='btn-success' onclick="openModal(
-                                    '<?php echo addslashes($row['Sr.NO']); ?>',
+                                    '<?php echo addslashes($row['Sr. No.']); ?>',
                                     '<?php echo addslashes($row['Name']); ?>',
                                     '<?php echo addslashes($row['Email']); ?>',
                                     '<?php echo addslashes($row['Rating']); ?>',
@@ -105,15 +98,17 @@ echo "</pre>";
             <span class="close" onclick="closeModal()">&times;</span>
             <form method="POST">
                 <input type="hidden" name="id" id="edit-id">
-                <input type="text" name="fullname" id="edit-fullname" placeholder="Fullname" required>
+                <input type="text" name="name" id="edit-name" placeholder="Name" required>
                 <input type="email" name="email" id="edit-email" placeholder="Email" required>
-                <input type="text" name="phone" id="edit-phone" placeholder="Phone" required>
-                <div class="password-wrapper">
-                    <input type="password" name="password" id="edit-password" placeholder="Password" required>
-                    <i class="fa-solid fa-eye toggle-password" id="togglePasswordIcon" onclick="togglePassword()"></i>
-                </div>
-                <textarea name="address" id="edit-address" placeholder="Address" rows="4" required></textarea>
-                <input type="text" name="pincode" id="edit-pincode" placeholder="Pincode" required>
+                <select name="rating" id="edit-rating">
+                    <option value="">Select</option>
+                    <option value="Excellent">Excellent </option>
+                    <option value="Very Good">Very Good </option>
+                    <option value="Good">Good </option>
+                    <option value="Average">Average </option>
+                    <option value="Poor">Poor </option>
+                </select>
+                <textarea name="feedback" id="edit-feedback" placeholder="Feedback" rows="4" required></textarea>
                 <div class="modal-buttons">
                     <button type="submit" name="update" class="submit-btn"><i class="fa-solid fa-check"></i></button>
                     <button type="button" name="cancel" onclick="closeModal()" id="cancel-btn" class="cancel-update-btn"><i class="fa-solid fa-x"></i></button>
@@ -123,7 +118,7 @@ echo "</pre>";
     </div>
 
     
-    <!-- <script src="admin_js/pagination.js"></script> -->
+    <script src="admin_js/pagination.js"></script>
     <script src="admin_js/toggleSidebar.js"></script>
     <script src="admin_js/openModalF.js"></script>
 </body>

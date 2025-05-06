@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("address", address);
         formData.append("pincode", pincode);
         formData.append("email", email);
-
+        
         // Send the data using Fetch API
         fetch("update_profile.php", {
             method: "POST",

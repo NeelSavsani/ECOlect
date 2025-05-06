@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Configuration
-    const rowsPerPage = 11;
+    const rowsPerPage = 10;
     let currentPage = 1;
 
     // DOM elements

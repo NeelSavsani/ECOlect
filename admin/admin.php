@@ -31,7 +31,6 @@ $nor = mysqli_num_rows($result);
     <link rel="stylesheet" href="admin_css/pagination.css">
 </head>
 <body>
-    <input type="hidden" id="nrows" value="<?php echo $nor-1; ?>">
     <button class="logout-button" onclick="window.location.href = 'admin_login.php';">
         LogOut <i class="fa-solid fa-power-off"></i>
     </button>

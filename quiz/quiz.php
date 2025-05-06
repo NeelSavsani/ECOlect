@@ -212,6 +212,13 @@
             event.preventDefault();
             const ans = document.querySelectorAll('.optn'); 
             let score = 0;
+            let allans = 0;
+
+            for(let i=0; i < ans.length; i++) {
+                if(ans[i].checked) {
+                    allans++;
+                }
+            }
 
             for (let i = 0; i < ans.length; i++) {
                 if (ans[i].checked && ans[i].value === "ans") {
@@ -219,9 +226,12 @@
                 }
             }
 
-            // Show score
-            console.log("Score:", score);
-            alert("You scored " + score + " out of 10!");
+            if(allans === 10){
+                alert("You have answered all questions");
+                window.location.href = "generate_certificate.php?score=" + score;
+            } else {
+                alert("Answer more");
+            }
         });
 
     </script>

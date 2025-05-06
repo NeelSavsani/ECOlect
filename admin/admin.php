@@ -37,8 +37,9 @@ $nor = mysqli_num_rows($result);
     <div id="sidebar" class="sidebar">
         <ul>
             <li class="active"><a href="#"><i class="fa-solid fa-users-viewfinder"></i></i>&nbsp;&nbsp; Users</a></li>
-            <li><a href="admin_report.php"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp; Reported E-Waste</a></li>
-            <li><a href="admin_feedback.php"><i class="fa-solid fa-comment"></i>&nbsp;&nbsp;Reported Feedback</a></li>
+            <!-- <li><a href="admin_report.php"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp; Reported E-Waste</a></li> -->
+            <li><a href="admin_report.php?admin=<?php echo urlencode($admin_name);?>"><i class="fa-solid fa-trash"></i>&nbsp;&nbsp;Reported E-Waste</a></li>
+            <li><a href="admin_feedback.php?admin=<?php echo urlencode($admin_name);?>"><i class="fa-solid fa-comment"></i>&nbsp;&nbsp;Reported Feedback</a></li>
             <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
         </ul>
     </div>

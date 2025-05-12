@@ -3,7 +3,7 @@ require_once __DIR__ . '/vendor/autoload.php'; // Load mPDF
 
 use Mpdf\Mpdf;
 
-$name = $_GET['name'] ?? 'Neel Savsani';
+$name = $_GET['name'] ?? 'Neel';
 $score = $_GET['score'] ?? '10';
 
 // Start output buffering

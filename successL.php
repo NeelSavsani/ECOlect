@@ -2,7 +2,7 @@
 include 'dbconnect.php';
 if (isset($_GET['email'])) {
   $email = $_GET['email'];
-  $sql = "SELECT Fullname FROM `$table` WHERE `Email` = '$email'";
+  $sql = "SELECT Fullname FROM `$logintb` WHERE `Email` = '$email'";
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
   $fullname = $row['Fullname'];

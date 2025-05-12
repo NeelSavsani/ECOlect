@@ -15,7 +15,7 @@ if (isset($_POST['update'])) {
     mysqli_query($conn, $update_sql);
 }
 
-$sql = "SELECT * FROM `$table`";
+$sql = "SELECT * FROM `$logintb`";
 $result = mysqli_query($conn, $sql);
 $nor = mysqli_num_rows($result);
 ?>

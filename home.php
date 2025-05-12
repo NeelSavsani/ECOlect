@@ -50,6 +50,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
         <button class="hamburger">☰</button>
     </nav>
     <div class="content">
+        <a href="quiz/quiz.php?email=<?php echo urlencode($user_email); ?>">Quiz</a>
         <!---------------------------WHAT IS E-WASTE-------------------------------------------->
         <h1 class="main">What is E-Waste: A Growing Global Concern</h1>
         <p class="main_intro">E-waste, or electronic waste, refers to discarded electrical and electronic devices that are no longer functional, obsolete, or unwanted. This category of waste includes a vast range of items, such as computers, mobile phones, televisions, refrigerators, air conditioners, printers, batteries, circuit boards, and other consumer and industrial electronic equipment. As technology continues to advance rapidly, newer models of electronic devices are frequently introduced, leading to the continuous replacement, disposal, and accumulation of outdated gadgets. The increasing consumer demand for upgraded technology, coupled with planned obsolescence—a practice where manufacturers intentionally design products with limited lifespans to encourage frequent replacements—has significantly contributed to the rapid expansion of e-waste worldwide. The sheer volume of electronic waste being generated globally is alarming, and its improper disposal poses severe risks to human health and the environment.</p>

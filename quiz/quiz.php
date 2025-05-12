@@ -1,3 +1,13 @@
+<?php
+include '../dbconnect.php';
+$user_email = isset($_GET['email']) ? $_GET['email'] : $_SESSION['user_email'];
+$sql = "SELECT * FROM `$logintb` WHERE Email = '$user_email'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$name = $row['Fullname'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -228,7 +238,7 @@
 
             if(allans === 10){
                 alert("You have answered all questions");
-                window.location.href = "generate_certificate.php?score=" + score;
+                window.location.href = "generate_certificate.php?score=" + score + "&name=<?php echo urldecode($name); ?>";
             } else {
                 alert("Answer more");
             }

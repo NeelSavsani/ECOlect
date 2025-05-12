@@ -9,11 +9,11 @@ if (isset($_POST['update'])) {
     $rating = $_POST['rating'];      
     $feedback = $_POST['feedback'];
 
-    $update_sql = "UPDATE `$ftable` SET `Name`='$name', `Email` = '$email', `Rating` = '$rating', `Feedback` = '$feedback' WHERE `Sr.NO`='$id'";
+    $update_sql = "UPDATE `$feedbacktb` SET `Name`='$name', `Email` = '$email', `Rating` = '$rating', `Feedback` = '$feedback' WHERE `Sr.NO`='$id'";
     mysqli_query($conn, $update_sql);
 }
 
-$sql = "SELECT * FROM `$ftable`";
+$sql = "SELECT * FROM `$feedbacktb`";
 $result = mysqli_query($conn, $sql);
 $nor = mysqli_num_rows($result);
 ?>

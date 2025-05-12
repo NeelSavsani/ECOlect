@@ -4,7 +4,7 @@ $admin_name = isset($_GET['admin']) ? htmlspecialchars($_GET['admin']) : "Admin"
 
 
 
-$sql = "SELECT * FROM `$ewaste`";
+$sql = "SELECT * FROM `$ewastetb`";
 $result = mysqli_query($conn, $sql);
 $nor = mysqli_num_rows($result);
 ?>

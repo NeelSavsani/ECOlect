@@ -1,44 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
-    background: radial-gradient(circle,#ACBFA1 0%, #609396 100%);
+    background: radial-gradient(circle, #ACBFA1 0%, #609396 100%);
     background-attachment: fixed;
+    padding: 20px;
 }
 
-h1{
+h1 {
     margin: 1% 0 0.5% 0;
-    font-size: 35px;
+    font-size: 2.2rem;
     font-family: "Ubuntu";
     font-weight: 500;
     color: #10455b;
 }
 
-h1 strong{
+h1 strong {
     font-weight: 900;
 }
 
-h3{
-    font-size: 20px;
+h3 {
+    font-size: 1.2rem;
     font-family: "Poppins";
     font-weight: 500;
 }
 
-.container{
+.container {
     display: flex;
-    align-items: left;
-    text-align: left;
-    height: 320px;
-    width: 710px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* NO wrapping - keeps image on right side */
+    height: auto;
+    max-width: 710px;
+    width: 90%;
     margin: 1% 0;
     padding: 1%;
     border: 2px solid black;
@@ -46,91 +50,81 @@ h3{
     background: rgba(255, 255, 255, 0.1);
 }
 
-.container .box{
+.container .box {
+    flex: 1;
     padding: 1%;
+    min-width: 280px;
 }
 
-.container .box .question{
-    font-size: 20px;
+.container .box .question {
+    font-size: 1.2rem;
     font-family: "Roboto";
     margin: 1% 0 2% 0;
 }
 
-.container .box .answers{
+.container .box .answers {
     display: flex;
     flex-direction: column;
     padding: 2%;
-    font-size: 20px;
+    font-size: 1.2rem;
 }
 
-.container .box .answers .answer{
+.container .box .answers .answer {
     display: flex;
+    align-items: center;
     margin: 2% 0;
-    font-size: 20px;
+    font-size: 1.1rem;
     font-weight: 400;
     font-family: "Ubuntu";
 }
 
-.container .box .answers .answer input{
-    margin: 0 2% 0 1%;
+.container .box .answers .answer input {
+    margin: 0 8px 0 0;
 }
 
-img#mobile{
-    margin: 7% 0;
-    width: 250px;
+.container .image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
-img#paper{
-    width: 320px;
+.container .image img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
 }
 
-img#generator{
-    margin: 2% 0;
-    width: 282px;
+/* Custom image adjustments */
+img#bag,
+img#mixer,
+img#atm,
+img#mobile,
+img#paper,
+img#generator,
+img#microscope,
+img#bottle,
+img#usb,
+img#wiper {
+    max-width: 100%; /* let them scale inside container */
+    height: auto;
 }
 
-img#microscope{
-    margin: 7% 0;
-    width: 265px;
-}
-
-img#bag{
-    width: 200px;
-    transform: translateX(40%);
-}
-
-img#mixer{
-    width: 370px;
-    transform: translate(10%, -5%);
-}
-
-img#bottle{
-    width: 340px;
-    transform: translateX(15%);
-}
-
-img#atm{
-    width: 350px;
-    transform: translateX(17%);
-}
-
-img#usb{
-    width: 350px;
-}
-
-img#wiper{
-    width: 330px;
-    transform: translateX(-5%);
-}
-
-.buttons{
+/* Buttons */
+.buttons {
     margin: 5% 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
-.buttons button{
-    margin: 0 1%;
-    padding: 1% 2%;
-    font-size: 25px;
+.buttons button {
+    padding: 12px 25px;
+    font-size: 1.3rem;
     font-family: "Ubuntu";
     font-weight: 600;
     border-radius: 5px;
@@ -139,18 +133,72 @@ img#wiper{
     cursor: pointer;
 }
 
-.buttons button[type="submit"], .buttons button[type="reset"]:hover{
+.buttons button[type="submit"],
+.buttons button[type="reset"]:hover {
     background: #10455b;
     color: #fff;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.9);
 }
 
-.buttons button[type="submit"]:hover, .buttons button[type="reset"]{
+.buttons button[type="submit"]:hover,
+.buttons button[type="reset"] {
     background: #fff;
     color: #10455b;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.9);
 }
 
-.buttons button:hover{
-    transform: scale(1.1);
+.buttons button:hover {
+    transform: scale(1.05);
 }
+
+/* Media queries for smaller screens - shrink image but keep it on right */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    .container {
+        width: 100%;
+        overflow-x: auto;  /* Allow horizontal scroll if needed */
+    }
+    .container .box {
+        flex: 1;
+        min-width: 250px;
+    }
+    .container .image img {
+        max-width: 280px; /* Keep it larger */
+        min-width: 200px; /* Prevent it from becoming too small */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 0.95rem;
+    }
+    .container .box .question,
+    .container .box .answers .answer {
+        font-size: 1rem;
+    }
+    .container {
+        overflow-x: auto;
+        max-width: 350px;  /* Still allow scroll on very small screens */
+    }
+    .container .image img {
+        transform: translateX(-15%);
+        max-width: 130px; /* Increased from 180px */
+        min-width: 100px;
+    }
+    img#bag,
+    img#generator,
+    img#paper{
+        transform: translateX(-20%);
+        max-width: 130px; /* Increased from 180px */
+        min-width: 100px;
+    }
+}
+

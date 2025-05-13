@@ -51,7 +51,7 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
     </nav>
     <div class="content">
                 <a href="quiz/quiz.php?email=<?php echo urlencode($user_email); ?>" class="quiz_container">
-                    <div class="quiz">Awareness Quiz</div>
+                    <div class="quiz">Awareness Quiz <i class="fa-solid fa-question"></i></div>
                 </a>
         <!---------------------------WHAT IS E-WASTE-------------------------------------------->
         <h1 class="main">What is E-Waste: A Growing Global Concern</h1>

@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $latitude = $_POST['latitude'];
     $longitude = $_POST['longitude'];
     $fullname = '';
-    $getUserSql = "SELECT fullname FROM login_credentials WHERE email = '$email'";
+    $getUserSql = "SELECT fullname FROM $logintb WHERE email = '$email'";
     $userResult = mysqli_query($conn, $getUserSql);
 
     if ($userResult && mysqli_num_rows($userResult) > 0) {
@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     //Insert into e-waste table
-    $sql = "INSERT INTO `$ewaste` 
+    $sql = "INSERT INTO `$ewastetb` 
     (`Fullname`, `Type`, `EName`, `Quantity`, `Latitude`, `Longitude`, `Address`, `Datetime`) VALUES
     ('$fullname', '$type', '$name', '$weight', '$latitude', '$longitude', '$address', current_timestamp())";
     $result = mysqli_query($conn, $sql);

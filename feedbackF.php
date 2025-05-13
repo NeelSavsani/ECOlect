@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $comments = $_POST['comments'];
     $user_email = $_GET['user_email'];
 
-    $sql = "INSERT INTO `$database`.`$ftable`(`Sr. No.`, `Name`, `Email`, `Rating`, `Feedback`) 
+    $sql = "INSERT INTO `$database`.`$feedbacktb`(`Sr. No.`, `Name`, `Email`, `Rating`, `Feedback`) 
             VALUES ('', '$name', '$email', '$rating', '$comments')";
     $result = mysqli_query($conn, $sql);
 

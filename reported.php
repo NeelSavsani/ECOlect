@@ -11,9 +11,8 @@ if (isset($_GET['email'])) {
     exit();
 }
 echo "<br>";
-$ewaste = "ewaste";
 $fullname = '';
-$sql = "SELECT * FROM `$table` WHERE EMAIL = '$user_email'";
+$sql = "SELECT * FROM `$logintb` WHERE EMAIL = '$user_email'";
 $result = mysqli_query($conn, $sql);
 
 if ($result && mysqli_num_rows($result) > 0) {
@@ -24,7 +23,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     exit;
 }
 
-$sql = "SELECT * FROM `$ewaste` WHERE FULLNAME = '$fullname'";
+$sql = "SELECT * FROM `$ewastetb` WHERE FULLNAME = '$fullname'";
 $result = mysqli_query($conn, $sql);
 $nor = mysqli_num_rows($result)+1;
 ?>

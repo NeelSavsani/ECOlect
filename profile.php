@@ -12,7 +12,7 @@ if (isset($_GET['email'])) {
 }
 
 // Use prepared statement to prevent SQL injection
-$stmt = $conn->prepare("SELECT Fullname, Email, Phone, Address, Pincode, DateTime FROM `login_credentials` WHERE Email = ?");
+$stmt = $conn->prepare("SELECT Fullname, Email, Phone, Address, Pincode, DateTime FROM `$logintb` WHERE Email = ?");
 $stmt->bind_param("s", $user_email);
 $stmt->execute();
 $result = $stmt->get_result();

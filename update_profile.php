@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Update query
-    $stmt = $conn->prepare("UPDATE `login_credentials` SET Fullname = ?, Phone = ?, Address = ?, Pincode = ? WHERE Email = ?");
+    $stmt = $conn->prepare("UPDATE `$logintb` SET Fullname = ?, Phone = ?, Address = ?, Pincode = ? WHERE Email = ?");
     $stmt->bind_param("sssss", $fullname, $phone, $address, $pincode, $email);
 
     if ($stmt->execute()) {

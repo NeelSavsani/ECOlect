@@ -50,6 +50,9 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
     </nav>
     <div class="content">
     <!-- main content -->
+    <a href="quiz/quiz.php?email=<?php echo urlencode($user_email); ?>" class="quiz_container">
+        <div class="quiz">Awareness Quiz <i class="fa-solid fa-question"></i></div>
+    </a>
     <h1 class="main">&#127807; Welcome to ECOlect - Revolutionizing E-Waste Management</h1>
     <p class="main">
         At ECOlect, our mission is to provide a sustainable and innovative solution for electronic waste (e-waste) management. With the growing concern about environmental pollution caused by improper disposal of e-waste, we aim to create an ecosystem where users can responsibly manage their electronic waste, contributing to a cleaner, greener future.

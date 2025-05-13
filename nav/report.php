@@ -52,6 +52,9 @@ if (isset($_GET['email'])) {
     </nav>
     <div class="content">
         <!-- main content -->
+         <a href="quiz/quiz.php?email=<?php echo urlencode($user_email); ?>" class="quiz_container">
+            <div class="quiz">Awareness Quiz <i class="fa-solid fa-question"></i></div>
+        </a>
         <h1 class="main">Report E-Waste:</h1>
         <p class="main">
         ECOlect is a user-friendly platform that simplifies e-waste reporting and disposal. Users can easily submit details of discarded electronics like phones, laptops, and batteries, specifying type, quantity, and location. The platform then connects them with authorized recyclers, ensuring proper disposal to prevent pollution and promote sustainability. By facilitating responsible e-waste management, ECOlect helps conserve resources and contributes to a cleaner, greener future.

@@ -51,6 +51,9 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
     </nav>
     <div class="content">
         <!-- main content -->
+        <a href="quiz/quiz.php?email=<?php echo urlencode($user_email); ?>" class="quiz_container">
+            <div class="quiz">Awareness Quiz <i class="fa-solid fa-question"></i></div>
+        </a>
          <h1 class="main">Types Of E-Waste: A Detailed Classification Based on Composition and Function</h1>
          <p class="main">E-waste, or electronic waste, encompasses a vast range of electrical and electronic devices that have reached the end of their useful life. Due to the complexity of electronic products, e-waste can be classified into various categories based on their composition, function, and intended use. Each category consists of devices and equipment that contribute to the growing problem of e-waste, each posing unique environmental and health hazards if not managed properly. Below is an in-depth classification of e-waste, including examples and explanations of each type:</p>
         <div class="e-waste-item">

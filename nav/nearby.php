@@ -50,8 +50,9 @@ echo "<script>console.log('Session Email in home.php: " . $user_email . "');</sc
         <button class="hamburger">☰</button>
     </nav>
     <div class="content">
-        <!-- main content -->
-        <div class="content">
+        <a href="quiz/quiz.php?email=<?php echo urlencode($user_email); ?>" class="quiz_container">
+            <div class="quiz">Awareness Quiz <i class="fa-solid fa-question"></i></div>
+        </a>
         <!-- main content -->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.7518863323853!2d72.90236947472002!3d21.241685180432434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be045b201ae2557%3A0x7d4e51f9792a169a!2sSaffron%20Luxuria!5e0!3m2!1sen!2sin!4v1744437425042!5m2!1sen!2sin"></iframe>
     </div>

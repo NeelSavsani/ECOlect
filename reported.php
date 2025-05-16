@@ -41,6 +41,7 @@ $nor = mysqli_num_rows($result)+1;
     <link rel="stylesheet" href="css/reported.css">
 </head>
 <body>
+    <canvas id="confetti-canvas"></canvas>
     <button class="back-button" onclick="window.location.href='home.php?email<?php echo $user_email;?>';">
         <i class="fa-solid fa-arrow-left"></i> Back
     </button>

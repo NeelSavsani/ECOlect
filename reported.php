@@ -87,5 +87,6 @@ $nor = mysqli_num_rows($result)+1;
         </div>
     </div>
     <script src="admin/admin_js/pagination.js"></script>
+    <script src="js/confetti.js"></script>
 </body>
 </html>

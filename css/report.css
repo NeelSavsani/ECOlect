@@ -206,7 +206,7 @@ textarea {
     padding: 6px 0;
     text-align: left;
   }
-
+  
   input[type="text"],
   input[type="number"],
   select,
@@ -225,4 +225,20 @@ textarea {
     font-size: 15px;
   }
   
+  .form-row input[type="button"] {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  p{
+    margin-top: 25px;
+  }
+
 }
